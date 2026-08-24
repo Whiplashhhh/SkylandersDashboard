@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: skylanders-server
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/skylanders}
+    username: ${DB_USER:skylanders}
+    password: ${DB_PASSWORD:skylanders}
+  jpa:
+    hibernate:
+      # Le schema appartient a Flyway. Hibernate ne fait que le verifier.
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+
+server:
+  port: ${SERVER_PORT:8080}
+
+skylanders:
+  ingest:
+    # Defense en profondeur derriere Tailscale (SPEC.md §9). A surcharger en deploiement.
+    token: ${INGEST_TOKEN:dev-token}
+  catalog:
+    location: ${CATALOG_LOCATION:classpath:catalog.json}
+  images:
+    # Visuels sous copyright Activision : jamais dans le depot, jamais dans l'image Docker.
+    # Dossier alimente a la main et monte en volume (SPEC.md §10.3). L'app fonctionne sans.
+    location: ${IMAGES_DIR:./images}
+
+logging:
+  level:
+    net.vanbaelinghem.skylanders: INFO

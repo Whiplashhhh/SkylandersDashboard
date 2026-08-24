@@ -1,0 +1,22 @@
+# Base de donnees locale de developpement.
+# Le deploiement homelab ajoutera le service `server` par-dessus ce fichier.
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: skylanders-postgres
+    environment:
+      POSTGRES_DB: skylanders
+      POSTGRES_USER: skylanders
+      POSTGRES_PASSWORD: skylanders
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U skylanders -d skylanders"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  postgres-data:
