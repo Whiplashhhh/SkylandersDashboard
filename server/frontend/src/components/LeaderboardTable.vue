@@ -1,27 +1,20 @@
 <script setup>
-defineProps({
+import { computed } from 'vue'
+
+const props = defineProps({
   page: { type: Object, default: null },
-  loading: { type: Boolean, default: false }
+  columns: { type: Array, required: true }
 })
 const emit = defineEmits(['sort', 'open', 'page'])
 
-// Les colonnes ne portent que des données lues sur le tag. Vie, vitesse, armure et chance sont
-// des attributs du personnage, identiques pour toutes les copies, et ne sont écrits nulle part
-// sur la figurine — les proposer au tri afficherait une donnée qu'on n'a pas.
-const COLUMNS = [
-  { key: 'name', label: 'Nom', align: 'left' },
-  { key: 'element', label: 'Élément', align: 'left' },
-  { key: 'game', label: 'Jeu', align: 'left' },
-  { key: 'xp', label: 'XP', align: 'right' },
-  { key: 'gold', label: 'Or', align: 'right' },
-  { key: 'upgrades', label: 'Améliorations', align: 'right' },
-  { key: 'playtime', label: 'Temps de jeu', align: 'right' },
-  { key: 'lastSaved', label: 'Dernière partie', align: 'right' }
-]
-
-const LABELS = {
+const GAME_LABELS = {
   SPYROS_ADVENTURE: 'Spyro', GIANTS: 'Giants', SWAP_FORCE: 'Swap Force',
   TRAP_TEAM: 'Trap Team', SUPERCHARGERS: 'SuperChargers', IMAGINATORS: 'Imaginators'
+}
+const CATEGORY_LABELS = {
+  CHARACTER: 'Personnage', GIANT: 'Géant', TRAP: 'Piège', VEHICLE: 'Véhicule',
+  SIDEKICK: 'Acolyte', MINI: 'Mini', ITEM: 'Objet', ADVENTURE_PACK: 'Pack Aventure',
+  CHEST: 'Coffre', CREATION_CRYSTAL: 'Cristal', UNKNOWN: 'Autre'
 }
 
 function duration (s) {
@@ -30,9 +23,12 @@ function duration (s) {
   return h > 0 ? `${h} h ${String(m).padStart(2, '0')}` : `${m} min`
 }
 function day (iso) {
-  return iso ? new Date(iso).toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' }) : '—'
+  return iso ? new Date(iso).toLocaleDateString('fr-FR',
+    { day: '2-digit', month: 'short', year: 'numeric' }) : '—'
 }
 function num (v) { return v == null ? '—' : v.toLocaleString('fr-FR') }
+
+const showsProgress = computed(() => props.columns.some(c => c.kind === 'xp'))
 </script>
 
 <template>
@@ -43,13 +39,13 @@ function num (v) { return v == null ? '—' : v.toLocaleString('fr-FR') }
           <th class="rank">#</th>
           <th class="art"></th>
           <th
-            v-for="c in COLUMNS" :key="c.key"
+            v-for="c in columns" :key="c.key"
             :class="[c.align, { active: page.sort === c.key }]"
-            @click="emit('sort', c.key)"
             :title="`Trier par ${c.label}`"
+            @click="emit('sort', c.key)"
           >
             {{ c.label }}
-            <span class="arrow" v-if="page.sort === c.key">{{ page.direction === 'asc' ? '▲' : '▼' }}</span>
+            <span v-if="page.sort === c.key" class="arrow">{{ page.direction === 'asc' ? '▲' : '▼' }}</span>
           </th>
         </tr>
       </thead>
@@ -62,35 +58,55 @@ function num (v) { return v == null ? '—' : v.toLocaleString('fr-FR') }
           <td class="art">
             <img :src="`/api/images/${r.toyId}/${r.variantId}`" :alt="r.nameFr" loading="lazy" />
           </td>
-          <td class="left name">
-            {{ r.nameFr }}
-            <span v-if="r.nickname" class="nick">« {{ r.nickname }} »</span>
-            <span v-if="!r.unlocked" class="lock" title="Jamais posée sur le portail">🔒</span>
-          </td>
-          <td class="left dim">{{ r.element }}</td>
-          <td class="left dim">{{ r.games.map(g => LABELS[g] || g).join(', ') }}</td>
-          <td class="right">
-            <template v-if="r.parsable">
-              {{ num(r.xp) }}
-              <!-- FORMAT.md §8.7 : le champ sature ; on le dit plutôt que de présenter
-                   la valeur comme un fait. -->
-              <span v-if="r.xpCapped" class="cap" title="Champ saturé, valeur réelle peut-être plus haute">*</span>
+          <td v-for="c in columns" :key="c.key" :class="c.align">
+            <template v-if="c.key === 'name'">
+              <span class="name">{{ r.nameFr }}</span>
+              <span v-if="r.nickname" class="nick">« {{ r.nickname }} »</span>
+              <span v-if="!r.unlocked" class="lock" title="Jamais posée sur le portail">🔒</span>
             </template>
-            <span v-else class="dim" title="Aucun parseur de sauvegarde pour ce jeu">n/d</span>
+
+            <span v-else-if="c.kind === 'villain'">
+              <template v-if="r.trapEmpty === true"><span class="dim">vide</span></template>
+              <template v-else-if="r.villainRawId == null"><span class="dim">—</span></template>
+              <template v-else-if="r.villainName">{{ r.villainName }}</template>
+              <!-- Aucun référentiel externe ne donne le nom d'un vilain : il se nomme à la main
+                   depuis l'écran Pièges, et le référentiel se remplit tout seul (SPEC.md §7.2). -->
+              <span v-else class="unnamed" :title="`Identifiant ${r.villainRawId} — à nommer depuis l'écran Pièges`">
+                Vilain #{{ r.villainRawId }}
+              </span>
+            </span>
+
+            <span v-else-if="c.kind === 'xp'">
+              <template v-if="r.parsable">
+                {{ num(r.xp) }}<span v-if="r.xpCapped" class="cap"
+                  title="Champ saturé à 33 000, la valeur réelle est peut-être plus haute">*</span>
+              </template>
+              <span v-else class="dim" title="Aucun parseur de sauvegarde pour ce jeu">n/d</span>
+            </span>
+
+            <span v-else-if="c.kind === 'number'">{{ r.parsable ? num(r[c.field]) : '—' }}</span>
+            <span v-else-if="c.kind === 'duration'">{{ r.parsable ? duration(r[c.field]) : '—' }}</span>
+            <span v-else-if="c.kind === 'date'" class="dim">{{ day(r[c.field]) }}</span>
+            <span v-else-if="c.kind === 'category'" class="dim">{{ CATEGORY_LABELS[r.category] || r.category }}</span>
+            <span v-else-if="c.key === 'element'" class="dim">{{ r.element }}</span>
+            <span v-else-if="c.key === 'game'" class="dim">
+              {{ r.games.map(g => GAME_LABELS[g] || g).join(', ') }}
+            </span>
           </td>
-          <td class="right">{{ r.parsable ? num(r.gold) : '—' }}</td>
-          <td class="right">{{ r.parsable ? num(r.upgradesCount) : '—' }}</td>
-          <td class="right">{{ r.parsable ? duration(r.playtimeSeconds) : '—' }}</td>
-          <td class="right dim">{{ day(r.lastSavedAt) }}</td>
         </tr>
       </tbody>
     </table>
 
     <p v-if="page && !page.rows.length" class="empty">Aucune figurine ne correspond à ces filtres.</p>
 
+    <p v-if="page && page.rows.length && !showsProgress" class="hint">
+      Ces entrées ne portent pas de progression : les colonnes affichées sont celles qui ont un sens
+      pour elles.
+    </p>
+
     <nav v-if="page && page.pageCount > 1" class="pager">
       <button :disabled="page.page <= 1" @click="emit('page', page.page - 1)">Précédent</button>
-      <span>Page {{ page.page }} / {{ page.pageCount }} — {{ page.total }} figurines</span>
+      <span>Page {{ page.page }} / {{ page.pageCount }} — {{ page.total }} entrées</span>
       <button :disabled="page.page >= page.pageCount" @click="emit('page', page.page + 1)">Suivant</button>
     </nav>
   </div>
@@ -101,27 +117,32 @@ function num (v) { return v == null ? '—' : v.toLocaleString('fr-FR') }
 table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
 th, td { padding: 7px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
 th {
-  position: sticky; top: 0; background: var(--panel);
+  position: sticky; top: 0; background: var(--panel); z-index: 1;
   color: var(--muted); font-weight: 500; cursor: pointer; user-select: none;
 }
 th:hover { color: var(--text); }
 th.active { color: var(--accent); }
 .arrow { font-size: 9px; }
-.left, td.left { text-align: left; }
-.right, td.right { text-align: right; font-variant-numeric: tabular-nums; }
+.left { text-align: left; }
+.right { text-align: right; font-variant-numeric: tabular-nums; }
 .rank { width: 46px; text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; }
 .art { width: 44px; }
-.art img { width: 34px; height: 34px; object-fit: contain; border-radius: 6px; background: var(--panel-2); display: block; }
+.art img {
+  width: 34px; height: 34px; object-fit: contain;
+  border-radius: 6px; background: var(--panel-2); display: block;
+}
 tbody tr { cursor: pointer; }
 tbody tr:hover { background: var(--panel-2); }
 .locked .art img { filter: grayscale(1) brightness(.6); }
-.locked .name, .locked td { color: var(--muted); }
+.locked td, .locked .name { color: var(--muted); }
 .name { font-weight: 600; }
 .nick { font-weight: 400; color: var(--muted); font-size: 12px; margin-left: 5px; }
 .lock { margin-left: 6px; font-size: 11px; }
 .dim { color: var(--muted); }
 .cap { color: #f0c674; }
+.unnamed { color: #f0c674; font-style: italic; }
 .empty { color: var(--muted); padding: 28px 12px; }
+.hint { color: var(--muted); font-size: 12px; padding: 10px 12px 0; }
 .pager {
   display: flex; align-items: center; gap: 14px; justify-content: center;
   padding: 14px; color: var(--muted); font-size: 13px;

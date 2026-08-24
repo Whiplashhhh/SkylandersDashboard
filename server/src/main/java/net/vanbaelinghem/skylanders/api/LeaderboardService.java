@@ -5,8 +5,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import net.vanbaelinghem.skylanders.domain.TrapContent;
+import net.vanbaelinghem.skylanders.domain.TrapContentRepository;
 import net.vanbaelinghem.skylanders.domain.ToySnapshot;
 import net.vanbaelinghem.skylanders.domain.ToySnapshotRepository;
+import net.vanbaelinghem.skylanders.domain.Villain;
+import net.vanbaelinghem.skylanders.domain.VillainRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,17 +27,21 @@ public class LeaderboardService {
      * value arrives straight from a query string.
      */
     @SuppressWarnings("rawtypes")
-    static final Map<String, Function<LeaderboardRow, Comparable>> KEYS = Map.of(
-            "name", r -> RosterService.fold(r.nameFr()),
-            "xp", LeaderboardRow::xp,
-            "gold", LeaderboardRow::gold,
-            "upgrades", LeaderboardRow::upgradesCount,
-            "playtime", LeaderboardRow::playtimeSeconds,
-            "firstPlayed", LeaderboardRow::firstPlayedAt,
-            "lastSaved", LeaderboardRow::lastSavedAt,
-            "element", LeaderboardRow::element,
-            "category", LeaderboardRow::category,
-            "game", r -> String.join(",", r.games()));
+    static final Map<String, Function<LeaderboardRow, Comparable>> KEYS = Map.ofEntries(
+            Map.entry("name", r -> RosterService.fold(r.nameFr())),
+            Map.entry("xp", LeaderboardRow::xp),
+            Map.entry("gold", LeaderboardRow::gold),
+            Map.entry("upgrades", LeaderboardRow::upgradesCount),
+            Map.entry("playtime", LeaderboardRow::playtimeSeconds),
+            Map.entry("firstPlayed", LeaderboardRow::firstPlayedAt),
+            Map.entry("lastSaved", LeaderboardRow::lastSavedAt),
+            Map.entry("element", LeaderboardRow::element),
+            Map.entry("category", LeaderboardRow::category),
+            Map.entry("game", r -> String.join(",", r.games())),
+            // Un piège vide ou un vilain non nommé n'a rien à trier : il descend en bas comme
+            // n'importe quelle autre donnée absente.
+            Map.entry("villain", r -> r.villainName() == null
+                    ? null : RosterService.fold(r.villainName())));
 
     /**
      * Build the comparator for a column and a direction.
@@ -53,10 +61,15 @@ public class LeaderboardService {
 
     private final RosterService roster;
     private final ToySnapshotRepository snapshots;
+    private final TrapContentRepository trapContents;
+    private final VillainRepository villains;
 
-    public LeaderboardService(RosterService roster, ToySnapshotRepository snapshots) {
+    public LeaderboardService(RosterService roster, ToySnapshotRepository snapshots,
+                              TrapContentRepository trapContents, VillainRepository villains) {
         this.roster = roster;
         this.snapshots = snapshots;
+        this.trapContents = trapContents;
+        this.villains = villains;
     }
 
     public LeaderboardPage page(String game, String element, String category, String search,
@@ -71,8 +84,20 @@ public class LeaderboardService {
                         Function.identity(),
                         (a, b) -> a.getCapturedAt().isAfter(b.getCapturedAt()) ? a : b));
 
+        Map<Integer, String> villainNames = villains.findAll().stream()
+                .filter(v -> v.getName() != null)
+                .collect(Collectors.toMap(Villain::getRawId, Villain::getName, (a, b) -> a));
+        Map<String, TrapContent> traps = trapContents.findLatestPerToy().stream()
+                .collect(Collectors.toMap(
+                        c -> c.getToy().getToyId() + "/" + c.getToy().getVariantId(),
+                        Function.identity(),
+                        (a, b) -> a.getCapturedAt().isAfter(b.getCapturedAt()) ? a : b));
+
         List<LeaderboardRow> all = roster.filtered(game, element, category, search, state).stream()
-                .map(view -> toRow(view, latest.get(view.toyId() + "/" + view.variantId())))
+                .map(view -> {
+                    String key = view.toyId() + "/" + view.variantId();
+                    return toRow(view, latest.get(key), traps.get(key), villainNames);
+                })
                 .toList();
 
         Comparator<LeaderboardRow> comparator = comparator(sortKey, ascending);
@@ -105,10 +130,12 @@ public class LeaderboardService {
         return new LeaderboardRow(rank, row.toyId(), row.variantId(), row.nameFr(), row.nameEn(),
                 row.games(), row.element(), row.category(), row.unlocked(), row.parsable(),
                 row.xp(), row.xpCapped(), row.gold(), row.upgradesCount(), row.playtimeSeconds(),
-                row.nickname(), row.firstPlayedAt(), row.lastSavedAt());
+                row.nickname(), row.firstPlayedAt(), row.lastSavedAt(),
+                row.villainRawId(), row.villainName(), row.trapEmpty());
     }
 
-    private static LeaderboardRow toRow(ToyView view, ToySnapshot snapshot) {
+    private static LeaderboardRow toRow(ToyView view, ToySnapshot snapshot,
+                                        TrapContent trap, Map<Integer, String> villainNames) {
         Integer xp = snapshot == null ? null : snapshot.getXp();
         Integer upgrades = snapshot == null || snapshot.getUpgradesBitfield() == null
                 ? null : Integer.bitCount(snapshot.getUpgradesBitfield());
@@ -121,7 +148,10 @@ public class LeaderboardService {
                 upgrades,
                 snapshot == null ? null : snapshot.getPlaytimeSeconds(),
                 snapshot == null ? null : snapshot.getNickname(),
-                view.firstPlayedAt(), view.lastSavedAt());
+                view.firstPlayedAt(), view.lastSavedAt(),
+                trap == null ? null : trap.getVillainRawId(),
+                trap == null || trap.isEmpty() ? null : villainNames.get(trap.getVillainRawId()),
+                trap == null ? null : trap.isEmpty());
     }
 
 }

@@ -13,6 +13,8 @@ import java.util.List;
  *
  * @param rank      1-based position in the current sort, computed after filtering
  * @param xpCapped  the XP field saturates at 33 000 (FORMAT.md §8.7); the UI marks such a value
+ * @param villainName {@code null} on an occupied trap means the raw id has no name yet — the UI
+ *                    offers to name it, which is how the reference fills itself (SPEC.md §7.2)
  */
 public record LeaderboardRow(
         int rank,
@@ -32,4 +34,7 @@ public record LeaderboardRow(
         Integer playtimeSeconds,
         String nickname,
         OffsetDateTime firstPlayedAt,
-        OffsetDateTime lastSavedAt) {}
+        OffsetDateTime lastSavedAt,
+        Integer villainRawId,
+        String villainName,
+        Boolean trapEmpty) {}

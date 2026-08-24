@@ -6,6 +6,8 @@ import ElementRail from './components/ElementRail.vue'
 import LeaderboardTable from './components/LeaderboardTable.vue'
 import ToyCard from './components/ToyCard.vue'
 import ToyDetail from './components/ToyDetail.vue'
+import TrapsView from './components/TrapsView.vue'
+import { columnsFor, defaultSortFor } from './columns.js'
 
 // Ordre canonique des éléments : celui des jeux, pas l'ordre alphabétique.
 const ELEMENT_ORDER = ['Feu', 'Eau', 'Vie', 'Magie', 'Tech', 'Terre', 'Air',
@@ -31,6 +33,7 @@ const direction = ref('desc')
 const page = ref(1)
 const size = ref(20)
 
+const columns = computed(() => columnsFor(category.value))
 const board = ref(null)
 const cards = ref([])
 const roster = ref([])
@@ -65,6 +68,16 @@ const filters = computed(() => ({
 
 // Changer de jeu peut rendre le filtre courant sans objet : on le relâche plutôt que de
 // laisser l'utilisateur devant une liste vide.
+// Changer de catégorie change le jeu de colonnes : si le tri courant porte sur une colonne qui
+// disparaît, on retombe sur le tri le plus parlant du nouveau jeu plutôt que sur rien.
+watch(category, () => {
+  if (!columns.value.some(c => c.key === sort.value)) {
+    const fallback = defaultSortFor(category.value)
+    sort.value = fallback.sort
+    direction.value = fallback.direction
+  }
+})
+
 watch([categories, elements], () => {
   if (category.value && !categories.value.includes(category.value)) category.value = null
   if (element.value && !elements.value.includes(element.value)) element.value = null
@@ -140,12 +153,12 @@ onMounted(async () => {
 
     <main>
       <div class="toolbar">
-        <input v-model="search" type="search" class="search" placeholder="Rechercher un nom…" />
-        <select v-model="category">
+        <input v-if="view !== 'traps'" v-model="search" type="search" class="search" placeholder="Rechercher un nom…" />
+        <select v-if="view !== 'traps'" v-model="category">
           <option :value="null">Toutes les catégories</option>
           <option v-for="c in categories" :key="c" :value="c">{{ CATEGORY_LABELS[c] || c }}</option>
         </select>
-        <select v-model="state">
+        <select v-if="view !== 'traps'" v-model="state">
           <option :value="null">Toutes</option>
           <option value="unlocked">Débloquées</option>
           <option value="locked">Non débloquées</option>
@@ -156,11 +169,12 @@ onMounted(async () => {
           <option :value="100">100 par page</option>
           <option :value="500">500 par page</option>
         </select>
-        <button class="ghost" @click="reset">Réinitialiser</button>
+        <button v-if="view !== 'traps'" class="ghost" @click="reset">Réinitialiser</button>
         <div class="spacer"></div>
         <div class="toggle">
           <button :class="{ on: view === 'table' }" @click="view = 'table'">Classement</button>
           <button :class="{ on: view === 'grid' }" @click="view = 'grid'">Grille</button>
+          <button :class="{ on: view === 'traps' }" @click="view = 'traps'">Pièges</button>
         </div>
       </div>
 
@@ -169,11 +183,13 @@ onMounted(async () => {
 
       <LeaderboardTable
         v-else-if="view === 'table'"
-        :page="board" @sort="onSort" @page="page = $event"
+        :page="board" :columns="columns" @sort="onSort" @page="page = $event"
         @open="selected = $event"
       />
 
-      <template v-else>
+      <TrapsView v-else-if="view === 'traps'" />
+
+      <template v-else-if="view === 'grid'">
         <p class="count">{{ cards.length }} figurine(s)</p>
         <div class="grid">
           <ToyCard v-for="t in cards" :key="`${t.toyId}/${t.variantId}`" :toy="t"
