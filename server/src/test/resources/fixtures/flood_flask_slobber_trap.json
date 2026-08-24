@@ -1,0 +1,12 @@
+{
+  "source": "capture du 2026-08-19, Skylanders Trap Team/Pièges/Eau/Fiole du Déluge.sky",
+  "truth": "piège Fiole du Déluge contenant Slobber Trap, capturé pendant la session",
+  "reference": "FORMAT.md §5.3 — champ vilain VÉRIFIÉ par recoupement sur fichiers indépendants",
+  "toyId": 211,
+  "toyIdMeaning": "211 = élément Eau",
+  "variantId": 12294,
+  "villainRawId": 35,
+  "villainName": "Slobber Trap",
+  "trapEmpty": false,
+  "neverPlayed": false
+}

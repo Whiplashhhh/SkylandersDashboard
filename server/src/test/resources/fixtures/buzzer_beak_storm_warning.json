@@ -1,0 +1,13 @@
+{
+  "source": "Skylanders Trap Team/Pièges/Air/Buzzer Beak - Avis de Tempête.sky",
+  "truth": "piège « Avis de Tempête » (Storm Warning), élément Air, contenant le vilain Buzzer Beak",
+  "reference": "SPEC.md §4.4 — cas de test fourni avec le pack",
+  "toyId": 212,
+  "toyIdMeaning": "pour un piège, le toy ID encode l'ÉLÉMENT — 212 = Air (FORMAT.md §6.2)",
+  "variantId": 12305,
+  "villainRawId": 12,
+  "villainName": "Buzzer Beak",
+  "trapEmpty": false,
+  "neverPlayed": false,
+  "note": "un piège ne renseigne aucun champ de progression de personnage (FORMAT.md §5.3)"
+}

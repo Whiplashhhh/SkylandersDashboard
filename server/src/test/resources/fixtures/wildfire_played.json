@@ -1,0 +1,15 @@
+{
+  "source": "capture A5 du 2026-08-21, Skylanders Trap Team/Feu/Wildfire.sky",
+  "truth": "valeurs relevées à l'écran pendant la session — or 1296 après deux achats, surnom « Will »",
+  "reference": "FORMAT.md §5.1 — or, surnom, XP, temps de jeu et améliorations VÉRIFIÉ",
+  "toyId": 458,
+  "variantId": 0,
+  "neverPlayed": false,
+  "xp": 3753,
+  "gold": 1296,
+  "upgradesBitfield": 20,
+  "nickname": "Will",
+  "playtimeSeconds": 1712,
+  "lastSavedAt": "2026-08-21T23:48",
+  "firstWrittenAt": "2026-08-19T23:59"
+}

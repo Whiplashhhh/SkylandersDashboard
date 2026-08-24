@@ -1,0 +1,12 @@
+{
+  "source": "Skylanders Trap Team/Vie/Food Fight.sky, sauvegarde du 2026-08-17",
+  "truth": "figurine jamais posée sur le portail — zone de données intégralement à zéro",
+  "reference": "FORMAT.md §3 — signature « jamais joué », VÉRIFIÉ sur 7 figurines",
+  "toyId": 476,
+  "variantId": 0,
+  "neverPlayed": true,
+  "xp": 0,
+  "gold": 0,
+  "playtimeSeconds": 0,
+  "nickname": null
+}
