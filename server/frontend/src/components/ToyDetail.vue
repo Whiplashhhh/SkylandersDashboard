@@ -1,6 +1,7 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { api } from '../api.js'
+import ProgressChart from './ProgressChart.vue'
 
 const props = defineProps({ toy: { type: Object, default: null } })
 defineEmits(['close'])
@@ -68,8 +69,10 @@ function moment (iso) {
       <dd v-if="toy.lastSavedAt">{{ moment(toy.lastSavedAt) }}</dd>
     </dl>
 
+    <ProgressChart v-if="history.length" :history="history" />
+
     <section v-if="detail?.latest" class="progress">
-      <h3>Progression</h3>
+      <h3>Dernier relevé</h3>
       <div class="grid">
         <div><span class="k">XP</span><span class="v">{{ detail.latest.xp ?? '—' }}</span></div>
         <div><span class="k">Or</span><span class="v">{{ detail.latest.gold ?? '—' }}</span></div>
@@ -83,20 +86,22 @@ function moment (iso) {
         été mesurée sur de vraies parties.</p>
     </section>
 
-    <section v-if="history.length > 1" class="history">
-      <h3>Historique · {{ history.length }} relevés</h3>
+    <!-- La vue tableau reste disponible à côté du graphe : une courbe se lit d'un coup d'œil,
+         un chiffre exact se lit dans un tableau. -->
+    <details v-if="history.length > 1" class="history">
+      <summary>Historique détaillé · {{ history.length }} relevés</summary>
       <table>
-        <thead><tr><th>Capturé</th><th>XP</th><th>Or</th><th>Blocs</th></tr></thead>
+        <thead><tr><th>Sauvegardé</th><th>XP</th><th>Or</th><th>Blocs</th></tr></thead>
         <tbody>
           <tr v-for="(h, i) in history.slice().reverse()" :key="i">
-            <td>{{ moment(h.capturedAt) }}</td>
+            <td>{{ moment(h.at || h.capturedAt) }}</td>
             <td>{{ h.xp ?? '—' }}</td>
             <td>{{ h.gold ?? '—' }}</td>
             <td>{{ h.changedBlocks }}</td>
           </tr>
         </tbody>
       </table>
-    </section>
+    </details>
 
     <details v-if="detail?.files?.length" class="files">
       <summary>{{ detail.files.length }} fichier(s)</summary>

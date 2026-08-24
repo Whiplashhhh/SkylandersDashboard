@@ -8,6 +8,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import java.time.OffsetDateTime;
 import java.util.stream.Collectors;
 import net.vanbaelinghem.skylanders.domain.CatalogToy;
 import net.vanbaelinghem.skylanders.domain.CatalogToyRepository;
@@ -105,9 +106,21 @@ public class RosterService {
     public List<SnapshotView> history(int toyId, int variantId) {
         return toys.findByToyIdAndVariantId(toyId, variantId).stream()
                 .flatMap(toy -> snapshots.findByToyOrderByCapturedAtAsc(toy).stream())
-                .sorted(Comparator.comparing(ToySnapshot::getCapturedAt))
+                .sorted(Comparator.comparing(RosterService::effectiveTime))
                 .map(RosterService::toSnapshotView)
                 .toList();
+    }
+
+    /**
+     * When a snapshot belongs on a timeline.
+     *
+     * <p>The tag carries its own save timestamp (FORMAT.md §5.1, logical +0x40), and that is the
+     * moment the figurine was actually played. Ingestion time only says when the agent got around
+     * to sending the file — restore a backup, replay a capture, or run the very first full scan,
+     * and the two orders diverge. The history graph would then draw a curve that goes backwards.
+     */
+    static OffsetDateTime effectiveTime(ToySnapshot snapshot) {
+        return snapshot.getSavedAt() != null ? snapshot.getSavedAt() : snapshot.getCapturedAt();
     }
 
     // -- assemblage ----------------------------------------------------------------------------
@@ -160,6 +173,7 @@ public class RosterService {
     static SnapshotView toSnapshotView(ToySnapshot snapshot) {
         Integer upgrades = snapshot.getUpgradesBitfield();
         return new SnapshotView(
+                effectiveTime(snapshot),
                 snapshot.getCapturedAt(), snapshot.getSavedAt(), snapshot.getXp(),
                 snapshot.getGold(), upgrades,
                 upgrades == null ? null : Integer.bitCount(upgrades),
