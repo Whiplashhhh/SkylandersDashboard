@@ -1,0 +1,6 @@
+# Configuration de l'agent local. Copier en agent/agent.yaml et adapter.
+# Format : cles simples `cle: valeur`, un seul niveau.
+
+skylandersRoot: ~/Games/Cemu/skylanders
+serverUrl: http://localhost:8080
+token: dev-token
