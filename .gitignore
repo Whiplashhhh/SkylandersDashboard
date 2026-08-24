@@ -1,0 +1,18 @@
+# Build
+target/
+server/frontend/node_modules/
+server/frontend/dist/
+server/src/main/resources/static/
+
+# Outils Python (phase 0)
+__pycache__/
+*.pyc
+
+# IDE
+.idea/
+*.iml
+
+# Local
+.env
+agent/agent.yaml
+images/

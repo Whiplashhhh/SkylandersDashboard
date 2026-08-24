@@ -1,0 +1,6994 @@
+{
+  "generatedBy": "tools/catalog_bootstrap.py",
+  "source": "bootstrap automatique — a corriger et versionner a la main (SPEC.md 6.5)",
+  "stats": {
+    "files": 701,
+    "identities": 435,
+    "trap_toy_ids": 11,
+    "duplicate_files": 9,
+    "name_conflicts": 0,
+    "variant_own_toy_id": 4,
+    "unexplained": 0,
+    "rate_translation": 100.0,
+    "ok": true
+  },
+  "toys": [
+    {
+      "toyId": 0,
+      "variantId": 0,
+      "nameEn": "Whirlwind",
+      "nameFr": "Whirlwind",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Air/Whirlwind.sky"
+      ]
+    },
+    {
+      "toyId": 0,
+      "variantId": 6145,
+      "nameEn": "Series 2 Whirlwind",
+      "nameFr": "Whirlwind Série 2",
+      "game": "GIANTS",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Air/Whirlwind Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 0,
+      "variantId": 7170,
+      "nameEn": "Polar Whirlwind",
+      "nameFr": "Polar Whirlwind",
+      "game": "GIANTS",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Air/Variantes/Polar Whirlwind.sky"
+      ]
+    },
+    {
+      "toyId": 0,
+      "variantId": 10245,
+      "nameEn": "Horn Blast Whirlwind",
+      "nameFr": "Horn Blast Whirlwind",
+      "game": "SWAP_FORCE",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Air/Horn Blast Whirlwind.sky"
+      ]
+    },
+    {
+      "toyId": 0,
+      "variantId": 14352,
+      "nameEn": "Eon's Elite Whirlwind",
+      "nameFr": "Whirlwind Élite d'Eon",
+      "game": "TRAP_TEAM",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Air/Whirlwind Élite d'Eon.sky"
+      ]
+    },
+    {
+      "toyId": 1,
+      "variantId": 0,
+      "nameEn": "Sonic Boom",
+      "nameFr": "Sonic Boom",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Air/Sonic Boom.sky"
+      ]
+    },
+    {
+      "toyId": 1,
+      "variantId": 6145,
+      "nameEn": "Series 2 Sonic Boom",
+      "nameFr": "Sonic Boom Série 2",
+      "game": "GIANTS",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Air/Sonic Boom Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 2,
+      "variantId": 0,
+      "nameEn": "Warnado",
+      "nameFr": "Warnado",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Air/Warnado.sky"
+      ]
+    },
+    {
+      "toyId": 2,
+      "variantId": 8710,
+      "nameEn": "LightCore Warnado",
+      "nameFr": "Warnado LightCore",
+      "game": "SWAP_FORCE",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Air/Variantes/Warnado LightCore.sky"
+      ]
+    },
+    {
+      "toyId": 3,
+      "variantId": 0,
+      "nameEn": "Lightning Rod",
+      "nameFr": "Lightning Rod",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Air/Lightning Rod.sky"
+      ]
+    },
+    {
+      "toyId": 3,
+      "variantId": 6145,
+      "nameEn": "Series 2 Lightning Rod",
+      "nameFr": "Lightning Rod Série 2",
+      "game": "GIANTS",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Air/Lightning Rod Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 4,
+      "variantId": 0,
+      "nameEn": "Bash",
+      "nameFr": "Bash",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Terre/Bash.sky"
+      ]
+    },
+    {
+      "toyId": 4,
+      "variantId": 6145,
+      "nameEn": "Series 2 Bash",
+      "nameFr": "Bash Série 2",
+      "game": "GIANTS",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Terre/Bash Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 5,
+      "variantId": 0,
+      "nameEn": "Terrafin",
+      "nameFr": "Terrafin",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Terre/Terrafin.sky"
+      ]
+    },
+    {
+      "toyId": 5,
+      "variantId": 6145,
+      "nameEn": "Series 2 Terrafin",
+      "nameFr": "Terrafin Série 2",
+      "game": "GIANTS",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Terre/Terrafin Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 5,
+      "variantId": 10245,
+      "nameEn": "Knockout Terrafin",
+      "nameFr": "Knockout Terrafin",
+      "game": "SWAP_FORCE",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Terre/Knockout Terrafin.sky"
+      ]
+    },
+    {
+      "toyId": 5,
+      "variantId": 14352,
+      "nameEn": "Eon's Elite Terrafin",
+      "nameFr": "Terrafin Élite d'Eon",
+      "game": "TRAP_TEAM",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Terre/Terrafin Élite d'Eon.sky"
+      ]
+    },
+    {
+      "toyId": 6,
+      "variantId": 0,
+      "nameEn": "Dino Rang",
+      "nameFr": "Dino Rang",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Terre/Dino Rang.sky"
+      ]
+    },
+    {
+      "toyId": 6,
+      "variantId": 18448,
+      "nameEn": "Eon's Elite Dino Rang",
+      "nameFr": "Dino Rang Élite d'Eon",
+      "game": "SUPERCHARGERS",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Terre/Dino Rang Élite d'Eon.sky"
+      ]
+    },
+    {
+      "toyId": 7,
+      "variantId": 0,
+      "nameEn": "Prism Break",
+      "nameFr": "Prism Break",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Terre/Prism Break.sky"
+      ]
+    },
+    {
+      "toyId": 7,
+      "variantId": 4614,
+      "nameEn": "LightCore Prism Break",
+      "nameFr": "Prism Break LightCore",
+      "game": "GIANTS",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Terre/Prism Break LightCore.sky"
+      ]
+    },
+    {
+      "toyId": 7,
+      "variantId": 6145,
+      "nameEn": "Series 2 Prism Break",
+      "nameFr": "Prism Break Série 2",
+      "game": "GIANTS",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Terre/Prism Break Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 7,
+      "variantId": 10245,
+      "nameEn": "Hyper Beam Prism Break",
+      "nameFr": "Hyper Beam Prism Break",
+      "game": "SWAP_FORCE",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Terre/Hyper Beam Prism Break.sky"
+      ]
+    },
+    {
+      "toyId": 8,
+      "variantId": 0,
+      "nameEn": "Sunburn",
+      "nameFr": "Sunburn",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Feu/Sunburn.sky"
+      ]
+    },
+    {
+      "toyId": 9,
+      "variantId": 0,
+      "nameEn": "Eruptor",
+      "nameFr": "Eruptor",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Feu/Eruptor.sky"
+      ]
+    },
+    {
+      "toyId": 9,
+      "variantId": 4614,
+      "nameEn": "LightCore Eruptor",
+      "nameFr": "Eruptor LightCore",
+      "game": "GIANTS",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Feu/Eruptor LightCore.sky"
+      ]
+    },
+    {
+      "toyId": 9,
+      "variantId": 6145,
+      "nameEn": "Series 2 Eruptor",
+      "nameFr": "Eruptor Série 2",
+      "game": "GIANTS",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Feu/Eruptor Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 9,
+      "variantId": 10245,
+      "nameEn": "Lava Barf Eruptor",
+      "nameFr": "Lava Barf Eruptor",
+      "game": "SWAP_FORCE",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Feu/Lava Barf Eruptor.sky"
+      ]
+    },
+    {
+      "toyId": 9,
+      "variantId": 11266,
+      "nameEn": "Volcanic Eruptor",
+      "nameFr": "Volcanic Eruptor",
+      "game": "SWAP_FORCE",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Feu/Variantes/Volcanic Eruptor.sky"
+      ]
+    },
+    {
+      "toyId": 9,
+      "variantId": 14352,
+      "nameEn": "Eon's Elite Eruptor",
+      "nameFr": "Eruptor Élite d'Eon",
+      "game": "TRAP_TEAM",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Feu/Eruptor Élite d'Eon.sky"
+      ]
+    },
+    {
+      "toyId": 10,
+      "variantId": 0,
+      "nameEn": "Ignitor",
+      "nameFr": "Ignitor",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Feu/Ignitor.sky"
+      ]
+    },
+    {
+      "toyId": 10,
+      "variantId": 6145,
+      "nameEn": "Series 2 Ignitor",
+      "nameFr": "Ignitor Série 2",
+      "game": "GIANTS",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Feu/Ignitor Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 10,
+      "variantId": 7171,
+      "nameEn": "Legendary Ignitor",
+      "nameFr": "Ignitor Légendaire",
+      "game": "GIANTS",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Feu/Variantes/Ignitor Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 11,
+      "variantId": 0,
+      "nameEn": "Flameslinger",
+      "nameFr": "Flameslinger",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Feu/Flameslinger.sky"
+      ]
+    },
+    {
+      "toyId": 11,
+      "variantId": 6145,
+      "nameEn": "Series 2 Flameslinger",
+      "nameFr": "Flameslinger Série 2",
+      "game": "GIANTS",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Feu/Flameslinger Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 12,
+      "variantId": 0,
+      "nameEn": "Zap",
+      "nameFr": "Zap",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Eau/Zap.sky"
+      ]
+    },
+    {
+      "toyId": 12,
+      "variantId": 6145,
+      "nameEn": "Series 2 Zap",
+      "nameFr": "Zap Série 2",
+      "game": "GIANTS",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Eau/Zap Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 13,
+      "variantId": 0,
+      "nameEn": "Wham Shell",
+      "nameFr": "Wham Shell",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Eau/Wham Shell.sky"
+      ]
+    },
+    {
+      "toyId": 13,
+      "variantId": 8710,
+      "nameEn": "LightCore Wham Shell",
+      "nameFr": "Wham Shell LightCore",
+      "game": "SWAP_FORCE",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Eau/Variantes/Wham Shell LightCore.sky"
+      ]
+    },
+    {
+      "toyId": 14,
+      "variantId": 0,
+      "nameEn": "Gill Grunt",
+      "nameFr": "Gill Grunt",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Eau/Gill Grunt.sky"
+      ]
+    },
+    {
+      "toyId": 14,
+      "variantId": 6145,
+      "nameEn": "Series 2 Gill Grunt",
+      "nameFr": "Gill Grunt Série 2",
+      "game": "GIANTS",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Eau/Gill Grunt Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 14,
+      "variantId": 10245,
+      "nameEn": "Anchors Away Gill Grunt",
+      "nameFr": "Anchors Away Gill Grunt",
+      "game": "SWAP_FORCE",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Eau/Anchors Away Gill Grunt.sky"
+      ]
+    },
+    {
+      "toyId": 14,
+      "variantId": 14341,
+      "nameEn": "Tidal Wave Gill Grunt",
+      "nameFr": "Tidal Wave Gill Grunt",
+      "game": "TRAP_TEAM",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Eau/Tidal Wave Gill Grunt.sky"
+      ]
+    },
+    {
+      "toyId": 14,
+      "variantId": 14352,
+      "nameEn": "Eon's Elite Gill Grunt",
+      "nameFr": "Gill Grunt Élite d'Eon",
+      "game": "TRAP_TEAM",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Eau/Gill Grunt Élite d'Eon.sky"
+      ]
+    },
+    {
+      "toyId": 15,
+      "variantId": 0,
+      "nameEn": "Slam Bam",
+      "nameFr": "Slam Bam",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Eau/Slam Bam.sky"
+      ]
+    },
+    {
+      "toyId": 15,
+      "variantId": 6145,
+      "nameEn": "Series 2 Slam Bam",
+      "nameFr": "Slam Bam Série 2",
+      "game": "GIANTS",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Eau/Slam Bam Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 15,
+      "variantId": 7171,
+      "nameEn": "Legendary Slam Bam",
+      "nameFr": "Slam Bam Légendaire",
+      "game": "GIANTS",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Eau/Variantes/Slam Bam Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 15,
+      "variantId": 18448,
+      "nameEn": "Eon's Elite Slam Bam",
+      "nameFr": "Slam Bam Élite d'Eon",
+      "game": "SUPERCHARGERS",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Eau/Slam Bam Élite d'Eon.sky"
+      ]
+    },
+    {
+      "toyId": 16,
+      "variantId": 0,
+      "nameEn": "Spyro",
+      "nameFr": "Spyro",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Magie/Spyro.sky"
+      ]
+    },
+    {
+      "toyId": 16,
+      "variantId": 6145,
+      "nameEn": "Series 2 Spyro",
+      "nameFr": "Spyro Série 2",
+      "game": "GIANTS",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Magie/Spyro Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 16,
+      "variantId": 10245,
+      "nameEn": "Mega Ram Spyro",
+      "nameFr": "Mega Ram Spyro",
+      "game": "SWAP_FORCE",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Magie/Mega Ram Spyro.sky"
+      ]
+    },
+    {
+      "toyId": 16,
+      "variantId": 11266,
+      "nameEn": "Dark Mega Ram Spyro",
+      "nameFr": "Mega Ram Spyro Sombre",
+      "game": "SWAP_FORCE",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Magie/Variantes/Mega Ram Spyro Sombre.sky"
+      ]
+    },
+    {
+      "toyId": 16,
+      "variantId": 14352,
+      "nameEn": "Eon's Elite Spyro",
+      "nameFr": "Spyro Élite d'Eon",
+      "game": "TRAP_TEAM",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Magie/Spyro Élite d'Eon.sky"
+      ]
+    },
+    {
+      "toyId": 17,
+      "variantId": 0,
+      "nameEn": "Voodood",
+      "nameFr": "Voodood",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Magie/Voodood.sky"
+      ]
+    },
+    {
+      "toyId": 17,
+      "variantId": 18448,
+      "nameEn": "Eon's Elite Voodood",
+      "nameFr": "Voodood Élite d'Eon",
+      "game": "SUPERCHARGERS",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Magie/Voodood Élite d'Eon.sky"
+      ]
+    },
+    {
+      "toyId": 18,
+      "variantId": 0,
+      "nameEn": "Double Trouble",
+      "nameFr": "Double Trouble",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Magie/Double Trouble.sky"
+      ]
+    },
+    {
+      "toyId": 18,
+      "variantId": 6145,
+      "nameEn": "Series 2 Double Trouble",
+      "nameFr": "Double Trouble Série 2",
+      "game": "GIANTS",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Magie/Double Trouble Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 18,
+      "variantId": 7170,
+      "nameEn": "Royal Double Trouble",
+      "nameFr": "Royal Double Trouble",
+      "game": "GIANTS",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Magie/Variantes/Royal Double Trouble.sky"
+      ]
+    },
+    {
+      "toyId": 19,
+      "variantId": 0,
+      "nameEn": "Trigger Happy",
+      "nameFr": "Trigger Happy",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Tech/Trigger Happy.sky"
+      ]
+    },
+    {
+      "toyId": 19,
+      "variantId": 6145,
+      "nameEn": "Series 2 Trigger Happy",
+      "nameFr": "Trigger Happy Série 2",
+      "game": "GIANTS",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Tech/Trigger Happy Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 19,
+      "variantId": 10245,
+      "nameEn": "Big Bang Trigger Happy",
+      "nameFr": "Big Bang Trigger Happy",
+      "game": "SWAP_FORCE",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Tech/Big Bang Trigger Happy.sky"
+      ]
+    },
+    {
+      "toyId": 19,
+      "variantId": 11266,
+      "nameEn": "Springtime Trigger Happy",
+      "nameFr": "Springtime Trigger Happy",
+      "game": "SWAP_FORCE",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Tech/Variantes/Springtime Trigger Happy.sky"
+      ]
+    },
+    {
+      "toyId": 19,
+      "variantId": 14352,
+      "nameEn": "Eon's Elite Trigger Happy",
+      "nameFr": "Trigger Happy Élite d'Eon",
+      "game": "TRAP_TEAM",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Tech/Trigger Happy Élite d'Eon.sky"
+      ]
+    },
+    {
+      "toyId": 20,
+      "variantId": 0,
+      "nameEn": "Drobot",
+      "nameFr": "Drobot",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Tech/Drobot.sky"
+      ]
+    },
+    {
+      "toyId": 20,
+      "variantId": 4614,
+      "nameEn": "LightCore Drobot",
+      "nameFr": "Drobot LightCore",
+      "game": "GIANTS",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Tech/Drobot LightCore.sky"
+      ]
+    },
+    {
+      "toyId": 20,
+      "variantId": 6145,
+      "nameEn": "Series 2 Drobot",
+      "nameFr": "Drobot Série 2",
+      "game": "GIANTS",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Tech/Drobot Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 21,
+      "variantId": 0,
+      "nameEn": "Drill Seargeant",
+      "nameFr": "Drill Seargeant",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Tech/Drill Seargeant.sky"
+      ]
+    },
+    {
+      "toyId": 21,
+      "variantId": 6145,
+      "nameEn": "Series 2 Drill Seargeant",
+      "nameFr": "Drill Seargeant Série 2",
+      "game": "GIANTS",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Tech/Drill Seargeant Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 22,
+      "variantId": 0,
+      "nameEn": "Boomer",
+      "nameFr": "Boomer",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Tech/Boomer.sky"
+      ]
+    },
+    {
+      "toyId": 22,
+      "variantId": 18448,
+      "nameEn": "Eon's Elite Boomer",
+      "nameFr": "Boomer Élite d'Eon",
+      "game": "SUPERCHARGERS",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Tech/Boomer Élite d'Eon.sky"
+      ]
+    },
+    {
+      "toyId": 23,
+      "variantId": 0,
+      "nameEn": "Wrecking Ball",
+      "nameFr": "Wrecking Ball",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Magie/Wrecking Ball.sky"
+      ]
+    },
+    {
+      "toyId": 23,
+      "variantId": 6145,
+      "nameEn": "Series 2 Wrecking Ball",
+      "nameFr": "Wrecking Ball Série 2",
+      "game": "GIANTS",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Magie/Wrecking Ball Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 24,
+      "variantId": 0,
+      "nameEn": "Camo",
+      "nameFr": "Camo",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Vie/Camo.sky"
+      ]
+    },
+    {
+      "toyId": 24,
+      "variantId": 10245,
+      "nameEn": "Thorn Horn Camo",
+      "nameFr": "Thorn Horn Camo",
+      "game": "SWAP_FORCE",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Vie/Thorn Horn Camo.sky"
+      ]
+    },
+    {
+      "toyId": 25,
+      "variantId": 0,
+      "nameEn": "Zook",
+      "nameFr": "Zook",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Vie/Zook.sky"
+      ]
+    },
+    {
+      "toyId": 25,
+      "variantId": 6145,
+      "nameEn": "Series 2 Zook",
+      "nameFr": "Zook Série 2",
+      "game": "GIANTS",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Vie/Zook Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 25,
+      "variantId": 18448,
+      "nameEn": "Eon's Elite Zook",
+      "nameFr": "Zook Élite d'Eon",
+      "game": "SUPERCHARGERS",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Vie/Zook Élite d'Eon.sky"
+      ]
+    },
+    {
+      "toyId": 26,
+      "variantId": 0,
+      "nameEn": "Stealth Elf",
+      "nameFr": "Stealth Elf",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Vie/Stealth Elf.sky"
+      ]
+    },
+    {
+      "toyId": 26,
+      "variantId": 6145,
+      "nameEn": "Series 2 Stealth Elf",
+      "nameFr": "Stealth Elf Série 2",
+      "game": "GIANTS",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Vie/Stealth Elf Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 26,
+      "variantId": 7171,
+      "nameEn": "Legendary Stealth Elf",
+      "nameFr": "Stealth Elf Légendaire",
+      "game": "GIANTS",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Vie/Variantes/Stealth Elf Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 26,
+      "variantId": 10245,
+      "nameEn": "Ninja Stealth Elf",
+      "nameFr": "Ninja Stealth Elf",
+      "game": "SWAP_FORCE",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Vie/Ninja Stealth Elf.sky"
+      ]
+    },
+    {
+      "toyId": 26,
+      "variantId": 11266,
+      "nameEn": "Dark Stealth Elf",
+      "nameFr": "Stealth Elf Sombre",
+      "game": "SWAP_FORCE",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Vie/Variantes/Stealth Elf Sombre.sky"
+      ]
+    },
+    {
+      "toyId": 26,
+      "variantId": 14352,
+      "nameEn": "Eon's Elite Stealth Elf",
+      "nameFr": "Stealth Elf Élite d'Eon",
+      "game": "TRAP_TEAM",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Vie/Stealth Elf Élite d'Eon.sky"
+      ]
+    },
+    {
+      "toyId": 27,
+      "variantId": 0,
+      "nameEn": "Stump Smash",
+      "nameFr": "Stump Smash",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Vie/Stump Smash.sky"
+      ]
+    },
+    {
+      "toyId": 27,
+      "variantId": 6145,
+      "nameEn": "Series 2 Stump Smash",
+      "nameFr": "Stump Smash Série 2",
+      "game": "GIANTS",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Vie/Stump Smash Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 28,
+      "variantId": 0,
+      "nameEn": "Dark Spyro",
+      "nameFr": "Spyro Sombre",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Magie/Variantes/Spyro Sombre.sky"
+      ]
+    },
+    {
+      "toyId": 29,
+      "variantId": 0,
+      "nameEn": "Hex",
+      "nameFr": "Hex",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Mort-Vivant/Hex.sky"
+      ]
+    },
+    {
+      "toyId": 29,
+      "variantId": 4614,
+      "nameEn": "LightCore Hex",
+      "nameFr": "Hex LightCore",
+      "game": "GIANTS",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Mort-Vivant/Hex LightCore.sky"
+      ]
+    },
+    {
+      "toyId": 29,
+      "variantId": 6145,
+      "nameEn": "Series 2 Hex",
+      "nameFr": "Hex Série 2",
+      "game": "GIANTS",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Mort-Vivant/Hex Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 30,
+      "variantId": 0,
+      "nameEn": "Chop Chop",
+      "nameFr": "Chop Chop",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Mort-Vivant/Chop Chop.sky"
+      ]
+    },
+    {
+      "toyId": 30,
+      "variantId": 6145,
+      "nameEn": "Series 2 Chop Chop",
+      "nameFr": "Chop Chop Série 2",
+      "game": "GIANTS",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Mort-Vivant/Chop Chop Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 30,
+      "variantId": 10245,
+      "nameEn": "Twin Blade Chop Chop",
+      "nameFr": "Twin Blade Chop Chop",
+      "game": "SWAP_FORCE",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Mort-Vivant/Twin Blade Chop Chop.sky"
+      ]
+    },
+    {
+      "toyId": 30,
+      "variantId": 14352,
+      "nameEn": "Eon's Elite Chop Chop",
+      "nameFr": "Chop Chop Élite d'Eon",
+      "game": "TRAP_TEAM",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Mort-Vivant/Chop Chop Élite d'Eon.sky"
+      ]
+    },
+    {
+      "toyId": 31,
+      "variantId": 0,
+      "nameEn": "Ghost Roaster",
+      "nameFr": "Ghost Roaster",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Mort-Vivant/Ghost Roaster.sky"
+      ]
+    },
+    {
+      "toyId": 31,
+      "variantId": 18448,
+      "nameEn": "Eon's Elite Ghost Roaster",
+      "nameFr": "Ghost Roaster Élite d'Eon",
+      "game": "SUPERCHARGERS",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Mort-Vivant/Ghost Roaster Élite d'Eon.sky"
+      ]
+    },
+    {
+      "toyId": 32,
+      "variantId": 0,
+      "nameEn": "Cynder",
+      "nameFr": "Cynder",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Mort-Vivant/Cynder.sky"
+      ]
+    },
+    {
+      "toyId": 32,
+      "variantId": 6145,
+      "nameEn": "Series 2 Cynder",
+      "nameFr": "Cynder Série 2",
+      "game": "GIANTS",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Mort-Vivant/Cynder Série 2.sky"
+      ]
+    },
+    {
+      "toyId": 32,
+      "variantId": 10245,
+      "nameEn": "Phantom Cynder",
+      "nameFr": "Phantom Cynder",
+      "game": "SWAP_FORCE",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Mort-Vivant/Phantom Cynder.sky"
+      ]
+    },
+    {
+      "toyId": 100,
+      "variantId": 0,
+      "nameEn": "Jet Vac",
+      "nameFr": "Jet Vac",
+      "game": "GIANTS",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Air/Jet Vac.sky"
+      ]
+    },
+    {
+      "toyId": 100,
+      "variantId": 4614,
+      "nameEn": "LightCore Jet Vac",
+      "nameFr": "Jet Vac LightCore",
+      "game": "GIANTS",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Air/Jet Vac LightCore.sky"
+      ]
+    },
+    {
+      "toyId": 100,
+      "variantId": 5123,
+      "nameEn": "Legendary Jet Vac",
+      "nameFr": "Jet Vac Légendaire",
+      "game": "GIANTS",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Air/Variantes/Jet Vac Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 100,
+      "variantId": 10245,
+      "nameEn": "Turbo Jet Vac",
+      "nameFr": "Turbo Jet Vac",
+      "game": "SWAP_FORCE",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Air/Turbo Jet Vac.sky"
+      ]
+    },
+    {
+      "toyId": 100,
+      "variantId": 14341,
+      "nameEn": "Full Blast Jet Vac",
+      "nameFr": "Full Blast Jet Vac",
+      "game": "TRAP_TEAM",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Air/Full Blast Jet Vac.sky"
+      ]
+    },
+    {
+      "toyId": 101,
+      "variantId": 0,
+      "nameEn": "Swarm",
+      "nameFr": "Swarm",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "GIANT",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Géants/Swarm.sky"
+      ]
+    },
+    {
+      "toyId": 102,
+      "variantId": 0,
+      "nameEn": "Crusher",
+      "nameFr": "Crusher",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "GIANT",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Géants/Crusher.sky"
+      ]
+    },
+    {
+      "toyId": 102,
+      "variantId": 5634,
+      "nameEn": "Granite Crusher",
+      "nameFr": "Granite Crusher",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "GIANT",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Géants/Variantes/Granite Crusher.sky"
+      ]
+    },
+    {
+      "toyId": 103,
+      "variantId": 0,
+      "nameEn": "Flashwing",
+      "nameFr": "Flashwing",
+      "game": "GIANTS",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Terre/Flashwing.sky"
+      ]
+    },
+    {
+      "toyId": 103,
+      "variantId": 5122,
+      "nameEn": "Jade Flash Wing",
+      "nameFr": "Jade Flash Wing",
+      "game": "GIANTS",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Terre/Variantes/Jade Flash Wing.sky"
+      ]
+    },
+    {
+      "toyId": 103,
+      "variantId": 8710,
+      "nameEn": "LightCore Flashwing",
+      "nameFr": "Flashwing LightCore",
+      "game": "SWAP_FORCE",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Terre/Variantes/Flashwing LightCore.sky"
+      ]
+    },
+    {
+      "toyId": 104,
+      "variantId": 0,
+      "nameEn": "Hot Head",
+      "nameFr": "Hot Head",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "GIANT",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Géants/Hot Head.sky"
+      ]
+    },
+    {
+      "toyId": 105,
+      "variantId": 0,
+      "nameEn": "Hot Dog",
+      "nameFr": "Hot Dog",
+      "game": "GIANTS",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Feu/Hot Dog.sky"
+      ]
+    },
+    {
+      "toyId": 105,
+      "variantId": 5122,
+      "nameEn": "Molten Hot Dog",
+      "nameFr": "Molten Hot Dog",
+      "game": "GIANTS",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Feu/Variantes/Molten Hot Dog.sky"
+      ]
+    },
+    {
+      "toyId": 105,
+      "variantId": 10245,
+      "nameEn": "Fire Bone Hot Dog",
+      "nameFr": "Fire Bone Hot Dog",
+      "game": "SWAP_FORCE",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Feu/Fire Bone Hot Dog.sky"
+      ]
+    },
+    {
+      "toyId": 106,
+      "variantId": 0,
+      "nameEn": "Chill",
+      "nameFr": "Chill",
+      "game": "GIANTS",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Eau/Chill.sky"
+      ]
+    },
+    {
+      "toyId": 106,
+      "variantId": 4614,
+      "nameEn": "LightCore Chill",
+      "nameFr": "Chill LightCore",
+      "game": "GIANTS",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Eau/Chill LightCore.sky"
+      ]
+    },
+    {
+      "toyId": 106,
+      "variantId": 5635,
+      "nameEn": "Legendary Chill",
+      "nameFr": "Chill Légendaire",
+      "game": "GIANTS",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Eau/Chill Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 106,
+      "variantId": 10245,
+      "nameEn": "Blizzard Chill",
+      "nameFr": "Blizzard Chill",
+      "game": "SWAP_FORCE",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Eau/Blizzard Chill.sky"
+      ]
+    },
+    {
+      "toyId": 107,
+      "variantId": 0,
+      "nameEn": "Thumpback",
+      "nameFr": "Thumpback",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "GIANT",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Géants/Thumpback.sky"
+      ]
+    },
+    {
+      "toyId": 108,
+      "variantId": 0,
+      "nameEn": "Pop Fizz",
+      "nameFr": "Pop Fizz",
+      "game": "GIANTS",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Magie/Pop Fizz.sky"
+      ]
+    },
+    {
+      "toyId": 108,
+      "variantId": 4614,
+      "nameEn": "LightCore Pop Fizz",
+      "nameFr": "Pop Fizz LightCore",
+      "game": "GIANTS",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Magie/Pop Fizz LightCore.sky"
+      ]
+    },
+    {
+      "toyId": 108,
+      "variantId": 5122,
+      "nameEn": "Punch Pop Fizz",
+      "nameFr": "Punch Pop Fizz",
+      "game": "GIANTS",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Magie/Variantes/Punch Pop Fizz.sky"
+      ]
+    },
+    {
+      "toyId": 108,
+      "variantId": 10245,
+      "nameEn": "Super Gulp Pop Fizz",
+      "nameFr": "Super Gulp Pop Fizz",
+      "game": "SWAP_FORCE",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Magie/Super Gulp Pop Fizz.sky"
+      ]
+    },
+    {
+      "toyId": 108,
+      "variantId": 14341,
+      "nameEn": "Fizzy Frenzy Pop Fizz",
+      "nameFr": "Fizzy Frenzy Pop Fizz",
+      "game": "TRAP_TEAM",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Magie/Fizzy Frenzy Pop Fizz.sky"
+      ]
+    },
+    {
+      "toyId": 108,
+      "variantId": 15362,
+      "nameEn": "Love Potion Pop Fizz",
+      "nameFr": "Love Potion Pop Fizz",
+      "game": "TRAP_TEAM",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Magie/Variantes/Love Potion Pop Fizz.sky"
+      ]
+    },
+    {
+      "toyId": 109,
+      "variantId": 0,
+      "nameEn": "Ninjini",
+      "nameFr": "Ninjini",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "GIANT",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Géants/Ninjini.sky"
+      ]
+    },
+    {
+      "toyId": 109,
+      "variantId": 5634,
+      "nameEn": "Scarlet Ninjini",
+      "nameFr": "Scarlet Ninjini",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "GIANT",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Géants/Variantes/Scarlet Ninjini.sky"
+      ]
+    },
+    {
+      "toyId": 110,
+      "variantId": 0,
+      "nameEn": "Bouncer",
+      "nameFr": "Bouncer",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "GIANT",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Géants/Bouncer.sky"
+      ]
+    },
+    {
+      "toyId": 110,
+      "variantId": 5635,
+      "nameEn": "Legendary Bouncer",
+      "nameFr": "Bouncer Légendaire",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "GIANT",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Géants/Variantes/Bouncer Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 111,
+      "variantId": 0,
+      "nameEn": "Sprocket",
+      "nameFr": "Sprocket",
+      "game": "GIANTS",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Tech/Sprocket.sky"
+      ]
+    },
+    {
+      "toyId": 111,
+      "variantId": 10245,
+      "nameEn": "Heavy Duty Sprocket",
+      "nameFr": "Heavy Duty Sprocket",
+      "game": "SWAP_FORCE",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Tech/Heavy Duty Sprocket.sky"
+      ]
+    },
+    {
+      "toyId": 112,
+      "variantId": 0,
+      "nameEn": "Tree Rex",
+      "nameFr": "Tree Rex",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "GIANT",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Géants/Tree Rex.sky"
+      ]
+    },
+    {
+      "toyId": 112,
+      "variantId": 5634,
+      "nameEn": "Gnarly Tree Rex",
+      "nameFr": "Gnarly Tree Rex",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "GIANT",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Géants/Variantes/Gnarly Tree Rex.sky"
+      ]
+    },
+    {
+      "toyId": 113,
+      "variantId": 0,
+      "nameEn": "Shroomboom",
+      "nameFr": "Shroomboom",
+      "game": "GIANTS",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Vie/Shroomboom.sky"
+      ]
+    },
+    {
+      "toyId": 113,
+      "variantId": 4614,
+      "nameEn": "LightCore Shroomboom",
+      "nameFr": "Shroomboom LightCore",
+      "game": "GIANTS",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Vie/Shroomboom LightCore.sky"
+      ]
+    },
+    {
+      "toyId": 113,
+      "variantId": 14341,
+      "nameEn": "Sure Shot Shroomboom",
+      "nameFr": "Sure Shot Shroomboom",
+      "game": "TRAP_TEAM",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Vie/Sure Shot Shroomboom.sky"
+      ]
+    },
+    {
+      "toyId": 114,
+      "variantId": 0,
+      "nameEn": "Eye Brawl",
+      "nameFr": "Eye Brawl",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "GIANT",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Géants/Eye Brawl.sky"
+      ]
+    },
+    {
+      "toyId": 115,
+      "variantId": 0,
+      "nameEn": "Fright Rider",
+      "nameFr": "Fright Rider",
+      "game": "GIANTS",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Mort-Vivant/Fright Rider.sky"
+      ]
+    },
+    {
+      "toyId": 200,
+      "variantId": 0,
+      "nameEn": "Anvil Rain",
+      "nameFr": "Pluie d'Enclumes",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Objets/Pluie d'Enclumes.sky"
+      ]
+    },
+    {
+      "toyId": 201,
+      "variantId": 0,
+      "nameEn": "Hidden Treasure",
+      "nameFr": "Trésor Caché",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Objets/Trésor Caché.sky"
+      ]
+    },
+    {
+      "toyId": 201,
+      "variantId": 8192,
+      "nameEn": "Platinum Hidden Treasure",
+      "nameFr": "Trésor Caché Platine",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Objets/Trésor Caché Platine.sky"
+      ]
+    },
+    {
+      "toyId": 202,
+      "variantId": 0,
+      "nameEn": "Healing Elixir",
+      "nameFr": "Élixir de Soin",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Objets/Élixir de Soin.sky"
+      ]
+    },
+    {
+      "toyId": 203,
+      "variantId": 0,
+      "nameEn": "Ghost Pirate Swords",
+      "nameFr": "Épées du Pirate Fantôme",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Objets/Épées du Pirate Fantôme.sky"
+      ]
+    },
+    {
+      "toyId": 204,
+      "variantId": 0,
+      "nameEn": "Time Twist Hourglass",
+      "nameFr": "Sablier Temporel",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Objets/Sablier Temporel.sky"
+      ]
+    },
+    {
+      "toyId": 205,
+      "variantId": 0,
+      "nameEn": "Sky Iron Shield",
+      "nameFr": "Bouclier de Fer Céleste",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Objets/Bouclier de Fer Céleste.sky"
+      ]
+    },
+    {
+      "toyId": 206,
+      "variantId": 0,
+      "nameEn": "Winged Boots",
+      "nameFr": "Bottes Ailées",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Objets/Bottes Ailées.sky"
+      ]
+    },
+    {
+      "toyId": 207,
+      "variantId": 0,
+      "nameEn": "Sparx the Dragonfly",
+      "nameFr": "Sparx la Libellule",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Objets/Sparx la Libellule.sky"
+      ]
+    },
+    {
+      "toyId": 208,
+      "variantId": 0,
+      "nameEn": "Dragonfire Cannon",
+      "nameFr": "Canon Feu de Dragon",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Objets/Canon Feu de Dragon.sky"
+      ]
+    },
+    {
+      "toyId": 208,
+      "variantId": 5634,
+      "nameEn": "Golden Dragonfire Cannon",
+      "nameFr": "Canon Feu de Dragon Doré",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Objets/Canon Feu de Dragon Doré.sky"
+      ]
+    },
+    {
+      "toyId": 209,
+      "variantId": 0,
+      "nameEn": "Scorpion Striker",
+      "nameFr": "Catapulte Scorpion",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Objets/Catapulte Scorpion.sky"
+      ]
+    },
+    {
+      "toyId": 210,
+      "variantId": 12290,
+      "nameEn": "Biter's Bane",
+      "nameFr": "Fléau du Mordeur",
+      "game": "TRAP_TEAM",
+      "element": "Magie",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Magie/Fléau du Mordeur.sky"
+      ]
+    },
+    {
+      "toyId": 210,
+      "variantId": 12296,
+      "nameEn": "Sorcerous Skull",
+      "nameFr": "Crâne Sorcier",
+      "game": "TRAP_TEAM",
+      "element": "Magie",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Magie/Crâne Sorcier.sky"
+      ]
+    },
+    {
+      "toyId": 210,
+      "variantId": 12299,
+      "nameEn": "Axe of Illusion",
+      "nameFr": "Hache d'Illusion",
+      "game": "TRAP_TEAM",
+      "element": "Magie",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Magie/Hache d'Illusion.sky"
+      ]
+    },
+    {
+      "toyId": 210,
+      "variantId": 12302,
+      "nameEn": "Arcane Hourglass",
+      "nameFr": "Sablier Arcanique",
+      "game": "TRAP_TEAM",
+      "element": "Magie",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Magie/Sablier Arcanique.sky"
+      ]
+    },
+    {
+      "toyId": 210,
+      "variantId": 12306,
+      "nameEn": "Spell Slapper",
+      "nameFr": "Claque-Sort",
+      "game": "TRAP_TEAM",
+      "element": "Magie",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Magie/Claque-Sort.sky"
+      ]
+    },
+    {
+      "toyId": 210,
+      "variantId": 12308,
+      "nameEn": "Rune Rocket",
+      "nameFr": "Fusée Runique",
+      "game": "TRAP_TEAM",
+      "element": "Magie",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Magie/Fusée Runique.sky"
+      ]
+    },
+    {
+      "toyId": 211,
+      "variantId": 12289,
+      "nameEn": "Tidal Tiki",
+      "nameFr": "Tiki des Marées",
+      "game": "TRAP_TEAM",
+      "element": "Eau",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Eau/Tiki des Marées.sky"
+      ]
+    },
+    {
+      "toyId": 211,
+      "variantId": 12290,
+      "nameEn": "Wet Walter",
+      "nameFr": "Walter le Mouillé",
+      "game": "TRAP_TEAM",
+      "element": "Eau",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Eau/Walter le Mouillé.sky"
+      ]
+    },
+    {
+      "toyId": 211,
+      "variantId": 12294,
+      "nameEn": "Flood Flask",
+      "nameFr": "Fiole du Déluge",
+      "game": "TRAP_TEAM",
+      "element": "Eau",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Eau/Fiole du Déluge.sky"
+      ]
+    },
+    {
+      "toyId": 211,
+      "variantId": 12295,
+      "nameEn": "Soaking Staff",
+      "nameFr": "Bâton Trempé",
+      "game": "TRAP_TEAM",
+      "element": "Eau",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Eau/Slobber Trap - Bâton Trempé.sky"
+      ]
+    },
+    {
+      "toyId": 211,
+      "variantId": 12299,
+      "nameEn": "Aqua Axe",
+      "nameFr": "Hache Aquatique",
+      "game": "TRAP_TEAM",
+      "element": "Eau",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Eau/Hache Aquatique.sky"
+      ]
+    },
+    {
+      "toyId": 211,
+      "variantId": 12310,
+      "nameEn": "Frost Helm",
+      "nameFr": "Heaume de Givre",
+      "game": "TRAP_TEAM",
+      "element": "Eau",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Eau/Heaume de Givre.sky"
+      ]
+    },
+    {
+      "toyId": 211,
+      "variantId": 13318,
+      "nameEn": "Legendary Flood Flask",
+      "nameFr": "Fiole du Déluge Légendaire",
+      "game": "TRAP_TEAM",
+      "element": "Eau",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Eau/Variantes/Gulper - Fiole du Déluge Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 212,
+      "variantId": 12291,
+      "nameEn": "Breezy Bird",
+      "nameFr": "Oiseau de Brise",
+      "game": "TRAP_TEAM",
+      "element": "Air",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Air/Oiseau de Brise.sky"
+      ]
+    },
+    {
+      "toyId": 212,
+      "variantId": 12294,
+      "nameEn": "Drafty Decanter",
+      "nameFr": "Carafe des Courants d'Air",
+      "game": "TRAP_TEAM",
+      "element": "Air",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Air/Carafe des Courants d'Air.sky"
+      ]
+    },
+    {
+      "toyId": 212,
+      "variantId": 12301,
+      "nameEn": "Tempest Timer",
+      "nameFr": "Sablier de Tempête",
+      "game": "TRAP_TEAM",
+      "element": "Air",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Air/Sablier de Tempête.sky"
+      ]
+    },
+    {
+      "toyId": 212,
+      "variantId": 12304,
+      "nameEn": "Cloudy Cobra",
+      "nameFr": "Cobra Nuageux",
+      "game": "TRAP_TEAM",
+      "element": "Air",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Air/Cobra Nuageux.sky"
+      ]
+    },
+    {
+      "toyId": 212,
+      "variantId": 12305,
+      "nameEn": "Storm Warning",
+      "nameFr": "Avis de Tempête",
+      "game": "TRAP_TEAM",
+      "element": "Air",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Air/Buzzer Beak - Avis de Tempête.sky"
+      ]
+    },
+    {
+      "toyId": 212,
+      "variantId": 12312,
+      "nameEn": "Cyclone Saber",
+      "nameFr": "Sabre Cyclone",
+      "game": "TRAP_TEAM",
+      "element": "Air",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Air/Sabre Cyclone.sky"
+      ]
+    },
+    {
+      "toyId": 213,
+      "variantId": 12292,
+      "nameEn": "Spirit Sphere",
+      "nameFr": "Sphère Spirituelle",
+      "game": "TRAP_TEAM",
+      "element": "Mort-Vivant",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Mort-Vivant/Sphère Spirituelle.sky"
+      ]
+    },
+    {
+      "toyId": 213,
+      "variantId": 12296,
+      "nameEn": "Spectral Skull",
+      "nameFr": "Crâne Spectral",
+      "game": "TRAP_TEAM",
+      "element": "Mort-Vivant",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Mort-Vivant/Crâne Spectral.sky"
+      ]
+    },
+    {
+      "toyId": 213,
+      "variantId": 12299,
+      "nameEn": "Haunted Hatchet",
+      "nameFr": "Hachette Hantée",
+      "game": "TRAP_TEAM",
+      "element": "Mort-Vivant",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Mort-Vivant/Hachette Hantée.sky"
+      ]
+    },
+    {
+      "toyId": 213,
+      "variantId": 12300,
+      "nameEn": "Grim Gripper",
+      "nameFr": "Pince Macabre",
+      "game": "TRAP_TEAM",
+      "element": "Mort-Vivant",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Mort-Vivant/Pince Macabre.sky"
+      ]
+    },
+    {
+      "toyId": 213,
+      "variantId": 12304,
+      "nameEn": "Spooky Snake",
+      "nameFr": "Serpent Effrayant",
+      "game": "TRAP_TEAM",
+      "element": "Mort-Vivant",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Mort-Vivant/Serpent Effrayant.sky"
+      ]
+    },
+    {
+      "toyId": 213,
+      "variantId": 12311,
+      "nameEn": "Dream Piercer",
+      "nameFr": "Perce-Rêves",
+      "game": "TRAP_TEAM",
+      "element": "Mort-Vivant",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Mort-Vivant/Perce-Rêves.sky"
+      ]
+    },
+    {
+      "toyId": 213,
+      "variantId": 13316,
+      "nameEn": "Legendary Spirit Sphere",
+      "nameFr": "Sphère Spirituelle Légendaire",
+      "game": "TRAP_TEAM",
+      "element": "Mort-Vivant",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Mort-Vivant/Variantes/Sphère Spirituelle Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 213,
+      "variantId": 13320,
+      "nameEn": "Legendary Spectral Skull",
+      "nameFr": "Crâne Spectral Légendaire",
+      "game": "TRAP_TEAM",
+      "element": "Mort-Vivant",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Mort-Vivant/Variantes/Crâne Spectral Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 214,
+      "variantId": 12288,
+      "nameEn": "Tech Totem",
+      "nameFr": "Totem Tech",
+      "game": "TRAP_TEAM",
+      "element": "Tech",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Tech/Totem Tech.sky"
+      ]
+    },
+    {
+      "toyId": 214,
+      "variantId": 12295,
+      "nameEn": "Automatic Angel",
+      "nameFr": "Ange Automatique",
+      "game": "TRAP_TEAM",
+      "element": "Tech",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Tech/Ange Automatique.sky"
+      ]
+    },
+    {
+      "toyId": 214,
+      "variantId": 12297,
+      "nameEn": "Factory Flower",
+      "nameFr": "Fleur d'Usine",
+      "game": "TRAP_TEAM",
+      "element": "Tech",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Tech/Fleur d'Usine.sky"
+      ]
+    },
+    {
+      "toyId": 214,
+      "variantId": 12300,
+      "nameEn": "Grabbing Gadget",
+      "nameFr": "Gadget Attrapeur",
+      "game": "TRAP_TEAM",
+      "element": "Tech",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Tech/Gadget Attrapeur.sky"
+      ]
+    },
+    {
+      "toyId": 214,
+      "variantId": 12310,
+      "nameEn": "Makers Mana",
+      "nameFr": "Mana du Créateur",
+      "game": "TRAP_TEAM",
+      "element": "Tech",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Tech/Mana du Créateur.sky"
+      ]
+    },
+    {
+      "toyId": 214,
+      "variantId": 12314,
+      "nameEn": "Topsy Techy",
+      "nameFr": "Techno Sens Dessus Dessous",
+      "game": "TRAP_TEAM",
+      "element": "Tech",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Tech/Techno Sens Dessus Dessous.sky"
+      ]
+    },
+    {
+      "toyId": 215,
+      "variantId": 12293,
+      "nameEn": "Eternal Flame",
+      "nameFr": "Flamme Éternelle",
+      "game": "TRAP_TEAM",
+      "element": "Feu",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Feu/Flamme Éternelle.sky"
+      ]
+    },
+    {
+      "toyId": 215,
+      "variantId": 12297,
+      "nameEn": "Fire Flower",
+      "nameFr": "Fleur de Feu",
+      "game": "TRAP_TEAM",
+      "element": "Feu",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Feu/Fleur de Feu.sky"
+      ]
+    },
+    {
+      "toyId": 215,
+      "variantId": 12305,
+      "nameEn": "Scorching Stopper",
+      "nameFr": "Bouchon Brûlant",
+      "game": "TRAP_TEAM",
+      "element": "Feu",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Feu/Bouchon Brûlant.sky"
+      ]
+    },
+    {
+      "toyId": 215,
+      "variantId": 12306,
+      "nameEn": "Searing Spinner",
+      "nameFr": "Toupie Incandescente",
+      "game": "TRAP_TEAM",
+      "element": "Feu",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Feu/Toupie Incandescente.sky"
+      ]
+    },
+    {
+      "toyId": 215,
+      "variantId": 12311,
+      "nameEn": "Spark Spear",
+      "nameFr": "Lance d'Étincelles",
+      "game": "TRAP_TEAM",
+      "element": "Feu",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Feu/Lance d'Étincelles.sky"
+      ]
+    },
+    {
+      "toyId": 215,
+      "variantId": 12315,
+      "nameEn": "Blazing Belch",
+      "nameFr": "Rot Ardent",
+      "game": "TRAP_TEAM",
+      "element": "Feu",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Feu/Rot Ardent.sky"
+      ]
+    },
+    {
+      "toyId": 216,
+      "variantId": 12288,
+      "nameEn": "Banded Boulder",
+      "nameFr": "Rocher Cerclé",
+      "game": "TRAP_TEAM",
+      "element": "Terre",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Terre/Rocher Cerclé.sky"
+      ]
+    },
+    {
+      "toyId": 216,
+      "variantId": 12291,
+      "nameEn": "Rock Hawk",
+      "nameFr": "Faucon de Roche",
+      "game": "TRAP_TEAM",
+      "element": "Terre",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Terre/Tussle Sprout - Faucon de Roche.sky"
+      ]
+    },
+    {
+      "toyId": 216,
+      "variantId": 12298,
+      "nameEn": "Slag Hammer",
+      "nameFr": "Marteau de Scories",
+      "game": "TRAP_TEAM",
+      "element": "Terre",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Terre/Marteau de Scories.sky"
+      ]
+    },
+    {
+      "toyId": 216,
+      "variantId": 12302,
+      "nameEn": "Dust Of Time",
+      "nameFr": "Poussière du Temps",
+      "game": "TRAP_TEAM",
+      "element": "Terre",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Terre/Poussière du Temps.sky"
+      ]
+    },
+    {
+      "toyId": 216,
+      "variantId": 12307,
+      "nameEn": "Spinning Sandstorm",
+      "nameFr": "Tempête de Sable Tournoyante",
+      "game": "TRAP_TEAM",
+      "element": "Terre",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Terre/Tempête de Sable Tournoyante.sky"
+      ]
+    },
+    {
+      "toyId": 216,
+      "variantId": 12314,
+      "nameEn": "Rubble Trouble",
+      "nameFr": "Gravats Terribles",
+      "game": "TRAP_TEAM",
+      "element": "Terre",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Terre/Gravats Terribles.sky"
+      ]
+    },
+    {
+      "toyId": 217,
+      "variantId": 12291,
+      "nameEn": "Oak Eagle",
+      "nameFr": "Aigle de Chêne",
+      "game": "TRAP_TEAM",
+      "element": "Vie",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Vie/Sheep Creep - Aigle de Chêne.sky"
+      ]
+    },
+    {
+      "toyId": 217,
+      "variantId": 12293,
+      "nameEn": "Emerald Energy",
+      "nameFr": "Énergie d'Émeraude",
+      "game": "TRAP_TEAM",
+      "element": "Vie",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Vie/Énergie d'Émeraude.sky"
+      ]
+    },
+    {
+      "toyId": 217,
+      "variantId": 12298,
+      "nameEn": "Weed Whacker",
+      "nameFr": "Débroussailleuse",
+      "game": "TRAP_TEAM",
+      "element": "Vie",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Vie/Débroussailleuse.sky"
+      ]
+    },
+    {
+      "toyId": 217,
+      "variantId": 12304,
+      "nameEn": "Seed Serpent",
+      "nameFr": "Serpent-Graine",
+      "game": "TRAP_TEAM",
+      "element": "Vie",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Vie/Serpent-Graine.sky"
+      ]
+    },
+    {
+      "toyId": 217,
+      "variantId": 12312,
+      "nameEn": "Jade Blade",
+      "nameFr": "Lame de Jade",
+      "game": "TRAP_TEAM",
+      "element": "Vie",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Vie/Lame de Jade.sky"
+      ]
+    },
+    {
+      "toyId": 217,
+      "variantId": 12315,
+      "nameEn": "Shrub Shrieker",
+      "nameFr": "Arbuste Hurleur",
+      "game": "TRAP_TEAM",
+      "element": "Vie",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Vie/Arbuste Hurleur.sky"
+      ]
+    },
+    {
+      "toyId": 218,
+      "variantId": 12288,
+      "nameEn": "Dark Dagger",
+      "nameFr": "Dague des Ténèbres",
+      "game": "TRAP_TEAM",
+      "element": "Ténèbres",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Ténèbres/Dague des Ténèbres.sky"
+      ]
+    },
+    {
+      "toyId": 218,
+      "variantId": 12308,
+      "nameEn": "Shadow Spider",
+      "nameFr": "Araignée de l'Ombre",
+      "game": "TRAP_TEAM",
+      "element": "Ténèbres",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Ténèbres/Araignée de l'Ombre.sky"
+      ]
+    },
+    {
+      "toyId": 218,
+      "variantId": 12314,
+      "nameEn": "Ghastly Grimace",
+      "nameFr": "Grimace Sinistre",
+      "game": "TRAP_TEAM",
+      "element": "Ténèbres",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Ténèbres/Grimace Sinistre.sky"
+      ]
+    },
+    {
+      "toyId": 219,
+      "variantId": 12288,
+      "nameEn": "Shining Ship",
+      "nameFr": "Navire Étincelant",
+      "game": "TRAP_TEAM",
+      "element": "Lumière",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Lumière/Navire Étincelant.sky"
+      ]
+    },
+    {
+      "toyId": 219,
+      "variantId": 12303,
+      "nameEn": "Heavenly Hawk",
+      "nameFr": "Faucon Céleste",
+      "game": "TRAP_TEAM",
+      "element": "Lumière",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Lumière/Faucon Céleste.sky"
+      ]
+    },
+    {
+      "toyId": 219,
+      "variantId": 12315,
+      "nameEn": "Beam Scream",
+      "nameFr": "Rayon Hurlant",
+      "game": "TRAP_TEAM",
+      "element": "Lumière",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Lumière/Rayon Hurlant.sky"
+      ]
+    },
+    {
+      "toyId": 220,
+      "variantId": 12318,
+      "nameEn": "Kaos Trap",
+      "nameFr": "Piège Kaos",
+      "game": "TRAP_TEAM",
+      "element": "Kaos",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Kaos/Piège Kaos.sky"
+      ]
+    },
+    {
+      "toyId": 220,
+      "variantId": 13599,
+      "nameEn": "Ultimate Kaos Trap",
+      "nameFr": "Piège Kaos Ultime",
+      "game": "TRAP_TEAM",
+      "element": "Kaos",
+      "category": "TRAP",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Pièges/Kaos/Piège Kaos Ultime.sky"
+      ]
+    },
+    {
+      "toyId": 230,
+      "variantId": 0,
+      "nameEn": "Hand of Fate",
+      "nameFr": "Main du Destin",
+      "game": "TRAP_TEAM",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Objets/Main du Destin.sky"
+      ]
+    },
+    {
+      "toyId": 230,
+      "variantId": 13315,
+      "nameEn": "Legendary Hand of Fate",
+      "nameFr": "Main du Destin Légendaire",
+      "game": "TRAP_TEAM",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Objets/Main du Destin Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 231,
+      "variantId": 0,
+      "nameEn": "Piggy Bank",
+      "nameFr": "Tirelire",
+      "game": "TRAP_TEAM",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Objets/Tirelire.sky"
+      ]
+    },
+    {
+      "toyId": 232,
+      "variantId": 0,
+      "nameEn": "Rocket Ram",
+      "nameFr": "Bélier-Fusée",
+      "game": "TRAP_TEAM",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Objets/Bélier-Fusée.sky"
+      ]
+    },
+    {
+      "toyId": 233,
+      "variantId": 0,
+      "nameEn": "Tiki Speaky",
+      "nameFr": "Tiki Parleur",
+      "game": "TRAP_TEAM",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Objets/Tiki Parleur.sky"
+      ]
+    },
+    {
+      "toyId": 235,
+      "variantId": 20481,
+      "nameEn": "Coffre Bronze 1",
+      "nameFr": "Coffre Bronze 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CHEST",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Coffres/Coffre Bronze 1.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 10.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 11.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 12.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 13.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 14.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 15.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 16.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 17.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 18.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 19.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 2.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 20.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 21.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 22.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 23.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 24.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 25.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 26.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 27.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 28.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 29.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 3.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 30.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 31.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 32.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 33.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 34.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 35.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 36.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 37.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 38.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 39.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 4.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 40.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 41.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 42.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 43.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 44.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 45.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 46.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 47.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 48.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 49.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 5.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 50.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 51.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 52.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 53.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 54.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 55.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 6.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 7.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 8.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bronze 9.sky"
+      ]
+    },
+    {
+      "toyId": 235,
+      "variantId": 20482,
+      "nameEn": "Coffre Argent 1",
+      "nameFr": "Coffre Argent 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CHEST",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Coffres/Coffre Argent 1.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 10.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 11.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 12.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 13.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 14.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 15.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 16.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 17.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 18.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 19.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 2.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 20.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 21.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 22.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 23.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 24.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 25.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 26.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 27.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 28.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 29.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 3.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 30.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 31.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 32.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 33.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 34.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 35.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 36.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 4.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 5.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 6.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 7.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 8.sky",
+        "Skylanders Imaginators/Coffres/Coffre Argent 9.sky"
+      ]
+    },
+    {
+      "toyId": 235,
+      "variantId": 20483,
+      "nameEn": "Coffre Or 1",
+      "nameFr": "Coffre Or 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CHEST",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Coffres/Coffre Or 1.sky",
+        "Skylanders Imaginators/Coffres/Coffre Or 10.sky",
+        "Skylanders Imaginators/Coffres/Coffre Or 11.sky",
+        "Skylanders Imaginators/Coffres/Coffre Or 12.sky",
+        "Skylanders Imaginators/Coffres/Coffre Or 13.sky",
+        "Skylanders Imaginators/Coffres/Coffre Or 2.sky",
+        "Skylanders Imaginators/Coffres/Coffre Or 3.sky",
+        "Skylanders Imaginators/Coffres/Coffre Or 4.sky",
+        "Skylanders Imaginators/Coffres/Coffre Or 5.sky",
+        "Skylanders Imaginators/Coffres/Coffre Or 6.sky",
+        "Skylanders Imaginators/Coffres/Coffre Or 7.sky",
+        "Skylanders Imaginators/Coffres/Coffre Or 8.sky",
+        "Skylanders Imaginators/Coffres/Coffre Or 9.sky",
+        "Skylanders Imaginators/Coffres/Coffre Or 998.sky",
+        "Skylanders Imaginators/Coffres/Coffre Or 999.sky"
+      ]
+    },
+    {
+      "toyId": 235,
+      "variantId": 20503,
+      "nameEn": "Coffre Bleu 2 CTT",
+      "nameFr": "Coffre Bleu 2 CTT",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CHEST",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Coffres/Coffre Bleu 2 CTT.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bleu 4 CTT.sky"
+      ]
+    },
+    {
+      "toyId": 235,
+      "variantId": 20505,
+      "nameEn": "Coffre Bleu 1 LIM",
+      "nameFr": "Coffre Bleu 1 LIM",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CHEST",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Coffres/Coffre Bleu 1 LIM.sky",
+        "Skylanders Imaginators/Coffres/Coffre Bleu 3 LIM.sky"
+      ]
+    },
+    {
+      "toyId": 300,
+      "variantId": 0,
+      "nameEn": "Dragon's Peak",
+      "nameFr": "Pic du Dragon",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Inconnu",
+      "category": "ADVENTURE_PACK",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Packs Aventure/Pic du Dragon.sky"
+      ]
+    },
+    {
+      "toyId": 301,
+      "variantId": 0,
+      "nameEn": "Empire of Ice",
+      "nameFr": "Empire de Glace",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Inconnu",
+      "category": "ADVENTURE_PACK",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Packs Aventure/Empire de Glace.sky"
+      ]
+    },
+    {
+      "toyId": 302,
+      "variantId": 0,
+      "nameEn": "Pirate Seas",
+      "nameFr": "Mers Pirates",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Inconnu",
+      "category": "ADVENTURE_PACK",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Packs Aventure/Mers Pirates.sky"
+      ]
+    },
+    {
+      "toyId": 303,
+      "variantId": 0,
+      "nameEn": "Darklight Crypt",
+      "nameFr": "Crypte de Sombrelumière",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Inconnu",
+      "category": "ADVENTURE_PACK",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Packs Aventure/Crypte de Sombrelumière.sky"
+      ]
+    },
+    {
+      "toyId": 304,
+      "variantId": 0,
+      "nameEn": "Volcanic Vault",
+      "nameFr": "Coffre Volcanique",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Objets/Coffre Volcanique.sky"
+      ]
+    },
+    {
+      "toyId": 305,
+      "variantId": 0,
+      "nameEn": "Mirror of Mystery",
+      "nameFr": "Miroir du Mystère",
+      "game": "TRAP_TEAM",
+      "element": "Inconnu",
+      "category": "ADVENTURE_PACK",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Packs Aventure/Miroir du Mystère.sky"
+      ]
+    },
+    {
+      "toyId": 306,
+      "variantId": 0,
+      "nameEn": "Nightmare Express",
+      "nameFr": "Express des Cauchemars",
+      "game": "TRAP_TEAM",
+      "element": "Inconnu",
+      "category": "ADVENTURE_PACK",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Packs Aventure/Express des Cauchemars.sky"
+      ]
+    },
+    {
+      "toyId": 307,
+      "variantId": 0,
+      "nameEn": "Sunscraper Spire",
+      "nameFr": "Flèche Gratte-Soleil",
+      "game": "TRAP_TEAM",
+      "element": "Inconnu",
+      "category": "ADVENTURE_PACK",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Packs Aventure/Flèche Gratte-Soleil.sky"
+      ]
+    },
+    {
+      "toyId": 308,
+      "variantId": 0,
+      "nameEn": "Midnight Museum",
+      "nameFr": "Musée de Minuit",
+      "game": "TRAP_TEAM",
+      "element": "Inconnu",
+      "category": "ADVENTURE_PACK",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Packs Aventure/Musée de Minuit.sky"
+      ]
+    },
+    {
+      "toyId": 310,
+      "variantId": 20480,
+      "nameEn": "Gryphon Park Observatory",
+      "nameFr": "Observatoire du Parc aux Griffons",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "ADVENTURE_PACK",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Packs Aventure/Observatoire du Parc aux Griffons.sky"
+      ]
+    },
+    {
+      "toyId": 311,
+      "variantId": 20480,
+      "nameEn": "Enchanted Elven Forest",
+      "nameFr": "Forêt Elfique Enchantée",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "ADVENTURE_PACK",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Packs Aventure/Forêt Elfique Enchantée.sky"
+      ]
+    },
+    {
+      "toyId": 404,
+      "variantId": 0,
+      "nameEn": "Legendary Bash",
+      "nameFr": "Bash Légendaire",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Terre/Variantes/Bash Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 416,
+      "variantId": 0,
+      "nameEn": "Legendary Spyro",
+      "nameFr": "Spyro Légendaire",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Magie/Variantes/Spyro Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 419,
+      "variantId": 0,
+      "nameEn": "Legendary Trigger Happy",
+      "nameFr": "Trigger Happy Légendaire",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Tech/Variantes/Trigger Happy Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 430,
+      "variantId": 0,
+      "nameEn": "Legendary Chop Chop",
+      "nameFr": "Chop Chop Légendaire",
+      "game": "SPYROS_ADVENTURE",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Spyros Adventure/Mort-Vivant/Variantes/Chop Chop Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 450,
+      "variantId": 0,
+      "nameEn": "Gusto",
+      "nameFr": "Gusto",
+      "game": "TRAP_TEAM",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Air/Gusto.sky"
+      ]
+    },
+    {
+      "toyId": 451,
+      "variantId": 0,
+      "nameEn": "Thunderbolt",
+      "nameFr": "Thunderbolt",
+      "game": "TRAP_TEAM",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Air/Thunderbolt.sky"
+      ]
+    },
+    {
+      "toyId": 452,
+      "variantId": 0,
+      "nameEn": "Fling Kong",
+      "nameFr": "Fling Kong",
+      "game": "TRAP_TEAM",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Air/Fling Kong.sky"
+      ]
+    },
+    {
+      "toyId": 453,
+      "variantId": 0,
+      "nameEn": "Blades",
+      "nameFr": "Blades",
+      "game": "TRAP_TEAM",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Air/Blades.sky"
+      ]
+    },
+    {
+      "toyId": 453,
+      "variantId": 13315,
+      "nameEn": "Legendary Blades",
+      "nameFr": "Blades Légendaire",
+      "game": "TRAP_TEAM",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Air/Variantes/Blades Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 454,
+      "variantId": 0,
+      "nameEn": "Wallop",
+      "nameFr": "Wallop",
+      "game": "TRAP_TEAM",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Terre/Wallop.sky"
+      ]
+    },
+    {
+      "toyId": 455,
+      "variantId": 0,
+      "nameEn": "Head Rush",
+      "nameFr": "Head Rush",
+      "game": "TRAP_TEAM",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Terre/Head Rush.sky"
+      ]
+    },
+    {
+      "toyId": 455,
+      "variantId": 13314,
+      "nameEn": "Nitro Head Rush",
+      "nameFr": "Head Rush Nitro",
+      "game": "TRAP_TEAM",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Terre/Variantes/Head Rush Nitro.sky"
+      ]
+    },
+    {
+      "toyId": 456,
+      "variantId": 0,
+      "nameEn": "Fist Bump",
+      "nameFr": "Fist Bump",
+      "game": "TRAP_TEAM",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Terre/Fist Bump.sky"
+      ]
+    },
+    {
+      "toyId": 457,
+      "variantId": 0,
+      "nameEn": "Rocky Roll",
+      "nameFr": "Rocky Roll",
+      "game": "TRAP_TEAM",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Terre/Rocky Roll.sky"
+      ]
+    },
+    {
+      "toyId": 458,
+      "variantId": 0,
+      "nameEn": "Wildfire",
+      "nameFr": "Wildfire",
+      "game": "TRAP_TEAM",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Feu/Wildfire.sky"
+      ]
+    },
+    {
+      "toyId": 458,
+      "variantId": 13314,
+      "nameEn": "Dark Wildfire",
+      "nameFr": "Wildfire Sombre",
+      "game": "TRAP_TEAM",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Feu/Variantes/Wildfire Sombre.sky"
+      ]
+    },
+    {
+      "toyId": 459,
+      "variantId": 0,
+      "nameEn": "Ka Boom",
+      "nameFr": "Ka Boom",
+      "game": "TRAP_TEAM",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Feu/Ka Boom.sky"
+      ]
+    },
+    {
+      "toyId": 460,
+      "variantId": 0,
+      "nameEn": "Trail Blazer",
+      "nameFr": "Trail Blazer",
+      "game": "TRAP_TEAM",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Feu/Trail Blazer.sky"
+      ]
+    },
+    {
+      "toyId": 461,
+      "variantId": 0,
+      "nameEn": "Torch",
+      "nameFr": "Torch",
+      "game": "TRAP_TEAM",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Feu/Torch.sky"
+      ]
+    },
+    {
+      "toyId": 462,
+      "variantId": 0,
+      "nameEn": "Snap Shot",
+      "nameFr": "Snap Shot",
+      "game": "TRAP_TEAM",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Eau/Snap Shot.sky"
+      ]
+    },
+    {
+      "toyId": 462,
+      "variantId": 13314,
+      "nameEn": "Dark Snap Shot",
+      "nameFr": "Snap Shot Sombre",
+      "game": "TRAP_TEAM",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Eau/Variantes/Snap Shot Sombre.sky"
+      ]
+    },
+    {
+      "toyId": 463,
+      "variantId": 0,
+      "nameEn": "Lob Star",
+      "nameFr": "Lob Star",
+      "game": "TRAP_TEAM",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Eau/Lob Star.sky"
+      ]
+    },
+    {
+      "toyId": 463,
+      "variantId": 13314,
+      "nameEn": "Winterfest Lob-Star",
+      "nameFr": "Winterfest Lob-Star",
+      "game": "TRAP_TEAM",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Eau/Variantes/Winterfest Lob-Star.sky"
+      ]
+    },
+    {
+      "toyId": 464,
+      "variantId": 0,
+      "nameEn": "Flip Wreck",
+      "nameFr": "Flip Wreck",
+      "game": "TRAP_TEAM",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Eau/Flip Wreck.sky"
+      ]
+    },
+    {
+      "toyId": 465,
+      "variantId": 0,
+      "nameEn": "Echo",
+      "nameFr": "Echo",
+      "game": "TRAP_TEAM",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Eau/Echo.sky"
+      ]
+    },
+    {
+      "toyId": 466,
+      "variantId": 0,
+      "nameEn": "Blastermind",
+      "nameFr": "Blastermind",
+      "game": "TRAP_TEAM",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Magie/Blastermind.sky"
+      ]
+    },
+    {
+      "toyId": 467,
+      "variantId": 0,
+      "nameEn": "Enigma",
+      "nameFr": "Enigma",
+      "game": "TRAP_TEAM",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Magie/Enigma.sky"
+      ]
+    },
+    {
+      "toyId": 468,
+      "variantId": 0,
+      "nameEn": "Deja Vu",
+      "nameFr": "Deja Vu",
+      "game": "TRAP_TEAM",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Magie/Deja Vu.sky"
+      ]
+    },
+    {
+      "toyId": 468,
+      "variantId": 13315,
+      "nameEn": "Legendary Deja Vu",
+      "nameFr": "Deja Vu Légendaire",
+      "game": "TRAP_TEAM",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Magie/Variantes/Deja Vu Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 469,
+      "variantId": 0,
+      "nameEn": "Cobra Candabra",
+      "nameFr": "Cobra Candabra",
+      "game": "TRAP_TEAM",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Magie/Cobra Candabra.sky"
+      ]
+    },
+    {
+      "toyId": 469,
+      "variantId": 13314,
+      "nameEn": "King Cobra Cadabra",
+      "nameFr": "King Cobra Cadabra",
+      "game": "TRAP_TEAM",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Magie/Variantes/King Cobra Cadabra.sky"
+      ]
+    },
+    {
+      "toyId": 470,
+      "variantId": 0,
+      "nameEn": "Jawbreaker",
+      "nameFr": "Jawbreaker",
+      "game": "TRAP_TEAM",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Tech/Jawbreaker.sky"
+      ]
+    },
+    {
+      "toyId": 470,
+      "variantId": 13315,
+      "nameEn": "Legendary Jawbreaker",
+      "nameFr": "Jawbreaker Légendaire",
+      "game": "TRAP_TEAM",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Tech/Variantes/Jawbreaker Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 471,
+      "variantId": 0,
+      "nameEn": "Gearshift",
+      "nameFr": "Gearshift",
+      "game": "TRAP_TEAM",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Tech/Gearshift.sky"
+      ]
+    },
+    {
+      "toyId": 472,
+      "variantId": 0,
+      "nameEn": "Chopper",
+      "nameFr": "Chopper",
+      "game": "TRAP_TEAM",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Tech/Chopper.sky"
+      ]
+    },
+    {
+      "toyId": 473,
+      "variantId": 0,
+      "nameEn": "Tread Head",
+      "nameFr": "Tread Head",
+      "game": "TRAP_TEAM",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Tech/Tread Head.sky"
+      ]
+    },
+    {
+      "toyId": 474,
+      "variantId": 0,
+      "nameEn": "Bushwack",
+      "nameFr": "Bushwack",
+      "game": "TRAP_TEAM",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Vie/Bushwack.sky"
+      ]
+    },
+    {
+      "toyId": 474,
+      "variantId": 13315,
+      "nameEn": "Legendary Bushwack",
+      "nameFr": "Bushwack Légendaire",
+      "game": "TRAP_TEAM",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Vie/Variantes/Bushwack Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 475,
+      "variantId": 0,
+      "nameEn": "Tuff Luck",
+      "nameFr": "Tuff Luck",
+      "game": "TRAP_TEAM",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Vie/Tuff Luck.sky"
+      ]
+    },
+    {
+      "toyId": 476,
+      "variantId": 0,
+      "nameEn": "Food Fight",
+      "nameFr": "Food Fight",
+      "game": "TRAP_TEAM",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Vie/Food Fight.sky"
+      ]
+    },
+    {
+      "toyId": 476,
+      "variantId": 13314,
+      "nameEn": "Dark Food Fight",
+      "nameFr": "Food Fight Sombre",
+      "game": "TRAP_TEAM",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Vie/Variantes/Food Fight Sombre.sky"
+      ]
+    },
+    {
+      "toyId": 477,
+      "variantId": 0,
+      "nameEn": "High Five",
+      "nameFr": "High Five",
+      "game": "TRAP_TEAM",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Vie/High Five.sky"
+      ]
+    },
+    {
+      "toyId": 478,
+      "variantId": 0,
+      "nameEn": "Krypt King",
+      "nameFr": "Krypt King",
+      "game": "TRAP_TEAM",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Mort-Vivant/Krypt King.sky"
+      ]
+    },
+    {
+      "toyId": 478,
+      "variantId": 13314,
+      "nameEn": "Nitro Krypt King",
+      "nameFr": "Krypt King Nitro",
+      "game": "TRAP_TEAM",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Mort-Vivant/Variantes/Krypt King Nitro.sky"
+      ]
+    },
+    {
+      "toyId": 479,
+      "variantId": 0,
+      "nameEn": "Short Cut",
+      "nameFr": "Short Cut",
+      "game": "TRAP_TEAM",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Mort-Vivant/Short Cut.sky"
+      ]
+    },
+    {
+      "toyId": 480,
+      "variantId": 0,
+      "nameEn": "Bat Spin",
+      "nameFr": "Bat Spin",
+      "game": "TRAP_TEAM",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Mort-Vivant/Bat Spin.sky"
+      ]
+    },
+    {
+      "toyId": 481,
+      "variantId": 0,
+      "nameEn": "Funny Bone",
+      "nameFr": "Funny Bone",
+      "game": "TRAP_TEAM",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Mort-Vivant/Funny Bone.sky"
+      ]
+    },
+    {
+      "toyId": 482,
+      "variantId": 0,
+      "nameEn": "Knight Light",
+      "nameFr": "Knight Light",
+      "game": "TRAP_TEAM",
+      "element": "Lumière",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Lumière/Knight Light.sky"
+      ]
+    },
+    {
+      "toyId": 483,
+      "variantId": 0,
+      "nameEn": "Spotlight",
+      "nameFr": "Spotlight",
+      "game": "TRAP_TEAM",
+      "element": "Lumière",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Lumière/Spotlight.sky"
+      ]
+    },
+    {
+      "toyId": 484,
+      "variantId": 0,
+      "nameEn": "Knight Mare",
+      "nameFr": "Knight Mare",
+      "game": "TRAP_TEAM",
+      "element": "Ténèbres",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Ténèbres/Knight Mare.sky"
+      ]
+    },
+    {
+      "toyId": 485,
+      "variantId": 0,
+      "nameEn": "Blackout",
+      "nameFr": "Blackout",
+      "game": "TRAP_TEAM",
+      "element": "Ténèbres",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Ténèbres/Blackout.sky"
+      ]
+    },
+    {
+      "toyId": 502,
+      "variantId": 0,
+      "nameEn": "Bop",
+      "nameFr": "Bop",
+      "game": "TRAP_TEAM",
+      "element": "Inconnu",
+      "category": "MINI",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Minis/Bop.sky"
+      ]
+    },
+    {
+      "toyId": 503,
+      "variantId": 0,
+      "nameEn": "Spry",
+      "nameFr": "Spry",
+      "game": "TRAP_TEAM",
+      "element": "Inconnu",
+      "category": "MINI",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Minis/Spry.sky"
+      ]
+    },
+    {
+      "toyId": 504,
+      "variantId": 0,
+      "nameEn": "Hijinx",
+      "nameFr": "Hijinx",
+      "game": "TRAP_TEAM",
+      "element": "Inconnu",
+      "category": "MINI",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Minis/Hijinx.sky"
+      ]
+    },
+    {
+      "toyId": 505,
+      "variantId": 0,
+      "nameEn": "Terrabite",
+      "nameFr": "Terrabite",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "SIDEKICK",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Acolytes/Terrabite.sky",
+        "Skylanders Trap Team/Acolytes/Terrabite.sky",
+        "Skylanders Trap Team/Minis/Terrabite.sky"
+      ]
+    },
+    {
+      "toyId": 506,
+      "variantId": 0,
+      "nameEn": "Breeze",
+      "nameFr": "Breeze",
+      "game": "TRAP_TEAM",
+      "element": "Inconnu",
+      "category": "MINI",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Minis/Breeze.sky"
+      ]
+    },
+    {
+      "toyId": 507,
+      "variantId": 0,
+      "nameEn": "Weeruptor",
+      "nameFr": "Weeruptor",
+      "game": "TRAP_TEAM",
+      "element": "Inconnu",
+      "category": "MINI",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Minis/Weeruptor.sky"
+      ]
+    },
+    {
+      "toyId": 507,
+      "variantId": 13314,
+      "nameEn": "Eggcellent Weeruptor",
+      "nameFr": "Eggcellent Weeruptor",
+      "game": "TRAP_TEAM",
+      "element": "Inconnu",
+      "category": "MINI",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Minis/Variantes/Eggcellent Weeruptor.sky"
+      ]
+    },
+    {
+      "toyId": 508,
+      "variantId": 0,
+      "nameEn": "Pet Vac",
+      "nameFr": "Pet Vac",
+      "game": "TRAP_TEAM",
+      "element": "Inconnu",
+      "category": "MINI",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Minis/Pet Vac.sky"
+      ]
+    },
+    {
+      "toyId": 508,
+      "variantId": 13314,
+      "nameEn": "Power Punch Pet Vac",
+      "nameFr": "Power Punch Pet Vac",
+      "game": "TRAP_TEAM",
+      "element": "Inconnu",
+      "category": "MINI",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Minis/Variantes/Power Punch Pet Vac.sky"
+      ]
+    },
+    {
+      "toyId": 509,
+      "variantId": 0,
+      "nameEn": "Small Fry",
+      "nameFr": "Small Fry",
+      "game": "TRAP_TEAM",
+      "element": "Inconnu",
+      "category": "MINI",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Minis/Small Fry.sky"
+      ]
+    },
+    {
+      "toyId": 510,
+      "variantId": 0,
+      "nameEn": "Drobit",
+      "nameFr": "Drobit",
+      "game": "TRAP_TEAM",
+      "element": "Inconnu",
+      "category": "MINI",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Minis/Drobit.sky"
+      ]
+    },
+    {
+      "toyId": 514,
+      "variantId": 0,
+      "nameEn": "Gill Runt",
+      "nameFr": "Gill Runt",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "SIDEKICK",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Acolytes/Gill Runt.sky",
+        "Skylanders Trap Team/Acolytes/Gill Runt.sky",
+        "Skylanders Trap Team/Minis/Gill Runt.sky"
+      ]
+    },
+    {
+      "toyId": 519,
+      "variantId": 0,
+      "nameEn": "Trigger Snappy",
+      "nameFr": "Trigger Snappy",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "SIDEKICK",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Acolytes/Trigger Snappy.sky",
+        "Skylanders Trap Team/Acolytes/Trigger Snappy.sky",
+        "Skylanders Trap Team/Minis/Trigger Snappy.sky"
+      ]
+    },
+    {
+      "toyId": 526,
+      "variantId": 0,
+      "nameEn": "Whisper Elf",
+      "nameFr": "Whisper Elf",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "SIDEKICK",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Acolytes/Whisper Elf.sky",
+        "Skylanders Trap Team/Acolytes/Whisper Elf.sky",
+        "Skylanders Trap Team/Minis/Whisper Elf.sky"
+      ]
+    },
+    {
+      "toyId": 540,
+      "variantId": 0,
+      "nameEn": "Barkley",
+      "nameFr": "Barkley",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "SIDEKICK",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Acolytes/Barkley.sky",
+        "Skylanders Trap Team/Acolytes/Barkley.sky",
+        "Skylanders Trap Team/Minis/Barkley.sky"
+      ]
+    },
+    {
+      "toyId": 541,
+      "variantId": 0,
+      "nameEn": "Thumpling",
+      "nameFr": "Thumpling",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "SIDEKICK",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Acolytes/Thumpling.sky",
+        "Skylanders Trap Team/Acolytes/Thumpling.sky",
+        "Skylanders Trap Team/Minis/Thumpling.sky"
+      ]
+    },
+    {
+      "toyId": 542,
+      "variantId": 0,
+      "nameEn": "Mini-Jini",
+      "nameFr": "Mini-Jini",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "SIDEKICK",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Acolytes/Mini-Jini.sky",
+        "Skylanders Trap Team/Acolytes/Mini-Jini.sky",
+        "Skylanders Trap Team/Minis/Mini-Jini.sky"
+      ]
+    },
+    {
+      "toyId": 543,
+      "variantId": 0,
+      "nameEn": "Eye Small",
+      "nameFr": "Eye Small",
+      "game": "GIANTS",
+      "element": "Inconnu",
+      "category": "SIDEKICK",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Giants/Acolytes/Eye Small.sky",
+        "Skylanders Trap Team/Acolytes/Eye Small.sky",
+        "Skylanders Trap Team/Minis/Eye Small.sky"
+      ]
+    },
+    {
+      "toyId": 601,
+      "variantId": 20480,
+      "nameEn": "Kingpen",
+      "nameFr": "Kingpen",
+      "game": "IMAGINATORS",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Eau/Kingpen.sky"
+      ]
+    },
+    {
+      "toyId": 601,
+      "variantId": 21506,
+      "nameEn": "Dark Kingpen",
+      "nameFr": "Kingpen Sombre",
+      "game": "IMAGINATORS",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Eau/Variantes/Kingpen Sombre.sky"
+      ]
+    },
+    {
+      "toyId": 602,
+      "variantId": 20480,
+      "nameEn": "Tritip",
+      "nameFr": "Tritip",
+      "game": "IMAGINATORS",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Terre/Tritip.sky"
+      ]
+    },
+    {
+      "toyId": 602,
+      "variantId": 21507,
+      "nameEn": "Legendary Tri-Tip",
+      "nameFr": "Tri-Tip Légendaire",
+      "game": "IMAGINATORS",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Terre/Variantes/Tri-Tip Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 603,
+      "variantId": 20480,
+      "nameEn": "Chop_Scotch",
+      "nameFr": "Chop_Scotch",
+      "game": "IMAGINATORS",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Mort-Vivant/Chop_Scotch.sky"
+      ]
+    },
+    {
+      "toyId": 603,
+      "variantId": 21525,
+      "nameEn": "Chop_Scotch-Candy-Coated",
+      "nameFr": "Chop_Scotch-Candy-Coated",
+      "game": "IMAGINATORS",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Mort-Vivant/Variantes/Chop_Scotch-Candy-Coated.sky"
+      ]
+    },
+    {
+      "toyId": 604,
+      "variantId": 20480,
+      "nameEn": "Boombloom",
+      "nameFr": "Boombloom",
+      "game": "IMAGINATORS",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Vie/Boombloom.sky"
+      ]
+    },
+    {
+      "toyId": 605,
+      "variantId": 20480,
+      "nameEn": "Pitboss",
+      "nameFr": "Pitboss",
+      "game": "IMAGINATORS",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Mort-Vivant/Pitboss.sky"
+      ]
+    },
+    {
+      "toyId": 605,
+      "variantId": 21507,
+      "nameEn": "Legendary Pitboss",
+      "nameFr": "Pitboss Légendaire",
+      "game": "IMAGINATORS",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Mort-Vivant/Variantes/Pitboss Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 606,
+      "variantId": 20480,
+      "nameEn": "Barbella",
+      "nameFr": "Barbella",
+      "game": "IMAGINATORS",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Terre/Barbella.sky"
+      ]
+    },
+    {
+      "toyId": 607,
+      "variantId": 20480,
+      "nameEn": "Airstrike",
+      "nameFr": "Airstrike",
+      "game": "IMAGINATORS",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Air/Airstrike.sky"
+      ]
+    },
+    {
+      "toyId": 607,
+      "variantId": 21517,
+      "nameEn": "Airstrike-Eggbomber",
+      "nameFr": "Airstrike-Eggbomber",
+      "game": "IMAGINATORS",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Air/Variantes/Airstrike-Eggbomber.sky"
+      ]
+    },
+    {
+      "toyId": 608,
+      "variantId": 20480,
+      "nameEn": "Ember",
+      "nameFr": "Ember",
+      "game": "IMAGINATORS",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Feu/Ember.sky"
+      ]
+    },
+    {
+      "toyId": 609,
+      "variantId": 20480,
+      "nameEn": "Ambush",
+      "nameFr": "Ambush",
+      "game": "IMAGINATORS",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Vie/Ambush.sky"
+      ]
+    },
+    {
+      "toyId": 610,
+      "variantId": 20480,
+      "nameEn": "Dr_Krankcase",
+      "nameFr": "Dr_Krankcase",
+      "game": "IMAGINATORS",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Tech/Dr_Krankcase.sky"
+      ]
+    },
+    {
+      "toyId": 611,
+      "variantId": 20480,
+      "nameEn": "Hoodsickle",
+      "nameFr": "Hoodsickle",
+      "game": "IMAGINATORS",
+      "element": "Ténèbres",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Ténèbres/Hoodsickle.sky"
+      ]
+    },
+    {
+      "toyId": 611,
+      "variantId": 21506,
+      "nameEn": "Hoodsickle-Steelplated",
+      "nameFr": "Hoodsickle-Steelplated",
+      "game": "IMAGINATORS",
+      "element": "Ténèbres",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Ténèbres/Variantes/Hoodsickle-Steelplated.sky"
+      ]
+    },
+    {
+      "toyId": 612,
+      "variantId": 20480,
+      "nameEn": "Taekwoncrow",
+      "nameFr": "Taekwoncrow",
+      "game": "IMAGINATORS",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Feu/Taekwoncrow.sky"
+      ]
+    },
+    {
+      "toyId": 612,
+      "variantId": 21506,
+      "nameEn": "Taekwoncrow-Mystical",
+      "nameFr": "Taekwoncrow-Mystical",
+      "game": "IMAGINATORS",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Feu/Variantes/Taekwoncrow-Mystical.sky"
+      ]
+    },
+    {
+      "toyId": 613,
+      "variantId": 20480,
+      "nameEn": "Golden_Queen",
+      "nameFr": "Golden_Queen",
+      "game": "IMAGINATORS",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Terre/Golden_Queen.sky"
+      ]
+    },
+    {
+      "toyId": 613,
+      "variantId": 21506,
+      "nameEn": "Dark Golden_Queen",
+      "nameFr": "Golden_Queen Sombre",
+      "game": "IMAGINATORS",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Terre/Variantes/Golden_Queen Sombre.sky"
+      ]
+    },
+    {
+      "toyId": 614,
+      "variantId": 20480,
+      "nameEn": "Wolfgang",
+      "nameFr": "Wolfgang",
+      "game": "IMAGINATORS",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Mort-Vivant/Wolfgang.sky"
+      ]
+    },
+    {
+      "toyId": 614,
+      "variantId": 21506,
+      "nameEn": "Dark Wolfgang",
+      "nameFr": "Wolfgang Sombre",
+      "game": "IMAGINATORS",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Mort-Vivant/Variantes/Wolfgang Sombre.sky"
+      ]
+    },
+    {
+      "toyId": 615,
+      "variantId": 20480,
+      "nameEn": "Pain-Yatta",
+      "nameFr": "Pain-Yatta",
+      "game": "IMAGINATORS",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Magie/Pain-Yatta.sky"
+      ]
+    },
+    {
+      "toyId": 616,
+      "variantId": 20480,
+      "nameEn": "Mysticat",
+      "nameFr": "Mysticat",
+      "game": "IMAGINATORS",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Magie/Mysticat.sky"
+      ]
+    },
+    {
+      "toyId": 617,
+      "variantId": 20480,
+      "nameEn": "Star_Cast",
+      "nameFr": "Star_Cast",
+      "game": "IMAGINATORS",
+      "element": "Ténèbres",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Ténèbres/Star_Cast.sky"
+      ]
+    },
+    {
+      "toyId": 618,
+      "variantId": 20480,
+      "nameEn": "Buckshot",
+      "nameFr": "Buckshot",
+      "game": "IMAGINATORS",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Magie/Buckshot.sky"
+      ]
+    },
+    {
+      "toyId": 619,
+      "variantId": 20480,
+      "nameEn": "Aurora",
+      "nameFr": "Aurora",
+      "game": "IMAGINATORS",
+      "element": "Lumière",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Lumière/Aurora.sky"
+      ]
+    },
+    {
+      "toyId": 619,
+      "variantId": 21506,
+      "nameEn": "Aurora-Solarflare",
+      "nameFr": "Aurora-Solarflare",
+      "game": "IMAGINATORS",
+      "element": "Lumière",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Lumière/Variantes/Aurora-Solarflare.sky"
+      ]
+    },
+    {
+      "toyId": 620,
+      "variantId": 20480,
+      "nameEn": "Flarewolf",
+      "nameFr": "Flarewolf",
+      "game": "IMAGINATORS",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Feu/Flarewolf.sky"
+      ]
+    },
+    {
+      "toyId": 620,
+      "variantId": 21517,
+      "nameEn": "Flarewolf-Hardboiled",
+      "nameFr": "Flarewolf-Hardboiled",
+      "game": "IMAGINATORS",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Feu/Variantes/Flarewolf-Hardboiled.sky"
+      ]
+    },
+    {
+      "toyId": 621,
+      "variantId": 20480,
+      "nameEn": "Chompymage",
+      "nameFr": "Chompymage",
+      "game": "IMAGINATORS",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Vie/Chompymage.sky"
+      ]
+    },
+    {
+      "toyId": 621,
+      "variantId": 21518,
+      "nameEn": "Chompymage-Jinglebell",
+      "nameFr": "Chompymage-Jinglebell",
+      "game": "IMAGINATORS",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Vie/Variantes/Chompymage-Jinglebell.sky"
+      ]
+    },
+    {
+      "toyId": 622,
+      "variantId": 20480,
+      "nameEn": "Bad_Juju",
+      "nameFr": "Bad_Juju",
+      "game": "IMAGINATORS",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Air/Bad_Juju.sky"
+      ]
+    },
+    {
+      "toyId": 622,
+      "variantId": 21506,
+      "nameEn": "Badjuju-Mystical",
+      "nameFr": "Badjuju-Mystical",
+      "game": "IMAGINATORS",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Air/Variantes/Badjuju-Mystical.sky"
+      ]
+    },
+    {
+      "toyId": 623,
+      "variantId": 20480,
+      "nameEn": "Graveclobber",
+      "nameFr": "Graveclobber",
+      "game": "IMAGINATORS",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Eau/Graveclobber.sky"
+      ]
+    },
+    {
+      "toyId": 624,
+      "variantId": 20480,
+      "nameEn": "Blaster-Tron",
+      "nameFr": "Blaster-Tron",
+      "game": "IMAGINATORS",
+      "element": "Lumière",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Lumière/Blaster-Tron.sky"
+      ]
+    },
+    {
+      "toyId": 625,
+      "variantId": 20480,
+      "nameEn": "Ro-Bow",
+      "nameFr": "Ro-Bow",
+      "game": "IMAGINATORS",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Tech/Ro-Bow.sky"
+      ]
+    },
+    {
+      "toyId": 626,
+      "variantId": 20480,
+      "nameEn": "Chain_Reaction",
+      "nameFr": "Chain_Reaction",
+      "game": "IMAGINATORS",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Tech/Chain_Reaction.sky"
+      ]
+    },
+    {
+      "toyId": 627,
+      "variantId": 20480,
+      "nameEn": "Kaos",
+      "nameFr": "Kaos",
+      "game": "IMAGINATORS",
+      "element": "Kaos",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Kaos/Kaos.sky"
+      ]
+    },
+    {
+      "toyId": 628,
+      "variantId": 20480,
+      "nameEn": "Wildstorm",
+      "nameFr": "Wildstorm",
+      "game": "IMAGINATORS",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Air/Wildstorm.sky"
+      ]
+    },
+    {
+      "toyId": 629,
+      "variantId": 20480,
+      "nameEn": "Tidepool",
+      "nameFr": "Tidepool",
+      "game": "IMAGINATORS",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Eau/Tidepool.sky"
+      ]
+    },
+    {
+      "toyId": 630,
+      "variantId": 20480,
+      "nameEn": "Crash_Bandicoot",
+      "nameFr": "Crash_Bandicoot",
+      "game": "IMAGINATORS",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Vie/Crash_Bandicoot.sky"
+      ]
+    },
+    {
+      "toyId": 631,
+      "variantId": 20480,
+      "nameEn": "Dr_Neocortex",
+      "nameFr": "Dr_Neocortex",
+      "game": "IMAGINATORS",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Tech/Dr_Neocortex.sky"
+      ]
+    },
+    {
+      "toyId": 680,
+      "variantId": 20996,
+      "nameEn": "Pyramide Magie 1",
+      "nameFr": "Pyramide Magie 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Pyramide Magie 1.sky",
+        "Skylanders Imaginators/Cristaux de Création/Pyramide Magie 2.sky",
+        "Skylanders Imaginators/Cristaux de Création/Pyramide Magie 3.sky"
+      ]
+    },
+    {
+      "toyId": 680,
+      "variantId": 21000,
+      "nameEn": "Lanterne Magie 1",
+      "nameFr": "Lanterne Magie 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Lanterne Magie 1.sky",
+        "Skylanders Imaginators/Cristaux de Création/Lanterne Magie 2.sky"
+      ]
+    },
+    {
+      "toyId": 680,
+      "variantId": 22024,
+      "nameEn": "Legendary Lanterne Magie 1",
+      "nameFr": "Lanterne Magie 1 Légendaire",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Lanterne Magie 1 Légendaire.sky",
+        "Skylanders Imaginators/Cristaux de Création/Lanterne Magie 2 Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 681,
+      "variantId": 21012,
+      "nameEn": "Armure Eau 1",
+      "nameFr": "Armure Eau 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Armure Eau 1.sky",
+        "Skylanders Imaginators/Cristaux de Création/Armure Eau 2.sky",
+        "Skylanders Imaginators/Cristaux de Création/Armure Eau 3.sky"
+      ]
+    },
+    {
+      "toyId": 681,
+      "variantId": 21020,
+      "nameEn": "Fusée Eau 1",
+      "nameFr": "Fusée Eau 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Fusée Eau 1.sky",
+        "Skylanders Imaginators/Cristaux de Création/Fusée Eau 2.sky"
+      ]
+    },
+    {
+      "toyId": 682,
+      "variantId": 20994,
+      "nameEn": "Ange Air 1",
+      "nameFr": "Ange Air 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Ange Air 1.sky",
+        "Skylanders Imaginators/Cristaux de Création/Ange Air 2.sky",
+        "Skylanders Imaginators/Cristaux de Création/Ange Air 3.sky",
+        "Skylanders Imaginators/Cristaux de Création/Ange Air 4.sky",
+        "Skylanders Imaginators/Cristaux de Création/Ange Air 5.sky",
+        "Skylanders Imaginators/Cristaux de Création/Ange Air 6.sky"
+      ]
+    },
+    {
+      "toyId": 682,
+      "variantId": 20999,
+      "nameEn": "Lanterne Air 1",
+      "nameFr": "Lanterne Air 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Lanterne Air 1.sky",
+        "Skylanders Imaginators/Cristaux de Création/Lanterne Air 2.sky",
+        "Skylanders Imaginators/Cristaux de Création/Lanterne Air 3.sky",
+        "Skylanders Imaginators/Cristaux de Création/Lanterne Air 4.sky",
+        "Skylanders Imaginators/Cristaux de Création/Lanterne Air 5.sky"
+      ]
+    },
+    {
+      "toyId": 683,
+      "variantId": 21001,
+      "nameEn": "Lanterne Mort-Vivant 1",
+      "nameFr": "Lanterne Mort-Vivant 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Lanterne Mort-Vivant 1.sky"
+      ]
+    },
+    {
+      "toyId": 683,
+      "variantId": 21015,
+      "nameEn": "Croc Mort-Vivant 1",
+      "nameFr": "Croc Mort-Vivant 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Croc Mort-Vivant 1.sky",
+        "Skylanders Imaginators/Cristaux de Création/Croc Mort-Vivant 2.sky",
+        "Skylanders Imaginators/Cristaux de Création/Croc Mort-Vivant 3.sky"
+      ]
+    },
+    {
+      "toyId": 684,
+      "variantId": 21005,
+      "nameEn": "Réacteur Tech 1",
+      "nameFr": "Réacteur Tech 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Réacteur Tech 1.sky",
+        "Skylanders Imaginators/Cristaux de Création/Réacteur Tech 2.sky",
+        "Skylanders Imaginators/Cristaux de Création/Réacteur Tech 3.sky",
+        "Skylanders Imaginators/Cristaux de Création/Réacteur Tech 4.sky",
+        "Skylanders Imaginators/Cristaux de Création/Réacteur Tech 5.sky"
+      ]
+    },
+    {
+      "toyId": 684,
+      "variantId": 21013,
+      "nameEn": "Armure Tech 1",
+      "nameFr": "Armure Tech 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Armure Tech 1.sky",
+        "Skylanders Imaginators/Cristaux de Création/Armure Tech 2.sky"
+      ]
+    },
+    {
+      "toyId": 685,
+      "variantId": 21007,
+      "nameEn": "Réacteur Feu 1",
+      "nameFr": "Réacteur Feu 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Réacteur Feu 1.sky",
+        "Skylanders Imaginators/Cristaux de Création/Réacteur Feu 10.sky",
+        "Skylanders Imaginators/Cristaux de Création/Réacteur Feu 11.sky",
+        "Skylanders Imaginators/Cristaux de Création/Réacteur Feu 12.sky",
+        "Skylanders Imaginators/Cristaux de Création/Réacteur Feu 2.sky",
+        "Skylanders Imaginators/Cristaux de Création/Réacteur Feu 3.sky",
+        "Skylanders Imaginators/Cristaux de Création/Réacteur Feu 4.sky",
+        "Skylanders Imaginators/Cristaux de Création/Réacteur Feu 5.sky",
+        "Skylanders Imaginators/Cristaux de Création/Réacteur Feu 6.sky",
+        "Skylanders Imaginators/Cristaux de Création/Réacteur Feu 7.sky",
+        "Skylanders Imaginators/Cristaux de Création/Réacteur Feu 8.sky",
+        "Skylanders Imaginators/Cristaux de Création/Réacteur Feu 9.sky"
+      ]
+    },
+    {
+      "toyId": 685,
+      "variantId": 21009,
+      "nameEn": "Gland Feu 1",
+      "nameFr": "Gland Feu 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Gland Feu 1.sky",
+        "Skylanders Imaginators/Cristaux de Création/Gland Feu 2.sky"
+      ]
+    },
+    {
+      "toyId": 686,
+      "variantId": 21011,
+      "nameEn": "Armure Terre 1",
+      "nameFr": "Armure Terre 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Armure Terre 1.sky",
+        "Skylanders Imaginators/Cristaux de Création/Armure Terre 2.sky",
+        "Skylanders Imaginators/Cristaux de Création/Armure Terre 3.sky",
+        "Skylanders Imaginators/Cristaux de Création/Armure Terre 4.sky",
+        "Skylanders Imaginators/Cristaux de Création/Armure Terre 5.sky"
+      ]
+    },
+    {
+      "toyId": 686,
+      "variantId": 21021,
+      "nameEn": "Fusée Terre 1",
+      "nameFr": "Fusée Terre 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Fusée Terre 1.sky",
+        "Skylanders Imaginators/Cristaux de Création/Fusée Terre 2.sky",
+        "Skylanders Imaginators/Cristaux de Création/Fusée Terre 3.sky",
+        "Skylanders Imaginators/Cristaux de Création/Fusée Terre 4.sky",
+        "Skylanders Imaginators/Cristaux de Création/Fusée Terre 5.sky",
+        "Skylanders Imaginators/Cristaux de Création/Fusée Terre 6.sky"
+      ]
+    },
+    {
+      "toyId": 687,
+      "variantId": 21008,
+      "nameEn": "Gland Vie 1",
+      "nameFr": "Gland Vie 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Gland Vie 1.sky",
+        "Skylanders Imaginators/Cristaux de Création/Gland Vie 2.sky"
+      ]
+    },
+    {
+      "toyId": 687,
+      "variantId": 21018,
+      "nameEn": "Griffe Vie 1",
+      "nameFr": "Griffe Vie 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Griffe Vie 1.sky",
+        "Skylanders Imaginators/Cristaux de Création/Griffe Vie 2.sky",
+        "Skylanders Imaginators/Cristaux de Création/Griffe Vie 3.sky"
+      ]
+    },
+    {
+      "toyId": 687,
+      "variantId": 21023,
+      "nameEn": "Rune Vie 1",
+      "nameFr": "Rune Vie 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Rune Vie 1.sky"
+      ]
+    },
+    {
+      "toyId": 687,
+      "variantId": 22032,
+      "nameEn": "Legendary Gland Vie 1",
+      "nameFr": "Gland Vie 1 Légendaire",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Gland Vie 1 Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 688,
+      "variantId": 20998,
+      "nameEn": "Pyramide Ténèbres 1",
+      "nameFr": "Pyramide Ténèbres 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Pyramide Ténèbres 1.sky",
+        "Skylanders Imaginators/Cristaux de Création/Pyramide Ténèbres 2.sky"
+      ]
+    },
+    {
+      "toyId": 688,
+      "variantId": 21006,
+      "nameEn": "Réacteur Ténèbres 1",
+      "nameFr": "Réacteur Ténèbres 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Réacteur Ténèbres 1.sky",
+        "Skylanders Imaginators/Cristaux de Création/Réacteur Ténèbres 2.sky",
+        "Skylanders Imaginators/Cristaux de Création/Réacteur Ténèbres 3.sky"
+      ]
+    },
+    {
+      "toyId": 689,
+      "variantId": 21003,
+      "nameEn": "Rune Lumière 1",
+      "nameFr": "Rune Lumière 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Rune Lumière 1.sky",
+        "Skylanders Imaginators/Cristaux de Création/Rune Lumière 2.sky",
+        "Skylanders Imaginators/Cristaux de Création/Rune Lumière 3.sky",
+        "Skylanders Imaginators/Cristaux de Création/Rune Lumière 4.sky"
+      ]
+    },
+    {
+      "toyId": 689,
+      "variantId": 21014,
+      "nameEn": "Croc Lumière 1",
+      "nameFr": "Croc Lumière 1",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Croc Lumière 1.sky",
+        "Skylanders Imaginators/Cristaux de Création/Croc Lumière 2.sky",
+        "Skylanders Imaginators/Cristaux de Création/Croc Lumière 3.sky",
+        "Skylanders Imaginators/Cristaux de Création/Croc Lumière 4.sky"
+      ]
+    },
+    {
+      "toyId": 689,
+      "variantId": 22038,
+      "nameEn": "Legendary Croc Lumière 1",
+      "nameFr": "Croc Lumière 1 Légendaire",
+      "game": "IMAGINATORS",
+      "element": "Inconnu",
+      "category": "CREATION_CRYSTAL",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Imaginators/Cristaux de Création/Croc Lumière 1 Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 1000,
+      "variantId": 0,
+      "nameEn": "Boom Jet (Bottom)",
+      "nameFr": "Boom Jet (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Air/Boom Jet (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1001,
+      "variantId": 0,
+      "nameEn": "Free Ranger (Bottom)",
+      "nameFr": "Free Ranger (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Air/Free Ranger (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1001,
+      "variantId": 9219,
+      "nameEn": "Free Ranger Légendaire (Bottom)",
+      "nameFr": "Free Ranger Légendaire (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Air/Variantes/Free Ranger Légendaire (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1002,
+      "variantId": 0,
+      "nameEn": "Rubble Rouser (Bottom)",
+      "nameFr": "Rubble Rouser (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Terre/Rubble Rouser (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1003,
+      "variantId": 0,
+      "nameEn": "Doom Stone (Bottom)",
+      "nameFr": "Doom Stone (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Terre/Doom Stone (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1004,
+      "variantId": 0,
+      "nameEn": "Blast Zone (Bottom)",
+      "nameFr": "Blast Zone (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Feu/Blast Zone (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1004,
+      "variantId": 9218,
+      "nameEn": "Blast Zone Sombre (Bottom)",
+      "nameFr": "Blast Zone Sombre (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Feu/Variantes/Blast Zone Sombre (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1005,
+      "variantId": 0,
+      "nameEn": "Fire Kraken (Bottom)",
+      "nameFr": "Fire Kraken (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Feu/Fire Kraken (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1005,
+      "variantId": 9218,
+      "nameEn": "Jade Fire Kraken (Bottom)",
+      "nameFr": "Jade Fire Kraken (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Feu/Variantes/Jade Fire Kraken (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1006,
+      "variantId": 0,
+      "nameEn": "Stink Bomb (Bottom)",
+      "nameFr": "Stink Bomb (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Vie/Stink Bomb (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1007,
+      "variantId": 0,
+      "nameEn": "Grilla Drilla (Bottom)",
+      "nameFr": "Grilla Drilla (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Vie/Grilla Drilla (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1008,
+      "variantId": 0,
+      "nameEn": "Hoot Loop (Bottom)",
+      "nameFr": "Hoot Loop (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Magie/Hoot Loop (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1008,
+      "variantId": 9218,
+      "nameEn": "Enchanted Hoot Loop (Bottom)",
+      "nameFr": "Enchanted Hoot Loop (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Magie/Variantes/Enchanted Hoot Loop (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1009,
+      "variantId": 0,
+      "nameEn": "Trap Shadow (Bottom)",
+      "nameFr": "Trap Shadow (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Magie/Trap Shadow (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1010,
+      "variantId": 0,
+      "nameEn": "Magna Charge (Bottom)",
+      "nameFr": "Magna Charge (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Tech/Magna Charge (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1010,
+      "variantId": 9218,
+      "nameEn": "Magna Charge Nitro (Bottom)",
+      "nameFr": "Magna Charge Nitro (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Tech/Variantes/Magna Charge Nitro (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1011,
+      "variantId": 0,
+      "nameEn": "Spy Rise (Bottom)",
+      "nameFr": "Spy Rise (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Tech/Spy Rise (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1012,
+      "variantId": 0,
+      "nameEn": "Night Shift (Bottom)",
+      "nameFr": "Night Shift (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Mort-Vivant/Night Shift (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1012,
+      "variantId": 9219,
+      "nameEn": "Night Shift Légendaire (Bottom)",
+      "nameFr": "Night Shift Légendaire (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Mort-Vivant/Variantes/Night Shift Légendaire (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1013,
+      "variantId": 0,
+      "nameEn": "Rattle Shake (Bottom)",
+      "nameFr": "Rattle Shake (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Mort-Vivant/Rattle Shake (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1013,
+      "variantId": 9218,
+      "nameEn": "Quick Draw Rattle Shake (Bottom)",
+      "nameFr": "Quick Draw Rattle Shake (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Mort-Vivant/Variantes/Quick Draw Rattle Shake (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1014,
+      "variantId": 0,
+      "nameEn": "Freeze Blade (Bottom)",
+      "nameFr": "Freeze Blade (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Eau/Freeze Blade (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1014,
+      "variantId": 9218,
+      "nameEn": "Freeze Blade Nitro (Bottom)",
+      "nameFr": "Freeze Blade Nitro (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Eau/Variantes/Freeze Blade Nitro (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1015,
+      "variantId": 0,
+      "nameEn": "Wash Buckler (Bottom)",
+      "nameFr": "Wash Buckler (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Eau/Wash Buckler (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 1015,
+      "variantId": 9218,
+      "nameEn": "Wash Buckler Sombre (Bottom)",
+      "nameFr": "Wash Buckler Sombre (Bas)",
+      "game": "SWAP_FORCE",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Eau/Variantes/Wash Buckler Sombre (Bas).sky"
+      ]
+    },
+    {
+      "toyId": 2000,
+      "variantId": 0,
+      "nameEn": "Boom Jet (Top)",
+      "nameFr": "Boom Jet (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Air/Boom Jet (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2001,
+      "variantId": 0,
+      "nameEn": "Free Ranger (Top)",
+      "nameFr": "Free Ranger (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Air/Free Ranger (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2001,
+      "variantId": 9219,
+      "nameEn": "Free Ranger Légendaire (Top)",
+      "nameFr": "Free Ranger Légendaire (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Air/Variantes/Free Ranger Légendaire (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2002,
+      "variantId": 0,
+      "nameEn": "Rubble Rouser (Top)",
+      "nameFr": "Rubble Rouser (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Terre/Rubble Rouser (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2003,
+      "variantId": 0,
+      "nameEn": "Doom Stone (Top)",
+      "nameFr": "Doom Stone (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Terre/Doom Stone (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2004,
+      "variantId": 0,
+      "nameEn": "Blast Zone (Top)",
+      "nameFr": "Blast Zone (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Feu/Blast Zone (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2004,
+      "variantId": 9218,
+      "nameEn": "Blast Zone Sombre (Top)",
+      "nameFr": "Blast Zone Sombre (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Feu/Variantes/Blast Zone Sombre (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2005,
+      "variantId": 0,
+      "nameEn": "Fire Kraken (Top)",
+      "nameFr": "Fire Kraken (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Feu/Fire Kraken (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2005,
+      "variantId": 9218,
+      "nameEn": "Jade Fire Kraken (Top)",
+      "nameFr": "Jade Fire Kraken (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Feu/Variantes/Jade Fire Kraken (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2006,
+      "variantId": 0,
+      "nameEn": "Stink Bomb (Top)",
+      "nameFr": "Stink Bomb (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Vie/Stink Bomb (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2007,
+      "variantId": 0,
+      "nameEn": "Grilla Drilla (Top)",
+      "nameFr": "Grilla Drilla (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Vie/Grilla Drilla (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2008,
+      "variantId": 0,
+      "nameEn": "Hoot Loop (Top)",
+      "nameFr": "Hoot Loop (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Magie/Hoot Loop (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2008,
+      "variantId": 9218,
+      "nameEn": "Enchanted Hoot Loop (Top)",
+      "nameFr": "Enchanted Hoot Loop (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Magie/Variantes/Enchanted Hoot Loop (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2009,
+      "variantId": 0,
+      "nameEn": "Trap Shadow (Top)",
+      "nameFr": "Trap Shadow (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Magie/Trap Shadow (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2010,
+      "variantId": 0,
+      "nameEn": "Magna Charge (Top)",
+      "nameFr": "Magna Charge (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Tech/Magna Charge (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2010,
+      "variantId": 9218,
+      "nameEn": "Magna Charge Nitro (Top)",
+      "nameFr": "Magna Charge Nitro (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Tech/Variantes/Magna Charge Nitro (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2011,
+      "variantId": 0,
+      "nameEn": "Spy Rise (Top)",
+      "nameFr": "Spy Rise (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Tech/Spy Rise (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2012,
+      "variantId": 0,
+      "nameEn": "Night Shift (Top)",
+      "nameFr": "Night Shift (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Mort-Vivant/Night Shift (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2012,
+      "variantId": 9219,
+      "nameEn": "Night Shift Légendaire (Top)",
+      "nameFr": "Night Shift Légendaire (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Mort-Vivant/Variantes/Night Shift Légendaire (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2013,
+      "variantId": 0,
+      "nameEn": "Rattle Shake (Top)",
+      "nameFr": "Rattle Shake (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Mort-Vivant/Rattle Shake (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2013,
+      "variantId": 9218,
+      "nameEn": "Quick Draw Rattle Shake (Top)",
+      "nameFr": "Quick Draw Rattle Shake (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Mort-Vivant/Variantes/Quick Draw Rattle Shake (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2014,
+      "variantId": 0,
+      "nameEn": "Freeze Blade (Top)",
+      "nameFr": "Freeze Blade (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Eau/Freeze Blade (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2014,
+      "variantId": 9218,
+      "nameEn": "Freeze Blade Nitro (Top)",
+      "nameFr": "Freeze Blade Nitro (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Eau/Variantes/Freeze Blade Nitro (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2015,
+      "variantId": 0,
+      "nameEn": "Wash Buckler (Top)",
+      "nameFr": "Wash Buckler (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Eau/Wash Buckler (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 2015,
+      "variantId": 9218,
+      "nameEn": "Wash Buckler Sombre (Top)",
+      "nameFr": "Wash Buckler Sombre (Haut)",
+      "game": "SWAP_FORCE",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Eau/Variantes/Wash Buckler Sombre (Haut).sky"
+      ]
+    },
+    {
+      "toyId": 3000,
+      "variantId": 0,
+      "nameEn": "Scratch",
+      "nameFr": "Scratch",
+      "game": "SWAP_FORCE",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Air/Scratch.sky"
+      ]
+    },
+    {
+      "toyId": 3001,
+      "variantId": 0,
+      "nameEn": "Pop Thorn",
+      "nameFr": "Pop Thorn",
+      "game": "SWAP_FORCE",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Air/Pop Thorn.sky"
+      ]
+    },
+    {
+      "toyId": 3002,
+      "variantId": 0,
+      "nameEn": "Slobber Tooth",
+      "nameFr": "Slobber Tooth",
+      "game": "SWAP_FORCE",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Terre/Slobber Tooth.sky"
+      ]
+    },
+    {
+      "toyId": 3002,
+      "variantId": 9218,
+      "nameEn": "Dark Slobber Tooth",
+      "nameFr": "Slobber Tooth Sombre",
+      "game": "SWAP_FORCE",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Terre/Variantes/Slobber Tooth Sombre.sky"
+      ]
+    },
+    {
+      "toyId": 3003,
+      "variantId": 0,
+      "nameEn": "Scorp",
+      "nameFr": "Scorp",
+      "game": "SWAP_FORCE",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Terre/Scorp.sky"
+      ]
+    },
+    {
+      "toyId": 3004,
+      "variantId": 0,
+      "nameEn": "Fryno",
+      "nameFr": "Fryno",
+      "game": "SWAP_FORCE",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Feu/Fryno.sky"
+      ]
+    },
+    {
+      "toyId": 3004,
+      "variantId": 14341,
+      "nameEn": "Hog Wild Fryno",
+      "nameFr": "Hog Wild Fryno",
+      "game": "TRAP_TEAM",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Trap Team/Feu/Hog Wild Fryno.sky"
+      ]
+    },
+    {
+      "toyId": 3005,
+      "variantId": 0,
+      "nameEn": "Smolderdash",
+      "nameFr": "Smolderdash",
+      "game": "SWAP_FORCE",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Feu/Smolderdash.sky"
+      ]
+    },
+    {
+      "toyId": 3005,
+      "variantId": 8710,
+      "nameEn": "LightCore Smolderdash",
+      "nameFr": "Smolderdash LightCore",
+      "game": "SWAP_FORCE",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Feu/Variantes/Smolderdash LightCore.sky"
+      ]
+    },
+    {
+      "toyId": 3006,
+      "variantId": 0,
+      "nameEn": "Bumble Blast",
+      "nameFr": "Bumble Blast",
+      "game": "SWAP_FORCE",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Vie/Bumble Blast.sky"
+      ]
+    },
+    {
+      "toyId": 3006,
+      "variantId": 8710,
+      "nameEn": "LightCore Bumble Blast",
+      "nameFr": "Bumble Blast LightCore",
+      "game": "SWAP_FORCE",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Vie/Variantes/Bumble Blast LightCore.sky"
+      ]
+    },
+    {
+      "toyId": 3006,
+      "variantId": 9218,
+      "nameEn": "Jolly Bumble Blast",
+      "nameFr": "Jolly Bumble Blast",
+      "game": "SWAP_FORCE",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Vie/Variantes/Jolly Bumble Blast.sky"
+      ]
+    },
+    {
+      "toyId": 3007,
+      "variantId": 0,
+      "nameEn": "Zoo Lou",
+      "nameFr": "Zoo Lou",
+      "game": "SWAP_FORCE",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Vie/Zoo Lou.sky"
+      ]
+    },
+    {
+      "toyId": 3007,
+      "variantId": 9219,
+      "nameEn": "Legendary Zoo Lou",
+      "nameFr": "Zoo Lou Légendaire",
+      "game": "SWAP_FORCE",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Vie/Variantes/Zoo Lou Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 3008,
+      "variantId": 0,
+      "nameEn": "Dune Bug",
+      "nameFr": "Dune Bug",
+      "game": "SWAP_FORCE",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Magie/Dune Bug.sky"
+      ]
+    },
+    {
+      "toyId": 3009,
+      "variantId": 0,
+      "nameEn": "Star Strike",
+      "nameFr": "Star Strike",
+      "game": "SWAP_FORCE",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Magie/Star Strike.sky"
+      ]
+    },
+    {
+      "toyId": 3009,
+      "variantId": 8710,
+      "nameEn": "LightCore Star Strike",
+      "nameFr": "Star Strike LightCore",
+      "game": "SWAP_FORCE",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Magie/Variantes/Star Strike LightCore.sky"
+      ]
+    },
+    {
+      "toyId": 3009,
+      "variantId": 9730,
+      "nameEn": "Enchanted Star Strike",
+      "nameFr": "Enchanted Star Strike",
+      "game": "SWAP_FORCE",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Magie/Variantes/Enchanted Star Strike.sky"
+      ]
+    },
+    {
+      "toyId": 3010,
+      "variantId": 0,
+      "nameEn": "Countdown",
+      "nameFr": "Countdown",
+      "game": "SWAP_FORCE",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Tech/Countdown.sky"
+      ]
+    },
+    {
+      "toyId": 3010,
+      "variantId": 8710,
+      "nameEn": "LightCore Countdown",
+      "nameFr": "Countdown LightCore",
+      "game": "SWAP_FORCE",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Tech/Variantes/Countdown LightCore.sky"
+      ]
+    },
+    {
+      "toyId": 3010,
+      "variantId": 9218,
+      "nameEn": "Kickoff Countdown",
+      "nameFr": "Kickoff Countdown",
+      "game": "SWAP_FORCE",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Tech/Variantes/Kickoff Countdown.sky"
+      ]
+    },
+    {
+      "toyId": 3011,
+      "variantId": 0,
+      "nameEn": "Wind Up",
+      "nameFr": "Wind Up",
+      "game": "SWAP_FORCE",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Tech/Wind Up.sky"
+      ]
+    },
+    {
+      "toyId": 3011,
+      "variantId": 9220,
+      "nameEn": "VVind-Up",
+      "nameFr": "VVind-Up",
+      "game": "SWAP_FORCE",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "REVIEW",
+      "files": [
+        "Skylanders Swap Force/Tech/Variantes/VVind-Up.sky",
+        "Skylanders Swap Force/Tech/vvindup_1.sky"
+      ]
+    },
+    {
+      "toyId": 3012,
+      "variantId": 0,
+      "nameEn": "Roller Brawl",
+      "nameFr": "Roller Brawl",
+      "game": "SWAP_FORCE",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Mort-Vivant/Roller Brawl.sky"
+      ]
+    },
+    {
+      "toyId": 3013,
+      "variantId": 0,
+      "nameEn": "Grim Creeper",
+      "nameFr": "Grim Creeper",
+      "game": "SWAP_FORCE",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Mort-Vivant/Grim Creeper.sky"
+      ]
+    },
+    {
+      "toyId": 3013,
+      "variantId": 8710,
+      "nameEn": "LightCore Grim Creeper",
+      "nameFr": "Grim Creeper LightCore",
+      "game": "SWAP_FORCE",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Mort-Vivant/Variantes/Grim Creeper LightCore.sky"
+      ]
+    },
+    {
+      "toyId": 3013,
+      "variantId": 9731,
+      "nameEn": "Legendary Grim Creeper",
+      "nameFr": "Grim Creeper Légendaire",
+      "game": "SWAP_FORCE",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Mort-Vivant/Variantes/Grim Creeper Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 3014,
+      "variantId": 0,
+      "nameEn": "Rip Tide",
+      "nameFr": "Rip Tide",
+      "game": "SWAP_FORCE",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Eau/Rip Tide.sky"
+      ]
+    },
+    {
+      "toyId": 3015,
+      "variantId": 0,
+      "nameEn": "Punk Shock",
+      "nameFr": "Punk Shock",
+      "game": "SWAP_FORCE",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Eau/Punk Shock.sky"
+      ]
+    },
+    {
+      "toyId": 3200,
+      "variantId": 0,
+      "nameEn": "Battle Hammer",
+      "nameFr": "Marteau de Combat",
+      "game": "SWAP_FORCE",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Objets/Marteau de Combat.sky"
+      ]
+    },
+    {
+      "toyId": 3201,
+      "variantId": 0,
+      "nameEn": "Sky Diamond",
+      "nameFr": "Diamant Céleste",
+      "game": "SWAP_FORCE",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Objets/Diamant Céleste.sky"
+      ]
+    },
+    {
+      "toyId": 3202,
+      "variantId": 0,
+      "nameEn": "Platinum Sheep",
+      "nameFr": "Mouton Platine",
+      "game": "SWAP_FORCE",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Objets/Mouton Platine.sky"
+      ]
+    },
+    {
+      "toyId": 3203,
+      "variantId": 0,
+      "nameEn": "Groove Machine",
+      "nameFr": "Machine à Groove",
+      "game": "SWAP_FORCE",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Objets/Machine à Groove.sky"
+      ]
+    },
+    {
+      "toyId": 3204,
+      "variantId": 0,
+      "nameEn": "UFO Hat",
+      "nameFr": "Chapeau OVNI",
+      "game": "SWAP_FORCE",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Objets/Chapeau OVNI.sky"
+      ]
+    },
+    {
+      "toyId": 3220,
+      "variantId": 0,
+      "nameEn": "Jet Stream",
+      "nameFr": "Courant-Jet",
+      "game": "SUPERCHARGERS",
+      "element": "Air",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Air/Véhicules/Courant-Jet.sky"
+      ]
+    },
+    {
+      "toyId": 3221,
+      "variantId": 0,
+      "nameEn": "Tomb Buggy",
+      "nameFr": "Buggy Tombal",
+      "game": "SUPERCHARGERS",
+      "element": "Mort-Vivant",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Mort-Vivant/Véhicules/Buggy Tombal.sky"
+      ]
+    },
+    {
+      "toyId": 3222,
+      "variantId": 0,
+      "nameEn": "Reef Ripper",
+      "nameFr": "Déchire-Récif",
+      "game": "SUPERCHARGERS",
+      "element": "Eau",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Eau/Véhicules/Déchire-Récif.sky"
+      ]
+    },
+    {
+      "toyId": 3223,
+      "variantId": 0,
+      "nameEn": "Burn Cycle",
+      "nameFr": "Moto Ardente",
+      "game": "SUPERCHARGERS",
+      "element": "Feu",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Feu/Véhicules/Moto Ardente.sky"
+      ]
+    },
+    {
+      "toyId": 3224,
+      "variantId": 0,
+      "nameEn": "Hot Streak",
+      "nameFr": "Bolide Ardent",
+      "game": "SUPERCHARGERS",
+      "element": "Feu",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Feu/Véhicules/Bolide Ardent.sky"
+      ]
+    },
+    {
+      "toyId": 3224,
+      "variantId": 16388,
+      "nameEn": "E3 Hot Streak",
+      "nameFr": "Bolide Ardent E3",
+      "game": "SUPERCHARGERS",
+      "element": "Feu",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Feu/Véhicules/Bolide Ardent E3.sky"
+      ]
+    },
+    {
+      "toyId": 3224,
+      "variantId": 17410,
+      "nameEn": "Dark Hot Streak",
+      "nameFr": "Bolide Ardent Sombre",
+      "game": "SUPERCHARGERS",
+      "element": "Feu",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Feu/Véhicules/Bolide Ardent Sombre.sky"
+      ]
+    },
+    {
+      "toyId": 3224,
+      "variantId": 17438,
+      "nameEn": "Golden Hot Streak",
+      "nameFr": "Bolide Ardent Doré",
+      "game": "SUPERCHARGERS",
+      "element": "Feu",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Feu/Véhicules/Bolide Ardent Doré.sky"
+      ]
+    },
+    {
+      "toyId": 3225,
+      "variantId": 0,
+      "nameEn": "Shark Tank",
+      "nameFr": "Char Requin",
+      "game": "SUPERCHARGERS",
+      "element": "Terre",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Terre/Véhicules/Char Requin.sky"
+      ]
+    },
+    {
+      "toyId": 3226,
+      "variantId": 0,
+      "nameEn": "Thump Truck",
+      "nameFr": "Camion Cogneur",
+      "game": "SUPERCHARGERS",
+      "element": "Terre",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Terre/Véhicules/Camion Cogneur.sky"
+      ]
+    },
+    {
+      "toyId": 3227,
+      "variantId": 0,
+      "nameEn": "Crypt Crusher",
+      "nameFr": "Broyeur de Crypte",
+      "game": "SUPERCHARGERS",
+      "element": "Mort-Vivant",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Mort-Vivant/Véhicules/Broyeur de Crypte.sky"
+      ]
+    },
+    {
+      "toyId": 3228,
+      "variantId": 0,
+      "nameEn": "Stealth Stinger",
+      "nameFr": "Dard Furtif",
+      "game": "SUPERCHARGERS",
+      "element": "Vie",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Vie/Véhicules/Dard Furtif.sky"
+      ]
+    },
+    {
+      "toyId": 3228,
+      "variantId": 17410,
+      "nameEn": "Nitro Stealth Stinger",
+      "nameFr": "Dard Furtif Nitro",
+      "game": "SUPERCHARGERS",
+      "element": "Vie",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Vie/Véhicules/Dard Furtif Nitro.sky"
+      ]
+    },
+    {
+      "toyId": 3231,
+      "variantId": 0,
+      "nameEn": "Dive Bomber",
+      "nameFr": "Bombardier Plongeur",
+      "game": "SUPERCHARGERS",
+      "element": "Eau",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Eau/Véhicules/Bombardier Plongeur.sky"
+      ]
+    },
+    {
+      "toyId": 3232,
+      "variantId": 0,
+      "nameEn": "Sky Slicer",
+      "nameFr": "Trancheur du Ciel",
+      "game": "SUPERCHARGERS",
+      "element": "Air",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Air/Véhicules/Trancheur du Ciel.sky"
+      ]
+    },
+    {
+      "toyId": 3233,
+      "variantId": 16384,
+      "nameEn": "Clown Cruiser",
+      "nameFr": "Croiseur Clown",
+      "game": "SUPERCHARGERS",
+      "element": "Air",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Air/Véhicules/Croiseur Clown.sky"
+      ]
+    },
+    {
+      "toyId": 3233,
+      "variantId": 17410,
+      "nameEn": "Dark Clown Cruiser",
+      "nameFr": "Croiseur Clown Sombre",
+      "game": "SUPERCHARGERS",
+      "element": "Air",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Air/Véhicules/Croiseur Clown Sombre.sky"
+      ]
+    },
+    {
+      "toyId": 3234,
+      "variantId": 0,
+      "nameEn": "Gold Rusher",
+      "nameFr": "Ruée vers l'Or",
+      "game": "SUPERCHARGERS",
+      "element": "Tech",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Tech/Véhicules/Ruée vers l'Or.sky"
+      ]
+    },
+    {
+      "toyId": 3234,
+      "variantId": 17410,
+      "nameEn": "Power Blue Gold Rusher",
+      "nameFr": "Ruée vers l'Or Power Blue",
+      "game": "SUPERCHARGERS",
+      "element": "Tech",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Tech/Véhicules/Ruée vers l'Or Power Blue.sky"
+      ]
+    },
+    {
+      "toyId": 3235,
+      "variantId": 0,
+      "nameEn": "Shield Striker",
+      "nameFr": "Frappe-Bouclier",
+      "game": "SUPERCHARGERS",
+      "element": "Tech",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Tech/Véhicules/Frappe-Bouclier.sky"
+      ]
+    },
+    {
+      "toyId": 3236,
+      "variantId": 0,
+      "nameEn": "Sun Runner",
+      "nameFr": "Coureur du Soleil",
+      "game": "SUPERCHARGERS",
+      "element": "Lumière",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Lumière/Véhicules/Coureur du Soleil.sky"
+      ]
+    },
+    {
+      "toyId": 3236,
+      "variantId": 17411,
+      "nameEn": "Legendary Sun Runner",
+      "nameFr": "Coureur du Soleil Légendaire",
+      "game": "SUPERCHARGERS",
+      "element": "Lumière",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Lumière/Véhicules/Coureur du Soleil Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 3237,
+      "variantId": 0,
+      "nameEn": "Sea Shadow",
+      "nameFr": "Ombre des Mers",
+      "game": "SUPERCHARGERS",
+      "element": "Ténèbres",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Ténèbres/Véhicules/Ombre des Mers.sky"
+      ]
+    },
+    {
+      "toyId": 3237,
+      "variantId": 17410,
+      "nameEn": "Dark Sea Shadow",
+      "nameFr": "Ombre des Mers Sombre",
+      "game": "SUPERCHARGERS",
+      "element": "Ténèbres",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Ténèbres/Véhicules/Ombre des Mers Sombre.sky"
+      ]
+    },
+    {
+      "toyId": 3238,
+      "variantId": 0,
+      "nameEn": "Splatter Splasher",
+      "nameFr": "Éclabousseur",
+      "game": "SUPERCHARGERS",
+      "element": "Magie",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Magie/Véhicules/Éclabousseur.sky"
+      ]
+    },
+    {
+      "toyId": 3238,
+      "variantId": 17410,
+      "nameEn": "Power Blue Splatter Splasher",
+      "nameFr": "Éclabousseur Power Blue",
+      "game": "SUPERCHARGERS",
+      "element": "Magie",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Magie/Véhicules/Éclabousseur Power Blue.sky"
+      ]
+    },
+    {
+      "toyId": 3239,
+      "variantId": 0,
+      "nameEn": "Soda Skimmer",
+      "nameFr": "Hydroglisseur Soda",
+      "game": "SUPERCHARGERS",
+      "element": "Magie",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Magie/Véhicules/Hydroglisseur Soda.sky"
+      ]
+    },
+    {
+      "toyId": 3239,
+      "variantId": 17410,
+      "nameEn": "Nitro Soda Skimmer",
+      "nameFr": "Hydroglisseur Soda Nitro",
+      "game": "SUPERCHARGERS",
+      "element": "Magie",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Magie/Véhicules/Hydroglisseur Soda Nitro.sky"
+      ]
+    },
+    {
+      "toyId": 3240,
+      "variantId": 16384,
+      "nameEn": "Barrel Blaster",
+      "nameFr": "Canon à Barils",
+      "game": "SUPERCHARGERS",
+      "element": "Tech",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Tech/Véhicules/Canon à Barils.sky"
+      ]
+    },
+    {
+      "toyId": 3240,
+      "variantId": 17410,
+      "nameEn": "Dark Barrel Blaster",
+      "nameFr": "Canon à Barils Sombre",
+      "game": "SUPERCHARGERS",
+      "element": "Tech",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Tech/Véhicules/Canon à Barils Sombre.sky"
+      ]
+    },
+    {
+      "toyId": 3241,
+      "variantId": 0,
+      "nameEn": "Buzz Wing",
+      "nameFr": "Aile Bourdonnante",
+      "game": "SUPERCHARGERS",
+      "element": "Vie",
+      "category": "VEHICLE",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Vie/Véhicules/Aile Bourdonnante.sky"
+      ]
+    },
+    {
+      "toyId": 3300,
+      "variantId": 0,
+      "nameEn": "Sheep Wreck Island",
+      "nameFr": "Île du Naufrage aux Moutons",
+      "game": "SWAP_FORCE",
+      "element": "Inconnu",
+      "category": "ADVENTURE_PACK",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Packs Aventure/Île du Naufrage aux Moutons.sky"
+      ]
+    },
+    {
+      "toyId": 3301,
+      "variantId": 0,
+      "nameEn": "Tower of Time",
+      "nameFr": "Tour du Temps",
+      "game": "SWAP_FORCE",
+      "element": "Inconnu",
+      "category": "ADVENTURE_PACK",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Packs Aventure/Tour du Temps.sky"
+      ]
+    },
+    {
+      "toyId": 3302,
+      "variantId": 0,
+      "nameEn": "Fiery Forge",
+      "nameFr": "Forge Ardente",
+      "game": "SWAP_FORCE",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Objets/Forge Ardente.sky"
+      ]
+    },
+    {
+      "toyId": 3303,
+      "variantId": 0,
+      "nameEn": "Arkeyan Crossbow",
+      "nameFr": "Arbalète Arkeyan",
+      "game": "SWAP_FORCE",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders Swap Force/Objets/Arbalète Arkeyan.sky"
+      ]
+    },
+    {
+      "toyId": 3400,
+      "variantId": 0,
+      "nameEn": "Fiesta",
+      "nameFr": "Fiesta",
+      "game": "SUPERCHARGERS",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Mort-Vivant/Fiesta.sky"
+      ]
+    },
+    {
+      "toyId": 3400,
+      "variantId": 17685,
+      "nameEn": "Frightful Fiesta",
+      "nameFr": "Frightful Fiesta",
+      "game": "SUPERCHARGERS",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Mort-Vivant/Variantes/Frightful Fiesta.sky"
+      ]
+    },
+    {
+      "toyId": 3401,
+      "variantId": 0,
+      "nameEn": "High Volt",
+      "nameFr": "High Volt",
+      "game": "SUPERCHARGERS",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Tech/High Volt.sky"
+      ]
+    },
+    {
+      "toyId": 3402,
+      "variantId": 0,
+      "nameEn": "Splat",
+      "nameFr": "Splat",
+      "game": "SUPERCHARGERS",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Magie/Splat.sky"
+      ]
+    },
+    {
+      "toyId": 3402,
+      "variantId": 17666,
+      "nameEn": "Power Blue Splat",
+      "nameFr": "Splat Power Blue",
+      "game": "SUPERCHARGERS",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Magie/Variantes/Splat Power Blue.sky"
+      ]
+    },
+    {
+      "toyId": 3406,
+      "variantId": 0,
+      "nameEn": "Stormblade",
+      "nameFr": "Stormblade",
+      "game": "SUPERCHARGERS",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Air/Stormblade.sky"
+      ]
+    },
+    {
+      "toyId": 3411,
+      "variantId": 0,
+      "nameEn": "Smash Hit",
+      "nameFr": "Smash Hit",
+      "game": "SUPERCHARGERS",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Terre/Smash Hit.sky"
+      ]
+    },
+    {
+      "toyId": 3411,
+      "variantId": 17666,
+      "nameEn": "Steel Plated Smash Hit",
+      "nameFr": "Steel Plated Smash Hit",
+      "game": "SUPERCHARGERS",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Terre/Steel Plated Smash Hit.sky"
+      ]
+    },
+    {
+      "toyId": 3412,
+      "variantId": 0,
+      "nameEn": "Spitfire",
+      "nameFr": "Spitfire",
+      "game": "SUPERCHARGERS",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Feu/Spitfire.sky"
+      ]
+    },
+    {
+      "toyId": 3412,
+      "variantId": 17666,
+      "nameEn": "Dark Spitfire",
+      "nameFr": "Spitfire Sombre",
+      "game": "SUPERCHARGERS",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Feu/Variantes/Spitfire Sombre.sky"
+      ]
+    },
+    {
+      "toyId": 3413,
+      "variantId": 0,
+      "nameEn": "Hurricane Jet Vac",
+      "nameFr": "Hurricane Jet Vac",
+      "game": "SUPERCHARGERS",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Air/Hurricane Jet Vac.sky"
+      ]
+    },
+    {
+      "toyId": 3413,
+      "variantId": 17667,
+      "nameEn": "Legendary Hurricane Jet Vac",
+      "nameFr": "Hurricane Jet Vac Légendaire",
+      "game": "SUPERCHARGERS",
+      "element": "Air",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Air/Variantes/Hurricane Jet Vac Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 3414,
+      "variantId": 0,
+      "nameEn": "Double Dare Trigger Happy",
+      "nameFr": "Double Dare Trigger Happy",
+      "game": "SUPERCHARGERS",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Tech/Double Dare Trigger Happy.sky"
+      ]
+    },
+    {
+      "toyId": 3414,
+      "variantId": 17666,
+      "nameEn": "Power Blue Double Dare Trigger Happy",
+      "nameFr": "Double Dare Trigger Happy Power Blue",
+      "game": "SUPERCHARGERS",
+      "element": "Tech",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Tech/Variantes/Double Dare Trigger Happy Power Blue.sky"
+      ]
+    },
+    {
+      "toyId": 3415,
+      "variantId": 0,
+      "nameEn": "Super Shot Stealth Elf",
+      "nameFr": "Super Shot Stealth Elf",
+      "game": "SUPERCHARGERS",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Vie/Super Shot Stealth Elf.sky"
+      ]
+    },
+    {
+      "toyId": 3415,
+      "variantId": 17666,
+      "nameEn": "Dark Super Shot Stealth Elf",
+      "nameFr": "Super Shot Stealth Elf Sombre",
+      "game": "SUPERCHARGERS",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Vie/Variantes/Super Shot Stealth Elf Sombre.sky"
+      ]
+    },
+    {
+      "toyId": 3416,
+      "variantId": 0,
+      "nameEn": "Shark Shooter Terrafin",
+      "nameFr": "Shark Shooter Terrafin",
+      "game": "SUPERCHARGERS",
+      "element": "Terre",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Terre/Shark Shooter Terrafin.sky"
+      ]
+    },
+    {
+      "toyId": 3417,
+      "variantId": 0,
+      "nameEn": "Bone Bash Roller Brawl",
+      "nameFr": "Bone Bash Roller Brawl",
+      "game": "SUPERCHARGERS",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Mort-Vivant/Bone Bash Roller Brawl.sky"
+      ]
+    },
+    {
+      "toyId": 3417,
+      "variantId": 17667,
+      "nameEn": "Legendary Bone Bash Roller Brawl",
+      "nameFr": "Bone Bash Roller Brawl Légendaire",
+      "game": "SUPERCHARGERS",
+      "element": "Mort-Vivant",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Mort-Vivant/Variantes/Bone Bash Roller Brawl Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 3420,
+      "variantId": 0,
+      "nameEn": "Big Bubble Pop Fizz",
+      "nameFr": "Big Bubble Pop Fizz",
+      "game": "SUPERCHARGERS",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Magie/Big Bubble Pop Fizz.sky"
+      ]
+    },
+    {
+      "toyId": 3420,
+      "variantId": 17678,
+      "nameEn": "Birthday Bash Big Bubble Pop Fizz",
+      "nameFr": "Birthday Bash Big Bubble Pop Fizz",
+      "game": "SUPERCHARGERS",
+      "element": "Magie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Magie/Variantes/Birthday Bash Big Bubble Pop Fizz.sky"
+      ]
+    },
+    {
+      "toyId": 3421,
+      "variantId": 0,
+      "nameEn": "Lava Lance Eruptor",
+      "nameFr": "Lava Lance Eruptor",
+      "game": "SUPERCHARGERS",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Feu/Lava Lance Eruptor.sky"
+      ]
+    },
+    {
+      "toyId": 3422,
+      "variantId": 0,
+      "nameEn": "Deep Dive Gill Grunt",
+      "nameFr": "Deep Dive Gill Grunt",
+      "game": "SUPERCHARGERS",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Eau/Deep Dive Gill Grunt.sky"
+      ]
+    },
+    {
+      "toyId": 3423,
+      "variantId": 16640,
+      "nameEn": "Turbo Charge Donkey Kong",
+      "nameFr": "Turbo Charge Donkey Kong",
+      "game": "SUPERCHARGERS",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Vie/Turbo Charge Donkey Kong.sky"
+      ]
+    },
+    {
+      "toyId": 3423,
+      "variantId": 17666,
+      "nameEn": "Dark Turbo Charge Donkey Kong",
+      "nameFr": "Turbo Charge Donkey Kong Sombre",
+      "game": "SUPERCHARGERS",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Vie/Variantes/Turbo Charge Donkey Kong Sombre.sky"
+      ]
+    },
+    {
+      "toyId": 3424,
+      "variantId": 16640,
+      "nameEn": "Hammer Slam Bowser",
+      "nameFr": "Hammer Slam Bowser",
+      "game": "SUPERCHARGERS",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Feu/Hammer Slam Bowser.sky"
+      ]
+    },
+    {
+      "toyId": 3424,
+      "variantId": 17666,
+      "nameEn": "Dark Hammer Slam Bowser",
+      "nameFr": "Hammer Slam Bowser Sombre",
+      "game": "SUPERCHARGERS",
+      "element": "Feu",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Feu/Variantes/Hammer Slam Bowser Sombre.sky"
+      ]
+    },
+    {
+      "toyId": 3425,
+      "variantId": 0,
+      "nameEn": "Dive-Clops",
+      "nameFr": "Dive-Clops",
+      "game": "SUPERCHARGERS",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Eau/Dive-Clops.sky"
+      ]
+    },
+    {
+      "toyId": 3425,
+      "variantId": 17678,
+      "nameEn": "Missile-Tow Dive-Clops",
+      "nameFr": "Missile-Tow Dive-Clops",
+      "game": "SUPERCHARGERS",
+      "element": "Eau",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Eau/Variantes/Missile-Tow Dive-Clops.sky"
+      ]
+    },
+    {
+      "toyId": 3426,
+      "variantId": 0,
+      "nameEn": "Astroblast",
+      "nameFr": "Astroblast",
+      "game": "SUPERCHARGERS",
+      "element": "Lumière",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Lumière/Astroblast.sky"
+      ]
+    },
+    {
+      "toyId": 3426,
+      "variantId": 17667,
+      "nameEn": "Legendary Astroblast",
+      "nameFr": "Astroblast Légendaire",
+      "game": "SUPERCHARGERS",
+      "element": "Lumière",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Lumière/Variantes/Astroblast Légendaire.sky"
+      ]
+    },
+    {
+      "toyId": 3427,
+      "variantId": 0,
+      "nameEn": "Nightfall",
+      "nameFr": "Nightfall",
+      "game": "SUPERCHARGERS",
+      "element": "Ténèbres",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Ténèbres/Nightfall.sky"
+      ]
+    },
+    {
+      "toyId": 3428,
+      "variantId": 0,
+      "nameEn": "Thrillipede",
+      "nameFr": "Thrillipede",
+      "game": "SUPERCHARGERS",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Vie/Thrillipede.sky"
+      ]
+    },
+    {
+      "toyId": 3428,
+      "variantId": 17677,
+      "nameEn": "Eggcited Thrillipede",
+      "nameFr": "Eggcited Thrillipede",
+      "game": "SUPERCHARGERS",
+      "element": "Vie",
+      "category": "CHARACTER",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Vie/Variantes/Eggcited Thrillipede.sky"
+      ]
+    },
+    {
+      "toyId": 3500,
+      "variantId": 0,
+      "nameEn": "Sky Trophy",
+      "nameFr": "Trophée Aérien",
+      "game": "SUPERCHARGERS",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Objets/Trophée Aérien.sky"
+      ]
+    },
+    {
+      "toyId": 3501,
+      "variantId": 0,
+      "nameEn": "Land Trophy",
+      "nameFr": "Trophée Terrestre",
+      "game": "SUPERCHARGERS",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Objets/Trophée Terrestre.sky"
+      ]
+    },
+    {
+      "toyId": 3502,
+      "variantId": 0,
+      "nameEn": "Sea Trophy",
+      "nameFr": "Trophée Marin",
+      "game": "SUPERCHARGERS",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Objets/Trophée Marin.sky"
+      ]
+    },
+    {
+      "toyId": 3503,
+      "variantId": 0,
+      "nameEn": "Kaos Trophy",
+      "nameFr": "Trophée Kaos",
+      "game": "SUPERCHARGERS",
+      "element": "Inconnu",
+      "category": "ITEM",
+      "confidence": "VALIDATED",
+      "files": [
+        "Skylanders SuperChargers/Objets/Trophée Kaos.sky"
+      ]
+    }
+  ]
+}

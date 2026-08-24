@@ -1,0 +1,14 @@
+# Fichiers .sky ignorés par le catalogue et par l'ingestion.
+#
+# Un chemin listé ici n'est ni catalogué, ni enregistré, ni compté dans les
+# statistiques. Le fichier lui-même n'est JAMAIS touché : le dossier source est
+# en lecture seule absolue (CLAUDE.md, invariant 1). Retirer une ligne d'ici
+# suffit à réintégrer le fichier au prochain scan de l'agent.
+#
+# Un chemin par ligne, relatif à skylandersRoot. « # » commence un commentaire.
+
+# Fichier d'essai laissé par l'auteur du pack (Mariussa1 / Tritonex, juillet 2023).
+# Identité 480/12288 qui n'existe que par ce fichier, valeurs manifestement
+# éditées à la main — 33 000 XP et 50 000 or pour 1 seconde de temps de jeu —
+# et qui trustait la première place du classement.
+Skylanders Trap Team/Mort-Vivant/Bat Spin test.sky
