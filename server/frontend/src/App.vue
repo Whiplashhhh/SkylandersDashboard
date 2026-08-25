@@ -8,6 +8,8 @@ import ToyCard from './components/ToyCard.vue'
 import ToyDetail from './components/ToyDetail.vue'
 import TrapsView from './components/TrapsView.vue'
 import { columnsFor, defaultSortFor } from './columns.js'
+import ThemeSelector from './components/ThemeSelector.vue'
+import { applyTheme, loadTheme, watchSystem } from './theme.js'
 
 // Ordre canonique des éléments : celui des jeux, pas l'ordre alphabétique.
 const ELEMENT_ORDER = ['Feu', 'Eau', 'Vie', 'Magie', 'Tech', 'Terre', 'Air',
@@ -31,7 +33,7 @@ const category = ref(null)
 const sort = ref('xp')
 const direction = ref('desc')
 const page = ref(1)
-const size = ref(20)
+const size = ref(15)
 
 const columns = computed(() => columnsFor(category.value))
 const board = ref(null)
@@ -41,6 +43,7 @@ const stats = ref(null)
 const selected = ref(null)
 const loading = ref(true)
 const error = ref(null)
+const theme = ref(loadTheme())
 
 const games = computed(() => {
   const present = new Set(roster.value.flatMap(t => t.games))
@@ -126,7 +129,11 @@ function reset () {
   sort.value = 'xp'; direction.value = 'desc'
 }
 
+watch(theme, applyTheme)
+
 onMounted(async () => {
+  applyTheme(theme.value)
+  watchSystem(() => theme.value)
   try {
     const [all, s] = await Promise.all([api.toys({}), api.stats()])
     roster.value = all
@@ -139,10 +146,14 @@ onMounted(async () => {
 </script>
 
 <template>
+  <div class="app">
   <header class="top">
     <h1>Collection Skylanders</h1>
-    <div v-if="stats" class="counters">
-      <strong>{{ stats.totals.unlocked }}</strong> débloquées / {{ stats.totals.rosterSize }} au roster
+    <div class="right">
+      <span v-if="stats" class="counters">
+        <strong>{{ stats.totals.unlocked }}</strong> débloquées / {{ stats.totals.rosterSize }} au roster
+      </span>
+      <ThemeSelector v-model="theme" />
     </div>
   </header>
 
@@ -164,7 +175,8 @@ onMounted(async () => {
           <option value="locked">Non débloquées</option>
         </select>
         <select v-model.number="size" v-if="view === 'table'" title="Lignes par page">
-          <option :value="20">20 par page</option>
+          <option :value="15">15 par page</option>
+          <option :value="30">30 par page</option>
           <option :value="50">50 par page</option>
           <option :value="100">100 par page</option>
           <option :value="500">500 par page</option>
@@ -201,23 +213,30 @@ onMounted(async () => {
 
   <div v-if="selected" class="scrim" @click="selected = null"></div>
   <ToyDetail :toy="selected" @close="selected = null" />
+  </div>
 </template>
 
 <style scoped>
+/* Colonne pleine hauteur : l'en-tête et le sélecteur de jeux restent fixes, le rail des
+   éléments et le tableau défilent chacun de leur côté. */
+.app { display: flex; flex-direction: column; height: 100vh; }
+
 .top {
-  display: flex; align-items: baseline; justify-content: space-between;
-  gap: 16px; padding: 14px 16px 10px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding: 12px 16px 10px; flex: 0 0 auto;
 }
+.right { display: flex; align-items: center; gap: 14px; }
 h1 { margin: 0; font-size: 20px; }
 .counters { color: var(--muted); font-size: 14px; }
 .counters strong { color: var(--text); font-size: 17px; }
 
-.body { display: flex; align-items: stretch; min-height: calc(100vh - 150px); }
-main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.body { display: flex; align-items: stretch; flex: 1; min-height: 0; }
+main { flex: 1; min-width: 0; display: flex; flex-direction: column; overflow-y: auto; }
 
 .toolbar {
   display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
   padding: 10px 14px; border-bottom: 1px solid var(--line);
+  position: sticky; top: 0; background: var(--bg); z-index: 2; flex: 0 0 auto;
 }
 .search { flex: 1 1 200px; min-width: 160px; }
 input, select {
@@ -234,7 +253,7 @@ input, select {
 .toggle button {
   background: var(--panel-2); border: none; padding: 6px 14px; cursor: pointer; color: var(--muted);
 }
-.toggle button.on { background: var(--accent); color: #10131a; font-weight: 600; }
+.toggle button.on { background: var(--accent); color: var(--on-accent); font-weight: 600; }
 
 .count { color: var(--muted); font-size: 12.5px; margin: 12px 14px 8px; }
 .grid {

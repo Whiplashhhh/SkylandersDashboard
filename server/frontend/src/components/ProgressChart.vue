@@ -201,11 +201,11 @@ svg { width: 100%; height: auto; display: block; background: var(--panel); borde
 .axis text { fill: var(--muted); font-size: 8px; font-family: system-ui, sans-serif; }
 .edge { fill: var(--muted); font-size: 8px; font-family: system-ui, sans-serif; }
 
-/* Couleur de série validée contre le fond sombre : bande de clarté, plancher de chroma
-   et contrast >= 3:1 tous vérifiés par le validateur, pas estimés à l'œil. */
-.line { fill: none; stroke: #3987e5; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
-.dot { fill: #3987e5; }
-.marker { fill: #3987e5; stroke: var(--panel); stroke-width: 2; }
+/* Couleur de série définie par le thème (voir style.css) : chaque thème a la sienne,
+   validée contre SA surface — bande de clarté, plancher de chroma, contraste ≥ 3:1. */
+.line { fill: none; stroke: var(--series-1); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.dot { fill: var(--series-1); }
+.marker { fill: var(--series-1); stroke: var(--panel); stroke-width: 2; }
 .crosshair { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3; }
 
 .tip {

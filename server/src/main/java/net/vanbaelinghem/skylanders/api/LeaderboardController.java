@@ -24,7 +24,7 @@ public class LeaderboardController {
                                 @RequestParam(defaultValue = "xp") String sort,
                                 @RequestParam(defaultValue = "desc") String direction,
                                 @RequestParam(defaultValue = "1") int page,
-                                @RequestParam(defaultValue = "20") int size) {
+                                @RequestParam(defaultValue = "15") int size) {
         return service.page(game, element, category, search, state, sort, direction, page, size);
     }
 }

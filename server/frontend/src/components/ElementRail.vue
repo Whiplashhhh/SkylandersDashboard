@@ -37,11 +37,14 @@ const allSrc = '/api/images/element/all'
 </template>
 
 <style scoped>
+/* Défilement propre à la colonne : parcourir la liste des éléments ne doit pas
+   déplacer le tableau, et inversement. */
 .rail {
   flex: 0 0 92px;
   display: flex; flex-direction: column; gap: 4px;
   padding: 12px 8px; border-right: 1px solid var(--line);
-  background: var(--panel); overflow-y: auto;
+  background: var(--panel);
+  overflow-y: auto; overscroll-behavior: contain;
 }
 .el {
   background: none; border: 2px solid transparent; border-radius: 10px;

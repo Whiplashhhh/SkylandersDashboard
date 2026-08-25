@@ -1,4 +1,15 @@
-:root {
+/*
+ * Jetons de thème.
+ *
+ * Aucune couleur n'est écrite en dur dans un composant : tout passe par ces variables, pour
+ * qu'ajouter un thème reste un bloc à copier et non une chasse aux valeurs éparpillées.
+ *
+ * --series-1 est la couleur des courbes. Elle change selon le thème parce qu'elle est validée
+ * contre la surface du thème : #2a78d6 sur fond clair, #3987e5 sur fond sombre.
+ */
+
+:root,
+[data-theme='dark'] {
   --bg: #14161c;
   --panel: #1d2029;
   --panel-2: #262a35;
@@ -6,6 +17,70 @@
   --text: #e8eaf0;
   --muted: #9aa1b1;
   --accent: #6ea8fe;
+  --on-accent: #10131a;
+  --series-1: #3987e5;
+  --warn: #f0c674;
+  --err: #e2726e;
+  color-scheme: dark;
+}
+
+[data-theme='light'] {
+  --bg: #f4f5f8;
+  --panel: #ffffff;
+  --panel-2: #eceff4;
+  --line: #d5dae3;
+  --text: #171a21;
+  --muted: #5b6472;
+  --accent: #2a6fd0;
+  --on-accent: #ffffff;
+  --series-1: #2a78d6;
+  --warn: #8a6100;
+  --err: #b3261e;
+  color-scheme: light;
+}
+
+[data-theme='forge'] {
+  --bg: #170f0c;
+  --panel: #241713;
+  --panel-2: #32201a;
+  --line: #4a2f24;
+  --text: #f4e8e2;
+  --muted: #b79a8c;
+  --accent: #e2603a;
+  --on-accent: #1a0f0b;
+  --series-1: #3987e5;
+  --warn: #f0c674;
+  --err: #ff8a7a;
+  color-scheme: dark;
+}
+
+[data-theme='crypte'] {
+  --bg: #10141a;
+  --panel: #1a2028;
+  --panel-2: #232b35;
+  --line: #33404d;
+  --text: #e3ecea;
+  --muted: #8fa39e;
+  --accent: #7a8b52;
+  --on-accent: #0e1114;
+  --series-1: #3987e5;
+  --warn: #f0c674;
+  --err: #e2726e;
+  color-scheme: dark;
+}
+
+[data-theme='arcane'] {
+  --bg: #130f1a;
+  --panel: #1f1a2b;
+  --panel-2: #2a2439;
+  --line: #3e3552;
+  --text: #ece6f6;
+  --muted: #a598bd;
+  --accent: #9b5fc0;
+  --on-accent: #120e18;
+  --series-1: #3987e5;
+  --warn: #f0c674;
+  --err: #e2726e;
   color-scheme: dark;
 }
 
@@ -17,9 +92,13 @@ body {
   color: var(--text);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   font-size: 15px;
+  /* La transition rend la bascule de thème lisible plutôt que brutale, mais elle est
+     désactivée pour qui demande moins d'animation. */
+  transition: background-color .18s ease, color .18s ease;
 }
 
-button, select, input {
-  font: inherit;
-  color: inherit;
+@media (prefers-reduced-motion: reduce) {
+  body { transition: none; }
 }
+
+button, select, input { font: inherit; color: inherit; }

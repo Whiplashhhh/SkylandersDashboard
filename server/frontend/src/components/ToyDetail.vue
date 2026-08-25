@@ -128,8 +128,8 @@ h3 { margin: 0 0 8px; font-size: 13px; text-transform: uppercase; color: var(--m
 .art { width: 150px; align-self: center; border-radius: 10px; background: var(--panel-2); }
 .art.locked { filter: grayscale(1) brightness(.62); }
 
-.warnings { margin: 0; padding-left: 18px; color: #f0c674; font-size: 12.5px; }
-.warn { color: #e2726e; }
+.warnings { margin: 0; padding-left: 18px; color: var(--warn); font-size: 12.5px; }
+.warn { color: var(--err); }
 
 .facts { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 0; font-size: 13px; }
 .facts dt { color: var(--muted); }

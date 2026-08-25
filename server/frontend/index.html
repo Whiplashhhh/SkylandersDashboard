@@ -9,6 +9,21 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
     <link rel="apple-touch-icon" href="/icon-192.png" />
     <title>Collection Skylanders</title>
+    <script>
+      // Appliqué avant le premier rendu : sinon la page s'affiche une fraction de seconde
+      // dans le thème par défaut avant de basculer, ce qui se voit et fait sale.
+      (function () {
+        try {
+          var stored = localStorage.getItem('skylanders-theme') || 'system'
+          var resolved = stored === 'system'
+            ? (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
+            : stored
+          document.documentElement.dataset.theme = resolved
+        } catch (e) {
+          document.documentElement.dataset.theme = 'dark'
+        }
+      })()
+    </script>
   </head>
   <body>
     <div id="app"></div>
