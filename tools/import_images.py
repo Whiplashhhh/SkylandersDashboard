@@ -40,7 +40,7 @@ from collections import defaultdict
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from catalog_bootstrap import close_enough, fold, squash  # noqa: E402
+from catalog_bootstrap import fold, levenshtein, squash  # noqa: E402
 
 EXTENSIONS = (".webp", ".png", ".jpg", ".jpeg")
 
@@ -68,6 +68,31 @@ def clean_stem(stem: str) -> str:
             name = name[: -len(suffix) - 1].strip()
             break
     return name
+
+
+# Seuil de recouvrement pour accepter qu'un nom soit contenu dans l'autre. Le bootstrap
+# du catalogue utilise un matching bien plus permissif, parce qu'il repond a une autre
+# question : « est-ce la meme famille ? » (« Jet Vac » et « Full Blast Jet Vac » en sont
+# une). Ici la question est « est-ce le MEME jouet ? », et confondre les deux collerait
+# l'image d'une variante sur la figurine de base.
+CONTAINMENT_RATIO = 0.7
+
+
+def match_score(a: str, b: str) -> int | None:
+    """Distance entre deux noms replies, ou None s'ils ne designent pas le meme jouet.
+
+    Plus la valeur est basse, meilleur est l'appariement.
+    """
+    if a == b:
+        return 0
+    short, long = (a, b) if len(a) <= len(b) else (b, a)
+    if short and short in long and len(short) / len(long) >= CONTAINMENT_RATIO:
+        return len(long) - len(short)
+    for x, y in ((a, b), (a.replace("vv", "w"), b.replace("vv", "w"))):
+        distance = levenshtein(x, y)
+        if distance <= 2:  # coquilles du pack (SPEC.md 6.4)
+            return distance
+    return None
 
 
 def slug(text: str) -> str:
@@ -153,35 +178,46 @@ def import_figures(source: str, out: str, catalog: list[dict],
 
     planned: dict[str, str] = {}
     exact = fuzzy = 0
+    approx: list[tuple[str, list[dict], int]] = []
     unmatched: list[str] = []
 
     for filename in images:
         stem, extension = os.path.splitext(filename)
         key = squash(clean_stem(stem))
         targets = index.get(key)
-        kind = "exact"
-        if not targets:
-            candidates = [e for k, entries in index.items() if close_enough(key, k)
-                          for e in entries]
-            if candidates and allow_fuzzy:
-                targets, kind = candidates, "approx"
-            elif candidates:
-                print(f"  APPROX  {filename!r} ~ {candidates[0]['nameFr']!r} "
-                      f"— ignore, relancer avec --fuzzy pour l'accepter")
-                unmatched.append(filename)
-                continue
-            else:
-                unmatched.append(filename)
-                continue
-
-        for entry in targets:
-            planned[target_name(entry, extension.lower())] = os.path.join(source, filename)
-        if kind == "exact":
+        if targets:
+            for entry in targets:
+                planned[target_name(entry, extension.lower())] = os.path.join(source, filename)
             exact += 1
-        else:
+            continue
+
+        # Aucun nom identique : on classe TOUS les candidats plausibles et on garde le
+        # meilleur. Prendre le premier venu collait « Elite_Spyro » sur le Spyro de base
+        # au lieu du Spyro Elite d'Eon, et « Eggsellent_Weeruptor » sur Eruptor.
+        scored = []
+        for candidate_key, entries in index.items():
+            score = match_score(key, candidate_key)
+            if score is not None:
+                scored.append((score, len(candidate_key), candidate_key, entries))
+        if not scored:
+            unmatched.append(filename)
+            continue
+
+        scored.sort()
+        best_score = scored[0][0]
+        # Une entree est indexee par son nom francais ET son nom anglais : sans
+        # dedoublonnage sur l'identite, elle apparait deux fois dans le rapport.
+        chosen: dict[tuple[int, int], dict] = {}
+        for item in scored:
+            if item[0] != best_score:
+                break
+            for entry in item[3]:
+                chosen.setdefault((entry["toyId"], entry["variantId"]), entry)
+        approx.append((filename, list(chosen.values()), best_score))
+        if allow_fuzzy:
+            for entry in chosen.values():
+                planned[target_name(entry, extension.lower())] = os.path.join(source, filename)
             fuzzy += 1
-            names = ", ".join(sorted({e["nameFr"] for e in targets}))
-            print(f"  approx  {filename!r} -> {names}")
 
     if fill_variants:
         # Une variante sans image propre reprend celle de sa forme de base : « Wildfire Sombre »
@@ -203,12 +239,27 @@ def import_figures(source: str, out: str, catalog: list[dict],
                 added += 1
         print(f"  {added} variante(s) recuperent l'image de leur forme de base")
 
-    print(f"\n  {len(images)} image(s) en entree : {exact} exacte(s), {fuzzy} approximative(s), "
-          f"{len(unmatched)} non appariee(s)")
-    for filename in unmatched[:20]:
-        print(f"    NON APPARIEE  {filename}")
-    if len(unmatched) > 20:
-        print(f"    … et {len(unmatched) - 20} autres")
+    if approx:
+        verb = "APPLIQUE" if allow_fuzzy else "PROPOSE"
+        print(f"\n  Appariements approximatifs ({verb}) :")
+        for filename, entries, score in approx:
+            cibles = ", ".join(
+                f"{e['nameFr']} [{e['toyId']}/{e['variantId']}]" for e in entries[:3])
+            note = "coquille" if score <= 2 else "prefixe/suffixe de variante"
+            print(f"    {filename:38s} -> {cibles}   ({note}, ecart {score})")
+        if not allow_fuzzy:
+            print("    Rien n'a ete retenu : relancer avec --fuzzy apres avoir relu cette liste.")
+
+    if unmatched:
+        print(f"\n  Sans cible dans le catalogue ({len(unmatched)}) :")
+        for filename in unmatched[:20]:
+            print(f"    {filename}")
+        if len(unmatched) > 20:
+            print(f"    … et {len(unmatched) - 20} autres")
+        print("    Ces jouets ne figurent pas dans ton pack : rien a leur associer.")
+
+    print(f"\n  {len(images)} image(s) en entree : {exact} exacte(s), "
+          f"{len(approx)} approximative(s), {len(unmatched)} sans cible")
 
     print(f"  {len(planned)} fichier(s) a ecrire dans {out}")
     if apply:
@@ -285,7 +336,7 @@ def report_missing(out: str, catalog: list[dict]) -> None:
                if not any(target_name(e, ext) in have for ext in EXTENSIONS)]
     print(f"=== {len(missing)} identite(s) sans image sur {len(catalog)} ===")
     for entry in missing[:40]:
-        print(f"  {target_name(entry, '.png'):18s} {entry['nameFr']}  [{entry['game']}]")
+        print(f"  {target_name(entry, EXTENSIONS[0]):18s} {entry['nameFr']}  [{entry['game']}]")
     if len(missing) > 40:
         print(f"  … et {len(missing) - 40} autres")
 
