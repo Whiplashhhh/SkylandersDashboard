@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue'
+import { format, t } from '../i18n.js'
 
 const props = defineProps({
   page: { type: Object, default: null },
@@ -11,22 +12,12 @@ const GAME_LABELS = {
   SPYROS_ADVENTURE: 'Spyro', GIANTS: 'Giants', SWAP_FORCE: 'Swap Force',
   TRAP_TEAM: 'Trap Team', SUPERCHARGERS: 'SuperChargers', IMAGINATORS: 'Imaginators'
 }
-const CATEGORY_LABELS = {
-  CHARACTER: 'Personnage', GIANT: 'Géant', TRAP: 'Piège', VEHICLE: 'Véhicule',
-  SIDEKICK: 'Acolyte', MINI: 'Mini', ITEM: 'Objet', ADVENTURE_PACK: 'Pack Aventure',
-  CHEST: 'Coffre', CREATION_CRYSTAL: 'Cristal', UNKNOWN: 'Autre'
-}
-
-function duration (s) {
-  if (s == null) return '—'
-  const h = Math.floor(s / 3600); const m = Math.floor((s % 3600) / 60)
-  return h > 0 ? `${h} h ${String(m).padStart(2, '0')}` : `${m} min`
-}
-function day (iso) {
-  return iso ? new Date(iso).toLocaleDateString('fr-FR',
-    { day: '2-digit', month: 'short', year: 'numeric' }) : '—'
-}
-function num (v) { return v == null ? '—' : v.toLocaleString('fr-FR') }
+// Les valeurs absentes s'affichent toutes pareil : un tiret, jamais un zéro qui ferait
+// croire à une mesure.
+const DASH = '—'
+const duration = s => format.duration(s) ?? DASH
+const day = iso => format.date(iso) ?? DASH
+const num = v => format.number(v) ?? DASH
 
 const showsProgress = computed(() => props.columns.some(c => c.kind === 'xp'))
 
@@ -49,10 +40,10 @@ function artFor (row) {
           <th
             v-for="c in columns" :key="c.key"
             :class="[c.align, { active: page.sort === c.key }]"
-            :title="`Trier par ${c.label}`"
+            :title="t('table.sortBy', { label: t(c.labelKey) })"
             @click="emit('sort', c.key)"
           >
-            {{ c.label }}
+            {{ t(c.labelKey) }}
             <span v-if="page.sort === c.key" class="arrow">{{ page.direction === 'asc' ? '▲' : '▼' }}</span>
           </th>
         </tr>
@@ -70,33 +61,33 @@ function artFor (row) {
             <template v-if="c.key === 'name'">
               <span class="name">{{ r.nameFr }}</span>
               <span v-if="r.nickname" class="nick">« {{ r.nickname }} »</span>
-              <span v-if="!r.unlocked" class="lock" title="Jamais posée sur le portail">🔒</span>
+              <span v-if="!r.unlocked" class="lock" :title="t('table.lockedTitle')">🔒</span>
             </template>
 
             <span v-else-if="c.kind === 'villain'">
-              <template v-if="r.trapEmpty === true"><span class="dim">vide</span></template>
+              <template v-if="r.trapEmpty === true"><span class="dim">{{ t('table.emptyTrap') }}</span></template>
               <template v-else-if="r.villainRawId == null"><span class="dim">—</span></template>
               <template v-else-if="r.villainName">{{ r.villainName }}</template>
               <!-- Aucun référentiel externe ne donne le nom d'un vilain : il se nomme à la main
                    depuis l'écran Pièges, et le référentiel se remplit tout seul (SPEC.md §7.2). -->
-              <span v-else class="unnamed" :title="`Identifiant ${r.villainRawId} — à nommer depuis l'écran Pièges`">
-                Vilain #{{ r.villainRawId }}
+              <span v-else class="unnamed" :title="t('table.unnamedTitle', { id: r.villainRawId })">
+                {{ t('table.unnamedVillain', { id: r.villainRawId }) }}
               </span>
             </span>
 
             <span v-else-if="c.kind === 'xp'">
               <template v-if="r.parsable">
                 {{ num(r.xp) }}<span v-if="r.xpCapped" class="cap"
-                  title="Champ saturé à 33 000, la valeur réelle est peut-être plus haute">*</span>
+                  :title="t('table.cappedTitle', { ceiling: num(33000) })">*</span>
               </template>
-              <span v-else class="dim" title="Aucun parseur de sauvegarde pour ce jeu">n/d</span>
+              <span v-else class="dim" :title="t('table.unsupportedTitle')">{{ t('table.na') }}</span>
             </span>
 
             <span v-else-if="c.kind === 'number'">{{ r.parsable ? num(r[c.field]) : '—' }}</span>
             <span v-else-if="c.kind === 'duration'">{{ r.parsable ? duration(r[c.field]) : '—' }}</span>
             <span v-else-if="c.kind === 'date'" class="dim">{{ day(r[c.field]) }}</span>
-            <span v-else-if="c.kind === 'category'" class="dim">{{ CATEGORY_LABELS[r.category] || r.category }}</span>
-            <span v-else-if="c.key === 'element'" class="dim">{{ r.element }}</span>
+            <span v-else-if="c.kind === 'category'" class="dim">{{ t(`categoriesOne.${r.category}`) }}</span>
+            <span v-else-if="c.key === 'element'" class="dim">{{ t(`elements.${r.element}`) }}</span>
             <span v-else-if="c.key === 'game'" class="dim">
               {{ r.games.map(g => GAME_LABELS[g] || g).join(', ') }}
             </span>
@@ -105,17 +96,18 @@ function artFor (row) {
       </tbody>
     </table>
 
-    <p v-if="page && !page.rows.length" class="empty">Aucune figurine ne correspond à ces filtres.</p>
+    <p v-if="page && !page.rows.length" class="empty">{{ t('table.noResults') }}</p>
 
-    <p v-if="page && page.rows.length && !showsProgress" class="hint">
-      Ces entrées ne portent pas de progression : les colonnes affichées sont celles qui ont un sens
-      pour elles.
-    </p>
+    <p v-if="page && page.rows.length && !showsProgress" class="hint">{{ t('table.noProgress') }}</p>
 
     <nav v-if="page && page.pageCount > 1" class="pager">
-      <button :disabled="page.page <= 1" @click="emit('page', page.page - 1)">Précédent</button>
-      <span>Page {{ page.page }} / {{ page.pageCount }} — {{ page.total }} entrées</span>
-      <button :disabled="page.page >= page.pageCount" @click="emit('page', page.page + 1)">Suivant</button>
+      <button :disabled="page.page <= 1" @click="emit('page', page.page - 1)">
+        {{ t('table.previous') }}
+      </button>
+      <span>{{ t('table.pageInfo', { page: page.page, pages: page.pageCount, total: page.total }) }}</span>
+      <button :disabled="page.page >= page.pageCount" @click="emit('page', page.page + 1)">
+        {{ t('table.next') }}
+      </button>
     </nav>
   </div>
 </template>

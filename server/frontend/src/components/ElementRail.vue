@@ -1,4 +1,6 @@
 <script setup>
+import { t } from '../i18n.js'
+
 defineProps({
   elements: { type: Array, default: () => [] },
   modelValue: { type: String, default: null }
@@ -19,19 +21,19 @@ const allSrc = '/api/images/element/all'
 </script>
 
 <template>
-  <aside class="rail" aria-label="Filtrer par élément">
-    <button class="el" :class="{ on: !modelValue }" title="Tous les éléments"
+  <aside class="rail" :aria-label="t('elements.filter')">
+    <button class="el" :class="{ on: !modelValue }" :title="t('elements.allTitle')"
             @click="$emit('update:modelValue', null)">
-      <img :src="allSrc" alt="Tous les éléments" />
-      <span>Tous</span>
+      <img :src="allSrc" :alt="t('elements.allTitle')" />
+      <span>{{ t('elements.all') }}</span>
     </button>
     <button
       v-for="e in elements" :key="e"
-      class="el" :class="{ on: modelValue === e }" :title="e"
+      class="el" :class="{ on: modelValue === e }" :title="t(`elements.${e}`)"
       @click="$emit('update:modelValue', e)"
     >
-      <img :src="src(e)" :alt="e" />
-      <span>{{ e }}</span>
+      <img :src="src(e)" :alt="t(`elements.${e}`)" />
+      <span>{{ t(`elements.${e}`) }}</span>
     </button>
   </aside>
 </template>

@@ -1,5 +1,6 @@
 <script setup>
 import { computed, ref } from 'vue'
+import { format, t } from '../i18n.js'
 
 const props = defineProps({
   history: { type: Array, required: true }
@@ -9,16 +10,9 @@ const props = defineProps({
 // même unité ni le même ordre de grandeur, et les superposer laisserait croire à une corrélation
 // que le choix des échelles aurait fabriquée.
 const MEASURES = [
-  { key: 'xp', label: 'XP', format: v => v.toLocaleString('fr-FR') },
-  { key: 'gold', label: 'Or', format: v => v.toLocaleString('fr-FR') },
-  {
-    key: 'playtimeSeconds',
-    label: 'Temps de jeu',
-    format: v => {
-      const h = Math.floor(v / 3600); const m = Math.floor((v % 3600) / 60)
-      return h > 0 ? `${h} h ${String(m).padStart(2, '0')}` : `${m} min`
-    }
-  }
+  { key: 'xp', labelKey: 'columns.xp', format: v => format.number(v) },
+  { key: 'gold', labelKey: 'columns.gold', format: v => format.number(v) },
+  { key: 'playtimeSeconds', labelKey: 'columns.playtime', format: v => format.duration(v) }
 ]
 
 const measure = ref(MEASURES[0])
@@ -97,34 +91,31 @@ function onMove (event) {
   hover.value = best ? best.d : null
 }
 
-const day = iso => new Date(iso).toLocaleDateString('fr-FR',
-  { day: '2-digit', month: 'short', year: 'numeric' })
-const moment = point => new Date(point.raw.at || point.raw.capturedAt)
-  .toLocaleString('fr-FR', { dateStyle: 'medium', timeStyle: 'short' })
+const day = iso => format.date(iso)
+const moment = point => format.dateTime(point.raw.at || point.raw.capturedAt)
 </script>
 
 <template>
   <section class="chart">
     <header>
-      <h3>Progression</h3>
+      <h3>{{ t('chart.title') }}</h3>
       <div class="switch">
         <button v-for="m in MEASURES" :key="m.key"
                 :class="{ on: measure.key === m.key }" @click="measure = m">
-          {{ m.label }}
+          {{ t(m.labelKey) }}
         </button>
       </div>
     </header>
 
     <div v-if="points.length > 1" class="axis-switch">
       <button :class="{ on: axis === 'time' }" @click="axis = 'time'"
-              title="Espacement proportionnel au temps écoulé">Par date</button>
+              :title="t('chart.byDateTitle')">{{ t('chart.byDate') }}</button>
       <button :class="{ on: axis === 'index' }" @click="axis = 'index'"
-              title="Chaque sauvegarde occupe la même largeur">Par relevé</button>
+              :title="t('chart.byReadingTitle')">{{ t('chart.byReading') }}</button>
     </div>
 
     <p v-if="points.length < 2" class="note">
-      {{ points.length === 0 ? 'Aucun relevé pour cette mesure.'
-        : 'Un seul relevé : il faut au moins deux sauvegardes pour tracer une évolution.' }}
+      {{ points.length === 0 ? t('chart.none') : t('chart.single') }}
     </p>
 
     <template v-else>
@@ -132,11 +123,12 @@ const moment = point => new Date(point.raw.at || point.raw.capturedAt)
         <svg :viewBox="`0 0 ${W} ${H}`" @mousemove="onMove" @mouseleave="hover = null">
           <!-- Grille et axes volontairement discrets : ils situent, ils ne se regardent pas. -->
           <g class="grid">
-            <line v-for="t in ticks" :key="t.v" :x1="PAD.left" :x2="W - PAD.right" :y1="t.y" :y2="t.y" />
+            <line v-for="tick in ticks" :key="tick.v" :x1="PAD.left" :x2="W - PAD.right"
+                  :y1="tick.y" :y2="tick.y" />
           </g>
           <g class="axis">
-            <text v-for="t in ticks" :key="t.v" :x="PAD.left - 6" :y="t.y + 3.5" text-anchor="end">
-              {{ Math.round(t.v).toLocaleString('fr-FR') }}
+            <text v-for="tick in ticks" :key="tick.v" :x="PAD.left - 6" :y="tick.y + 3.5" text-anchor="end">
+              {{ format.number(Math.round(tick.v)) }}
             </text>
           </g>
 
@@ -152,10 +144,12 @@ const moment = point => new Date(point.raw.at || point.raw.capturedAt)
           </g>
 
           <text class="edge" :x="PAD.left" :y="H - 6" text-anchor="start">
-            {{ axis === 'time' ? day(points[0].raw.at || points[0].raw.capturedAt) : 'relevé 1' }}
+            {{ axis === 'time' ? day(points[0].raw.at || points[0].raw.capturedAt)
+              : t('chart.reading', { n: 1 }) }}
           </text>
           <text class="edge" :x="W - PAD.right" :y="H - 6" text-anchor="end">
-            {{ axis === 'time' ? day(last.raw.at || last.raw.capturedAt) : `relevé ${points.length}` }}
+            {{ axis === 'time' ? day(last.raw.at || last.raw.capturedAt)
+              : t('chart.reading', { n: points.length }) }}
           </text>
         </svg>
 
@@ -168,8 +162,8 @@ const moment = point => new Date(point.raw.at || point.raw.capturedAt)
       <!-- Un seul libellé direct : la valeur courante. Étiqueter chaque point saturerait
            un graphe de 400 px de large. -->
       <p class="current">
-        Actuel : <strong>{{ measure.format(last.v) }}</strong>
-        <span class="dim">· {{ points.length }} relevés</span>
+        <strong>{{ t('chart.current', { value: measure.format(last.v) }) }}</strong>
+        <span class="dim">· {{ t('chart.readings', { n: points.length }) }}</span>
       </p>
     </template>
   </section>

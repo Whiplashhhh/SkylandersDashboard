@@ -100,17 +100,15 @@ public class StatsController {
                 allVillains.size(),
                 (int) allVillains.stream().map(Villain::getName).filter(Objects::nonNull).count());
 
-        List<String> caveats = new ArrayList<>();
+        List<Notice> caveats = new ArrayList<>();
         List<String> unparsed = byGame.stream()
                 .filter(g -> !g.parserAvailable())
                 .map(StatsView.GameStats::game)
                 .toList();
         if (!unparsed.isEmpty()) {
-            caveats.add("Aucun parseur de sauvegarde pour " + String.join(", ", unparsed)
-                    + " : leur taux de complétion est indéterminé, pas nul.");
+            caveats.add(Notice.of("gamesWithoutParser", Map.of("games", unparsed)));
         }
-        caveats.add("Le niveau n'est pas affiché : la courbe XP→niveau n'a pas été mesurée "
-                + "(FORMAT.md §5.1).");
+        caveats.add(Notice.of("levelNotShown"));
         return new StatsView(totals, byGame, byElement, topXp, caveats);
     }
 

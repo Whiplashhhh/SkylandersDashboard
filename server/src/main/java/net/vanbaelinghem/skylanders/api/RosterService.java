@@ -79,25 +79,23 @@ public class RosterService {
                 .map(RosterService::toSnapshotView)
                 .orElse(null);
 
-        List<String> warnings = new ArrayList<>();
+        List<Notice> warnings = new ArrayList<>();
         if (latest != null && "UNSUPPORTED_GAME".equals(latest.parseStatus())) {
-            warnings.add("Aucun parseur de sauvegarde pour ce jeu : identité seule, "
-                    + "progression et déblocage indéterminés.");
+            warnings.add(Notice.of("unsupportedGame"));
         }
         if (entry != null && "REVIEW".equals(entry.getConfidence())) {
-            warnings.add("Nom à revoir : plusieurs libellés se rattachent à cette identité.");
+            warnings.add(Notice.of("nameNeedsReview"));
         }
         if (latest != null && latest.xp() != null && latest.xp() >= XP_LEGACY_CEILING) {
-            warnings.add("XP à " + latest.xp() + " : le champ lu sature à " + XP_LEGACY_CEILING
-                    + ", la valeur réelle est peut-être plus haute (FORMAT.md §8.7).");
+            warnings.add(Notice.of("xpCapped",
+                    Map.of("value", latest.xp(), "ceiling", XP_LEGACY_CEILING)));
         }
         // « Jamais posée » ne peut s'affirmer que si la sauvegarde a pu être lue. Sur un jeu
         // sans parseur, le statut honnête est « on ne sait pas » — l'avertissement précédent le
         // dit déjà, et ajouter celui-ci le contredirait (SPEC.md §6.6).
         boolean readable = latest != null && "OK".equals(latest.parseStatus());
         if (readable && view.received() && !view.unlocked()) {
-            warnings.add("Fichier reçu mais aucune trace de jeu : figurine jamais posée "
-                    + "sur le portail.");
+            warnings.add(Notice.of("neverPlayed"));
         }
         return Optional.of(new ToyDetailView(view,
                 matching.stream().map(Toy::getFilePath).sorted().toList(), latest, warnings));

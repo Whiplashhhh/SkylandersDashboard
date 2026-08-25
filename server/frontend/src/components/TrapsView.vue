@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 import { api } from '../api.js'
+import { t } from '../i18n.js'
 
 const traps = ref([])
 const loading = ref(true)
@@ -36,9 +37,10 @@ const grouped = computed(() => {
     .map(e => ({ element: e, traps: byElement.get(e) }))
 })
 
-const occupied = computed(() => traps.value.filter(t => !t.empty).length)
+const occupied = computed(() => traps.value.filter(one => !one.empty).length)
 const unnamed = computed(() =>
-  new Set(traps.value.filter(t => !t.empty && !t.villainName).map(t => t.villainRawId)).size)
+  new Set(traps.value.filter(one => !one.empty && !one.villainName)
+    .map(one => one.villainRawId)).size)
 
 function artFor (trap) {
   return trap.empty
@@ -71,54 +73,51 @@ async function save (trap) {
 
 <template>
   <section class="traps">
-    <p v-if="error" class="state err">Erreur : {{ error }}</p>
-    <p v-else-if="loading" class="state">Chargement…</p>
+    <p v-if="error" class="state err">{{ t('common.error', { message: error }) }}</p>
+    <p v-else-if="loading" class="state">{{ t('common.loading') }}</p>
 
     <template v-else>
       <p class="summary">
-        <strong>{{ occupied }}</strong> piège(s) occupé(s) sur {{ traps.length }}.
-        <span v-if="unnamed">
-          {{ unnamed }} vilain(s) sans nom — clique sur « Vilain #… » pour le nommer.
-        </span>
+        {{ t('traps.summary', { n: occupied, occupied, total: traps.length }) }}
+        <span v-if="unnamed" class="dim">{{ t('traps.unnamed', { n: unnamed }) }}</span>
       </p>
       <!-- La liste des vilains capturés au cours de la partie n'est pas sur les tags : elle vit
            dans la sauvegarde de la console. On montre donc ce que chaque piège contient
            MAINTENANT, pas un tableau de chasse (SPEC.md §3.6). -->
-      <p class="note">
-        Un piège ne contient qu'un vilain à la fois. Ce que tu vois ici est leur contenu actuel.
-      </p>
+      <p class="note">{{ t('traps.note') }}</p>
 
       <div v-for="group in grouped" :key="group.element" class="group">
         <h2>
           <img :src="`/api/images/element/${group.element}`" :alt="group.element" />
-          {{ group.element }}
-          <span class="count">{{ group.traps.filter(t => !t.empty).length }} / {{ group.traps.length }}</span>
+          {{ t(`elements.${group.element}`) }}
+          <span class="count">{{ group.traps.filter(one => !one.empty).length }} / {{ group.traps.length }}</span>
         </h2>
         <div class="cards">
-          <article v-for="t in group.traps" :key="`${t.toyId}/${t.variantId}`"
-                   class="trap" :class="{ empty: t.empty }">
+          <article v-for="trap in group.traps" :key="`${trap.toyId}/${trap.variantId}`"
+                   class="trap" :class="{ empty: trap.empty }">
             <!-- Un piège occupé montre son prisonnier : c'est l'information utile, le piège
                  vide se reconnaît déjà à son propre visuel. -->
-            <img class="art" :src="artFor(t)" :alt="t.empty ? t.trapName : (t.villainName || 'Vilain inconnu')"
+            <img class="art" :src="artFor(trap)" :alt="trap.empty ? trap.trapName : (trap.villainName || t('traps.unknownVillain'))"
                  loading="lazy" />
             <div class="info">
-              <span class="tname">{{ t.trapName }}</span>
+              <span class="tname">{{ trap.trapName }}</span>
 
-              <span v-if="t.empty" class="villain dim">vide</span>
+              <span v-if="trap.empty" class="villain dim">{{ t('traps.empty') }}</span>
 
-              <template v-else-if="editing === t.villainRawId">
-                <form class="edit" @submit.prevent="save(t)">
+              <template v-else-if="editing === trap.villainRawId">
+                <form class="edit" @submit.prevent="save(trap)">
                   <input v-model="draft" :disabled="saving" autofocus
-                         :placeholder="`Nom du vilain #${t.villainRawId}`" />
-                  <button type="submit" :disabled="saving || !draft.trim()">OK</button>
-                  <button type="button" class="cancel" @click="editing = null">✕</button>
+                         :placeholder="t('traps.placeholder', { id: trap.villainRawId })" />
+                  <button type="submit" :disabled="saving || !draft.trim()">{{ t('traps.save') }}</button>
+                  <button type="button" class="cancel" :title="t('traps.cancel')"
+                          @click="editing = null">✕</button>
                 </form>
               </template>
 
-              <button v-else class="villain named" @click.stop="startEdit(t)"
-                      :class="{ unnamed: !t.villainName }"
-                      :title="`Identifiant ${t.villainRawId} — cliquer pour renommer`">
-                {{ t.villainName || `Vilain #${t.villainRawId}` }}
+              <button v-else class="villain named" @click.stop="startEdit(trap)"
+                      :class="{ unnamed: !trap.villainName }"
+                      :title="t('traps.renameTitle', { id: trap.villainRawId })">
+                {{ trap.villainName || t('table.unnamedVillain', { id: trap.villainRawId }) }}
               </button>
             </div>
           </article>
@@ -162,6 +161,7 @@ button.villain {
 button.villain:hover { text-decoration: underline; }
 button.villain.unnamed { color: var(--warn); font-style: italic; }
 .dim { color: var(--muted); }
+.summary .dim { display: block; margin-top: 2px; font-size: 12.5px; }
 
 .edit { display: flex; gap: 4px; }
 .edit input {

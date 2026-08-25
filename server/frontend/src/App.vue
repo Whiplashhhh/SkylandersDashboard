@@ -8,21 +8,17 @@ import ToyCard from './components/ToyCard.vue'
 import ToyDetail from './components/ToyDetail.vue'
 import TrapsView from './components/TrapsView.vue'
 import { columnsFor, defaultSortFor } from './columns.js'
-import ThemeSelector from './components/ThemeSelector.vue'
+import SettingsMenu from './components/SettingsMenu.vue'
 import { applyTheme, loadTheme, watchSystem } from './theme.js'
+import { preference as localePreference, setLocale, t } from './i18n.js'
 
 // Ordre canonique des éléments : celui des jeux, pas l'ordre alphabétique.
 const ELEMENT_ORDER = ['Feu', 'Eau', 'Vie', 'Magie', 'Tech', 'Terre', 'Air',
   'Mort-Vivant', 'Lumière', 'Ténèbres', 'Kaos', 'Inconnu']
 
-// Libellés métier en français (CLAUDE.md, « Conventions »). L'ordre est celui du menu,
-// des personnages vers les accessoires.
-const CATEGORY_LABELS = {
-  CHARACTER: 'Personnages', GIANT: 'Géants', TRAP: 'Pièges', VEHICLE: 'Véhicules',
-  SIDEKICK: 'Acolytes', MINI: 'Minis', ITEM: 'Objets', ADVENTURE_PACK: 'Packs Aventure',
-  CHEST: 'Coffres', CREATION_CRYSTAL: 'Cristaux de Création', UNKNOWN: 'Autres'
-}
-const CATEGORY_ORDER = Object.keys(CATEGORY_LABELS)
+// Ordre du menu, des personnages vers les accessoires. Les libellés passent par i18n.
+const CATEGORY_ORDER = ['CHARACTER', 'GIANT', 'TRAP', 'VEHICLE', 'SIDEKICK', 'MINI',
+  'ITEM', 'ADVENTURE_PACK', 'CHEST', 'CREATION_CRYSTAL', 'UNKNOWN']
 
 const view = ref('table')
 const game = ref(null)
@@ -148,13 +144,16 @@ onMounted(async () => {
 <template>
   <div class="app">
   <header class="top">
-    <h1>Collection Skylanders</h1>
-    <div class="right">
-      <span v-if="stats" class="counters">
-        <strong>{{ stats.totals.unlocked }}</strong> débloquées / {{ stats.totals.rosterSize }} au roster
-      </span>
-      <ThemeSelector v-model="theme" />
+    <div class="left">
+      <SettingsMenu
+        :theme="theme" :locale="localePreference"
+        @update:theme="theme = $event" @update:locale="setLocale"
+      />
+      <h1>{{ t('app.title') }}</h1>
     </div>
+    <span v-if="stats" class="counters">
+      {{ t('app.counters', { unlocked: stats.totals.unlocked, total: stats.totals.rosterSize }) }}
+    </span>
   </header>
 
   <GameSelector v-model="game" :games="games" />
@@ -164,34 +163,33 @@ onMounted(async () => {
 
     <main>
       <div class="toolbar">
-        <input v-if="view !== 'traps'" v-model="search" type="search" class="search" placeholder="Rechercher un nom…" />
+        <input v-if="view !== 'traps'" v-model="search" type="search" class="search"
+               :placeholder="t('filters.search')" />
         <select v-if="view !== 'traps'" v-model="category">
-          <option :value="null">Toutes les catégories</option>
-          <option v-for="c in categories" :key="c" :value="c">{{ CATEGORY_LABELS[c] || c }}</option>
+          <option :value="null">{{ t('filters.allCategories') }}</option>
+          <option v-for="c in categories" :key="c" :value="c">{{ t(`categories.${c}`) }}</option>
         </select>
         <select v-if="view !== 'traps'" v-model="state">
-          <option :value="null">Toutes</option>
-          <option value="unlocked">Débloquées</option>
-          <option value="locked">Non débloquées</option>
+          <option :value="null">{{ t('filters.allStates') }}</option>
+          <option value="unlocked">{{ t('filters.unlocked') }}</option>
+          <option value="locked">{{ t('filters.locked') }}</option>
         </select>
-        <select v-model.number="size" v-if="view === 'table'" title="Lignes par page">
-          <option :value="15">15 par page</option>
-          <option :value="30">30 par page</option>
-          <option :value="50">50 par page</option>
-          <option :value="100">100 par page</option>
-          <option :value="500">500 par page</option>
+        <select v-model.number="size" v-if="view === 'table'" :title="t('filters.perPage', { n: size })">
+          <option v-for="n in [15, 30, 50, 100, 500]" :key="n" :value="n">
+            {{ t('filters.perPage', { n }) }}
+          </option>
         </select>
-        <button v-if="view !== 'traps'" class="ghost" @click="reset">Réinitialiser</button>
+        <button v-if="view !== 'traps'" class="ghost" @click="reset">{{ t('filters.reset') }}</button>
         <div class="spacer"></div>
         <div class="toggle">
-          <button :class="{ on: view === 'table' }" @click="view = 'table'">Classement</button>
-          <button :class="{ on: view === 'grid' }" @click="view = 'grid'">Grille</button>
-          <button :class="{ on: view === 'traps' }" @click="view = 'traps'">Pièges</button>
+          <button :class="{ on: view === 'table' }" @click="view = 'table'">{{ t('views.table') }}</button>
+          <button :class="{ on: view === 'grid' }" @click="view = 'grid'">{{ t('views.grid') }}</button>
+          <button :class="{ on: view === 'traps' }" @click="view = 'traps'">{{ t('views.traps') }}</button>
         </div>
       </div>
 
-      <p v-if="error" class="state err">Erreur : {{ error }}</p>
-      <p v-else-if="loading" class="state">Chargement…</p>
+      <p v-if="error" class="state err">{{ t('common.error', { message: error }) }}</p>
+      <p v-else-if="loading" class="state">{{ t('common.loading') }}</p>
 
       <LeaderboardTable
         v-else-if="view === 'table'"
@@ -202,7 +200,7 @@ onMounted(async () => {
       <TrapsView v-else-if="view === 'traps'" />
 
       <template v-else-if="view === 'grid'">
-        <p class="count">{{ cards.length }} figurine(s)</p>
+        <p class="count">{{ t('common.figurines', { n: cards.length }) }}</p>
         <div class="grid">
           <ToyCard v-for="t in cards" :key="`${t.toyId}/${t.variantId}`" :toy="t"
                    @open="selected = $event" />
@@ -225,7 +223,7 @@ onMounted(async () => {
   display: flex; align-items: center; justify-content: space-between;
   gap: 16px; padding: 12px 16px 10px; flex: 0 0 auto;
 }
-.right { display: flex; align-items: center; gap: 14px; }
+.left { display: flex; align-items: center; gap: 10px; }
 h1 { margin: 0; font-size: 20px; }
 .counters { color: var(--muted); font-size: 14px; }
 .counters strong { color: var(--text); font-size: 17px; }

@@ -7,13 +7,14 @@
 // (bande de clarté, plancher de chroma, contraste ≥ 3:1) — une couleur lisible sur fond sombre
 // ne l'est pas forcément sur fond clair.
 
+// Les libellés sont des clés : ils passent par i18n, comme le reste de l'interface.
 export const THEMES = [
-  { id: 'system', label: 'Système', hint: 'Suit le réglage du navigateur' },
-  { id: 'light', label: 'Clair' },
-  { id: 'dark', label: 'Sombre' },
-  { id: 'forge', label: 'Forge Ardente', hint: 'Feu' },
-  { id: 'crypte', label: 'Crypte', hint: 'Mort-Vivant' },
-  { id: 'arcane', label: 'Arcane', hint: 'Magie' }
+  { id: 'system', labelKey: 'themes.system', hintKey: 'themes.systemHint' },
+  { id: 'light', labelKey: 'themes.light' },
+  { id: 'dark', labelKey: 'themes.dark' },
+  { id: 'forge', labelKey: 'themes.forge', hintKey: 'themes.forgeHint' },
+  { id: 'crypte', labelKey: 'themes.crypte', hintKey: 'themes.crypteHint' },
+  { id: 'arcane', labelKey: 'themes.arcane', hintKey: 'themes.arcaneHint' }
 ]
 
 const STORAGE_KEY = 'skylanders-theme'

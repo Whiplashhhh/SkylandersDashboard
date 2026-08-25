@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import { t } from '../i18n.js'
 
 defineProps({
   games: { type: Array, default: () => [] },
@@ -12,6 +13,8 @@ defineEmits(['update:modelValue'])
 const missing = ref(new Set())
 const fail = g => { missing.value = new Set(missing.value).add(g) }
 
+// Les noms de jeux ne se traduisent pas : ce sont des titres commerciaux, identiques
+// dans les deux langues.
 const LABELS = {
   SPYROS_ADVENTURE: "Spyro's Adventure",
   GIANTS: 'Giants',
@@ -24,9 +27,9 @@ const label = g => LABELS[g] || g.replaceAll('_', ' ')
 </script>
 
 <template>
-  <nav class="games" aria-label="Choix du jeu">
+  <nav class="games" :aria-label="t('games.pick')">
     <button class="game all" :class="{ on: !modelValue }" @click="$emit('update:modelValue', null)">
-      <span class="txt">Tous les jeux</span>
+      <span class="txt">{{ t('games.all') }}</span>
     </button>
     <button
       v-for="g in games" :key="g"

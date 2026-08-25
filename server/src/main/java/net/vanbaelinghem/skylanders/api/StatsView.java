@@ -5,8 +5,8 @@ import java.util.List;
 /**
  * Aggregates for the statistics screen.
  *
- * @param caveats plain-language warnings the UI must show. Completion is only meaningful for a
- *                game whose {@code GameSaveParser} exists (SPEC.md §6.6): elsewhere nothing can be
+ * @param caveats warnings the UI must show, as codes. Completion is only meaningful for a game
+ *                whose {@code GameSaveParser} exists (SPEC.md §6.6): elsewhere nothing can be
  *                unlocked, and that is an honest "we don't know", not a zero.
  */
 public record StatsView(
@@ -14,7 +14,7 @@ public record StatsView(
         List<GameStats> byGame,
         List<ElementStats> byElement,
         List<TopEntry> topXp,
-        List<String> caveats) {
+        List<Notice> caveats) {
 
     public record Totals(int rosterSize, int received, int unlocked,
                          int villainsKnown, int villainsNamed) {}

@@ -2,6 +2,7 @@
 import { ref, watch } from 'vue'
 import { api } from '../api.js'
 import ProgressChart from './ProgressChart.vue'
+import { format, t } from '../i18n.js'
 
 const props = defineProps({ toy: { type: Object, default: null } })
 defineEmits(['close'])
@@ -27,16 +28,9 @@ watch(() => props.toy, async toy => {
   }
 }, { immediate: true })
 
-function duration (seconds) {
-  if (seconds == null) return '—'
-  const h = Math.floor(seconds / 3600)
-  const m = Math.floor((seconds % 3600) / 60)
-  return h > 0 ? `${h} h ${String(m).padStart(2, '0')}` : `${m} min`
-}
-
-function moment (iso) {
-  return iso ? new Date(iso).toLocaleString('fr-FR', { dateStyle: 'medium', timeStyle: 'short' }) : '—'
-}
+const DASH = '—'
+const duration = seconds => format.duration(seconds) ?? DASH
+const moment = iso => format.dateTime(iso) ?? DASH
 </script>
 
 <template>
@@ -44,59 +38,61 @@ function moment (iso) {
     <header>
       <div>
         <h2>{{ toy.nameFr }}</h2>
-        <p class="sub">{{ toy.nameEn }} · {{ toy.element }} · {{ toy.category }}</p>
+        <p class="sub">{{ toy.nameEn }} · {{ t(`elements.${toy.element}`) }} · {{ t(`categoriesOne.${toy.category}`) }}</p>
       </div>
-      <button class="close" @click="$emit('close')" aria-label="Fermer">✕</button>
+      <button class="close" @click="$emit('close')" :aria-label="t('detail.close')">✕</button>
     </header>
 
     <img class="art" :src="api.imageUrl(toy.toyId, toy.variantId)" :alt="toy.nameFr"
          :class="{ locked: !toy.unlocked }" />
 
-    <p v-if="error" class="warn">Chargement impossible : {{ error }}</p>
+    <p v-if="error" class="warn">{{ t('detail.loadFailed', { message: error }) }}</p>
 
     <ul v-if="detail?.warnings?.length" class="warnings">
-      <li v-for="w in detail.warnings" :key="w">{{ w }}</li>
+      <li v-for="w in detail.warnings" :key="w.code">{{ t(`notices.${w.code}`, w.params) }}</li>
     </ul>
 
     <dl class="facts">
-      <dt>Identité</dt><dd>toy {{ toy.toyId }} · variante {{ toy.variantId }}</dd>
-      <dt>Jeux</dt><dd>{{ toy.games.map(g => g.replaceAll('_', ' ')).join(', ') }}</dd>
-      <dt>Statut</dt>
-      <dd>{{ toy.unlocked ? 'Débloquée' : (toy.received ? 'Jamais posée sur le portail' : 'Aucun fichier reçu') }}</dd>
-      <dt v-if="toy.firstPlayedAt">Première partie</dt>
+      <dt>{{ t('detail.identity') }}</dt>
+      <dd>{{ t('detail.identityValue', { toyId: toy.toyId, variantId: toy.variantId }) }}</dd>
+      <dt>{{ t('detail.games') }}</dt>
+      <dd>{{ toy.games.map(g => g.replaceAll('_', ' ')).join(', ') }}</dd>
+      <dt>{{ t('detail.status') }}</dt>
+      <dd>{{ toy.unlocked ? t('detail.unlocked')
+        : (toy.received ? t('detail.neverPlayed') : t('detail.notReceived')) }}</dd>
+      <dt v-if="toy.firstPlayedAt">{{ t('detail.firstPlayed') }}</dt>
       <dd v-if="toy.firstPlayedAt">{{ moment(toy.firstPlayedAt) }}</dd>
-      <dt v-if="toy.lastSavedAt">Dernière sauvegarde</dt>
+      <dt v-if="toy.lastSavedAt">{{ t('detail.lastSaved') }}</dt>
       <dd v-if="toy.lastSavedAt">{{ moment(toy.lastSavedAt) }}</dd>
     </dl>
 
     <ProgressChart v-if="history.length" :history="history" />
 
     <section v-if="detail?.latest" class="progress">
-      <h3>Dernier relevé</h3>
+      <h3>{{ t('detail.lastReading') }}</h3>
       <div class="grid">
-        <div><span class="k">XP</span><span class="v">{{ detail.latest.xp ?? '—' }}</span></div>
-        <div><span class="k">Or</span><span class="v">{{ detail.latest.gold ?? '—' }}</span></div>
-        <div><span class="k">Temps de jeu</span><span class="v">{{ duration(detail.latest.playtimeSeconds) }}</span></div>
-        <div><span class="k">Améliorations</span><span class="v">{{ detail.latest.upgradesCount ?? '—' }}</span></div>
-        <div v-if="detail.latest.nickname"><span class="k">Surnom</span><span class="v">{{ detail.latest.nickname }}</span></div>
+        <div><span class="k">{{ t('columns.xp') }}</span><span class="v">{{ detail.latest.xp ?? DASH }}</span></div>
+        <div><span class="k">{{ t('columns.gold') }}</span><span class="v">{{ detail.latest.gold ?? DASH }}</span></div>
+        <div><span class="k">{{ t('columns.playtime') }}</span><span class="v">{{ duration(detail.latest.playtimeSeconds) }}</span></div>
+        <div><span class="k">{{ t('columns.upgrades') }}</span><span class="v">{{ detail.latest.upgradesCount ?? DASH }}</span></div>
+        <div v-if="detail.latest.nickname"><span class="k">{{ t('detail.nickname') }}</span><span class="v">{{ detail.latest.nickname }}</span></div>
       </div>
       <!-- Le niveau n'est volontairement pas affiché : la courbe XP→niveau n'est pas mesurée
            (FORMAT.md §5.1). Afficher une valeur devinée contreviendrait à SPEC.md §10.4. -->
-      <p class="note">Le niveau n'est pas affiché : la correspondance XP → niveau n'a pas encore
-        été mesurée sur de vraies parties.</p>
+      <p class="note">{{ t('detail.levelNote') }}</p>
     </section>
 
     <!-- La vue tableau reste disponible à côté du graphe : une courbe se lit d'un coup d'œil,
          un chiffre exact se lit dans un tableau. -->
     <details v-if="history.length > 1" class="history">
-      <summary>Historique détaillé · {{ history.length }} relevés</summary>
+      <summary>{{ t('detail.history', { n: history.length }) }}</summary>
       <table>
-        <thead><tr><th>Sauvegardé</th><th>XP</th><th>Or</th><th>Blocs</th></tr></thead>
+        <thead><tr><th>{{ t('detail.tableSaved') }}</th><th>{{ t('columns.xp') }}</th><th>{{ t('columns.gold') }}</th><th>{{ t('detail.tableBlocks') }}</th></tr></thead>
         <tbody>
           <tr v-for="(h, i) in history.slice().reverse()" :key="i">
             <td>{{ moment(h.at || h.capturedAt) }}</td>
-            <td>{{ h.xp ?? '—' }}</td>
-            <td>{{ h.gold ?? '—' }}</td>
+            <td>{{ h.xp ?? DASH }}</td>
+            <td>{{ h.gold ?? DASH }}</td>
             <td>{{ h.changedBlocks }}</td>
           </tr>
         </tbody>
@@ -104,7 +100,7 @@ function moment (iso) {
     </details>
 
     <details v-if="detail?.files?.length" class="files">
-      <summary>{{ detail.files.length }} fichier(s)</summary>
+      <summary>{{ t('detail.files', { n: detail.files.length }) }}</summary>
       <ul><li v-for="f in detail.files" :key="f">{{ f }}</li></ul>
     </details>
   </aside>

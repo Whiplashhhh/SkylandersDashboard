@@ -1,6 +1,11 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import './style.css'
+import { applyDocumentLocale } from './i18n.js'
+
+// Renseigne <html lang> et le titre de l'onglet des le demarrage : les lecteurs d'ecran et
+// la cesure dependent du premier, l'onglet du second.
+applyDocumentLocale()
 
 createApp(App).mount('#app')
 
