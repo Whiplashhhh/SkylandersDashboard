@@ -1,9 +1,16 @@
 <script setup>
+import { ref } from 'vue'
+
 defineProps({
   games: { type: Array, default: () => [] },
   modelValue: { type: String, default: null }
 })
 defineEmits(['update:modelValue'])
+
+// Un jeu sans logo fourni affiche son nom, dans les couleurs du thème. Un badge d'image
+// généré porterait des couleurs figées et resterait sombre en thème clair.
+const missing = ref(new Set())
+const fail = g => { missing.value = new Set(missing.value).add(g) }
 
 const LABELS = {
   SPYROS_ADVENTURE: "Spyro's Adventure",
@@ -26,9 +33,8 @@ const label = g => LABELS[g] || g.replaceAll('_', ' ')
       class="game" :class="{ on: modelValue === g }"
       @click="$emit('update:modelValue', g)"
     >
-      <!-- Le logo est fourni à la main sous images/game_<JEU>.png ; sinon le serveur renvoie
-           un badge portant le nom du jeu, ce qui reste parfaitement lisible. -->
-      <img :src="`/api/images/game/${g}`" :alt="label(g)" />
+      <img v-if="!missing.has(g)" :src="`/api/images/game/${g}`" :alt="label(g)" @error="fail(g)" />
+      <span v-else class="txt">{{ label(g) }}</span>
     </button>
   </nav>
 </template>
@@ -40,6 +46,7 @@ const label = g => LABELS[g] || g.replaceAll('_', ' ')
   /* Centré tant que ça tient ; `safe` évite qu'un débordement rende le premier
      bouton inatteignable au défilement sur petit écran. */
   justify-content: safe center;
+  flex: 0 0 auto;
 }
 .game {
   flex: 0 0 auto;
@@ -51,6 +58,7 @@ const label = g => LABELS[g] || g.replaceAll('_', ' ')
 .game:hover { transform: translateY(-2px); }
 .game.on { border-color: var(--accent); }
 .game img { height: 46px; display: block; border-radius: 6px; }
+.game .txt { white-space: nowrap; }
 .all { min-width: 130px; }
 .txt { font-size: 14px; font-weight: 600; }
 </style>

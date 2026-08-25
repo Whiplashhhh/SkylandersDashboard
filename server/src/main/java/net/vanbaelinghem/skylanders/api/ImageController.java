@@ -11,6 +11,8 @@ import net.vanbaelinghem.skylanders.classification.Game;
 import net.vanbaelinghem.skylanders.domain.CatalogToy;
 import net.vanbaelinghem.skylanders.domain.CatalogToyRepository;
 import net.vanbaelinghem.skylanders.domain.ToyKey;
+import net.vanbaelinghem.skylanders.domain.Villain;
+import net.vanbaelinghem.skylanders.domain.VillainRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.CacheControl;
 import org.springframework.http.MediaType;
@@ -37,12 +39,17 @@ import org.springframework.web.bind.annotation.RestController;
 @Transactional(readOnly = true)
 public class ImageController {
 
+    /** Extensions acceptées, dans l'ordre de préférence. */
+    private static final List<String> EXTENSIONS = List.of(".webp", ".png", ".jpg", ".jpeg");
+
     private final CatalogToyRepository catalog;
+    private final VillainRepository villains;
     private final Path root;
 
-    public ImageController(CatalogToyRepository catalog,
+    public ImageController(CatalogToyRepository catalog, VillainRepository villains,
                            @Value("${skylanders.images.location:./images}") String location) {
         this.catalog = catalog;
+        this.villains = villains;
         this.root = Path.of(location).toAbsolutePath().normalize();
     }
 
@@ -71,7 +78,13 @@ public class ImageController {
         return served(find("element_" + element.name()), () -> elementBadge(element));
     }
 
-    /** Game logo, supplied by hand as {@code game_TRAP_TEAM.png}; falls back to the game name. */
+    /**
+     * Game logo, supplied by hand as {@code game_TRAP_TEAM.webp}.
+     *
+     * <p>Returns 404 when the file is missing, deliberately: a generated badge would carry baked
+     * colours and stay dark in a light theme. The frontend renders the game name as themed text
+     * instead, which is what a fallback should look like.
+     */
     @GetMapping("/game/{name}")
     public ResponseEntity<byte[]> gameLogo(@PathVariable String name) {
         Game game;
@@ -80,11 +93,15 @@ public class ImageController {
         } catch (IllegalArgumentException e) {
             return ResponseEntity.notFound().build();
         }
-        return served(find("game_" + game.name()), () -> gameBadge(game));
+        Path file = find("game_" + game.name());
+        if (file == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return served(file, () -> new byte[0]);
     }
 
     private java.nio.file.Path find(String stem) {
-        for (String extension : List.of(".png", ".jpg", ".svg")) {
+        for (String extension : List.of(".webp", ".png", ".jpg", ".jpeg", ".svg")) {
             Path file = root.resolve(stem + extension);
             if (Files.isReadable(file)) {
                 return file;
@@ -97,8 +114,7 @@ public class ImageController {
         if (file != null) {
             try {
                 String fileName = file.getFileName().toString();
-                MediaType type = fileName.endsWith(".svg") ? MediaType.valueOf("image/svg+xml")
-                        : fileName.endsWith(".jpg") ? MediaType.IMAGE_JPEG : MediaType.IMAGE_PNG;
+                MediaType type = mediaType(fileName);
                 return ResponseEntity.ok().contentType(type)
                         .cacheControl(CacheControl.maxAge(java.time.Duration.ofHours(6)))
                         .body(Files.readAllBytes(file));
@@ -136,57 +152,67 @@ public class ImageController {
                 """).formatted(slices).getBytes(StandardCharsets.UTF_8);
     }
 
-    private byte[] gameBadge(Game game) {
-        String label = switch (game) {
-            case SPYROS_ADVENTURE -> "Spyro's Adventure";
-            case GIANTS -> "Giants";
-            case SWAP_FORCE -> "Swap Force";
-            case TRAP_TEAM -> "Trap Team";
-            case SUPERCHARGERS -> "SuperChargers";
-            case IMAGINATORS -> "Imaginators";
-            case UNKNOWN -> "Inconnu";
-        };
-        return ("""
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 64" width="220"                 height="64" role="img" aria-label="%s">
-                  <rect width="220" height="64" rx="10" fill="#262a35"/>
-                  <text x="110" y="33" text-anchor="middle" dominant-baseline="central"                 fill="#e8eaf0" font-family="system-ui, sans-serif" font-size="19"                 font-weight="600">%s</text>
-                </svg>
-                """).formatted(escape(label), escape(label)).getBytes(StandardCharsets.UTF_8);
-    }
 
     @GetMapping("/{toyId}/{variantId}")
     public ResponseEntity<byte[]> image(@PathVariable int toyId, @PathVariable int variantId) {
-        // Path components are ints, so no traversal is reachable here.
-        List<String> candidates = List.of(
-                toyId + "_variant" + variantId + ".png",
-                toyId + "_variant" + variantId + ".jpg",
-                toyId + ".png",
-                toyId + ".jpg");
-        for (String candidate : candidates) {
-            Path file = root.resolve(candidate);
-            if (Files.isReadable(file)) {
-                try {
-                    MediaType type = candidate.endsWith(".png")
-                            ? MediaType.IMAGE_PNG : MediaType.IMAGE_JPEG;
-                    return ResponseEntity.ok()
-                            .contentType(type)
-                            .cacheControl(CacheControl.maxAge(java.time.Duration.ofHours(6)))
-                            .body(Files.readAllBytes(file));
-                } catch (IOException e) {
-                    break; // unreadable after all — fall through to the badge
-                }
-            }
+        // Path components are ints, so no traversal is reachable here. The variant-specific file
+        // wins over the base one, so a Legendary can carry its own artwork.
+        Path file = find(toyId + "_" + variantId);
+        if (file == null) {
+            file = find(String.valueOf(toyId));
         }
-        return ResponseEntity.ok()
-                .contentType(MediaType.valueOf("image/svg+xml"))
-                .cacheControl(CacheControl.noCache())
-                .body(badge(toyId, variantId));
+        return served(file, () -> badge(toyId, variantId));
+    }
+
+    /**
+     * Artwork of the villain locked in a trap, keyed by its raw id.
+     *
+     * <p>The file is named after the villain, slugified — {@code villain_buzzerbeak.webp}. The
+     * server slugifies the name held in the reference the same way, so naming a villain correctly
+     * in the UI is what binds it to its picture. That coupling is deliberate: no external source
+     * maps a raw id to a name (SPEC.md §7.2), so the user's own naming is the only key available.
+     */
+    @GetMapping("/villain/{rawId}")
+    public ResponseEntity<byte[]> villainImage(@PathVariable int rawId) {
+        String name = villains.findById(rawId).map(Villain::getName).orElse(null);
+        Path file = name == null ? null : find("villain_" + slug(name));
+        if (file == null) {
+            file = find("villain_" + rawId);
+        }
+        final String label = name;
+        return served(file, () -> initialsBadge(
+                label != null ? label : "?",
+                label != null ? Element.UNKNOWN.color() : "#6b7280"));
+    }
+
+    /** Lowercase alphanumerics only: « Buzzer Beak » and « buzzer-beak » land on the same file. */
+    static String slug(String text) {
+        String folded = java.text.Normalizer.normalize(text, java.text.Normalizer.Form.NFD)
+                .replaceAll("\\p{M}", "");
+        return folded.toLowerCase(java.util.Locale.ROOT).replaceAll("[^a-z0-9]", "");
+    }
+
+    private static MediaType mediaType(String fileName) {
+        if (fileName.endsWith(".svg")) {
+            return MediaType.valueOf("image/svg+xml");
+        }
+        if (fileName.endsWith(".webp")) {
+            return MediaType.valueOf("image/webp");
+        }
+        if (fileName.endsWith(".jpg") || fileName.endsWith(".jpeg")) {
+            return MediaType.IMAGE_JPEG;
+        }
+        return MediaType.IMAGE_PNG;
     }
 
     private byte[] badge(int toyId, int variantId) {
         CatalogToy entry = catalog.findById(new ToyKey(toyId, variantId)).orElse(null);
         String name = entry != null ? entry.getNameFr() : String.valueOf(toyId);
         Element element = entry != null ? Element.fromLabel(entry.getElement()) : Element.UNKNOWN;
+        return initialsBadge(name, element.color());
+    }
+
+    private byte[] initialsBadge(String name, String color) {
         String svg = """
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" \
                 role="img" aria-label="%s">
@@ -195,7 +221,7 @@ public class ImageController {
                 fill="#ffffff" font-family="system-ui, sans-serif" font-size="72" \
                 font-weight="600">%s</text>
                 </svg>
-                """.formatted(escape(name), element.color(), escape(initials(name)));
+                """.formatted(escape(name), color, escape(initials(name)));
         return svg.getBytes(StandardCharsets.UTF_8);
     }
 

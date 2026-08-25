@@ -42,7 +42,37 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from catalog_bootstrap import close_enough, fold, squash  # noqa: E402
 
-EXTENSIONS = (".png", ".jpg", ".jpeg", ".webp")
+EXTENSIONS = (".webp", ".png", ".jpg", ".jpeg")
+
+# Suffixes de nom de fichier a ignorer avant appariement. Le lot fourni est nomme
+# « Nom_Perso_Icon.webp » : sans cette etape, « Food_Fight_Icon » ne rejoindrait
+# jamais « Food Fight ».
+NAME_SUFFIXES = ("icon", "icone", "portrait", "art")
+
+GAMES = {
+    "SPYROS_ADVENTURE": ("spyros adventure", "spyro s adventure", "spyro adventure", "ssa"),
+    "GIANTS": ("giants", "geants"),
+    "SWAP_FORCE": ("swap force", "swapforce"),
+    "TRAP_TEAM": ("trap team", "trapteam"),
+    "SUPERCHARGERS": ("superchargers", "super chargers"),
+    "IMAGINATORS": ("imaginators",),
+}
+
+
+def clean_stem(stem: str) -> str:
+    """Nom exploitable d'un fichier image : underscores en espaces, suffixe retire."""
+    name = stem.replace("_", " ").replace("-", " ").strip()
+    lowered = name.lower()
+    for suffix in NAME_SUFFIXES:
+        if lowered.endswith(" " + suffix):
+            name = name[: -len(suffix) - 1].strip()
+            break
+    return name
+
+
+def slug(text: str) -> str:
+    """Meme regle que ImageController.slug cote serveur : minuscules alphanumeriques."""
+    return squash(clean_stem(text))
 
 # Nom anglais du symbole dans le pack -> nom de la constante Element cote serveur.
 SYMBOLS = {
@@ -127,7 +157,7 @@ def import_figures(source: str, out: str, catalog: list[dict],
 
     for filename in images:
         stem, extension = os.path.splitext(filename)
-        key = squash(stem)
+        key = squash(clean_stem(stem))
         targets = index.get(key)
         kind = "exact"
         if not targets:
@@ -193,6 +223,62 @@ def import_figures(source: str, out: str, catalog: list[dict],
         print("  SIMULATION — relancer avec --apply pour ecrire.")
 
 
+def import_villains(source: str, out: str, apply: bool) -> None:
+    """Ecrit villain_<slug>.<ext> a partir d'images nommees par vilain.
+
+    Le serveur retrouve l'image en appliquant la meme regle de slug au nom saisi
+    dans l'interface : nommer « Buzzer Beak » lie automatiquement le piege a
+    « Buzzer_Beak_Icon.webp ». C'est le seul lien possible, aucune source externe
+    ne donnant la correspondance identifiant -> nom (SPEC.md §7.2).
+    """
+    print("=== Images de vilains ===")
+    images = [f for f in sorted(os.listdir(source)) if f.lower().endswith(EXTENSIONS)]
+    if not images:
+        raise SystemExit(f"ERREUR : aucune image dans {source}")
+    written = 0
+    for filename in images:
+        stem, extension = os.path.splitext(filename)
+        key = slug(stem)
+        if not key:
+            print(f"  ignore (nom vide apres nettoyage) : {filename}")
+            continue
+        destination = os.path.join(out, f"villain_{key}{extension.lower()}")
+        if written < 10:
+            print(f"  {clean_stem(stem):28s} -> villain_{key}{extension.lower()}")
+        if apply:
+            shutil.copyfile(os.path.join(source, filename), destination)
+        written += 1
+    if written > 10:
+        print(f"  … et {written - 10} autres")
+    print(f"  {written} image(s){' copiee(s)' if apply else ' a copier (simulation)'}")
+    print("  Rappel : le nom saisi dans l'interface doit correspondre au nom du fichier.")
+
+
+def import_games(source: str, out: str, apply: bool) -> None:
+    """Ecrit game_<JEU>.<ext> a partir d'images nommees par jeu."""
+    print("=== Logos de jeux ===")
+    lookup = {alias: constant for constant, aliases in GAMES.items() for alias in aliases}
+    images = [f for f in sorted(os.listdir(source)) if f.lower().endswith(EXTENSIONS)]
+    matched = 0
+    for filename in images:
+        stem, extension = os.path.splitext(filename)
+        name = clean_stem(stem)
+        key = squash(name)
+        constant = next((c for alias, c in lookup.items() if squash(alias) == key), None)
+        if constant is None:
+            constant = next((c for alias, c in lookup.items()
+                             if squash(alias) in key or key in squash(alias)), None)
+        if constant is None:
+            print(f"  NON APPARIE  {filename}  (attendu : {', '.join(sorted(GAMES))})")
+            continue
+        print(f"  {name:28s} -> game_{constant}{extension.lower()}")
+        if apply:
+            shutil.copyfile(os.path.join(source, filename),
+                            os.path.join(out, f"game_{constant}{extension.lower()}"))
+        matched += 1
+    print(f"  {matched}/{len(GAMES)} logo(s){' copie(s)' if apply else ' a copier (simulation)'}")
+
+
 def report_missing(out: str, catalog: list[dict]) -> None:
     have = {f for f in os.listdir(out)} if os.path.isdir(out) else set()
     missing = [e for e in catalog
@@ -209,6 +295,8 @@ def main(argv: list[str]) -> int:
         description="Remplit le dossier d'images servi par le serveur.",
         epilog="Ne modifie jamais le pack : seule la destination est ecrite.")
     parser.add_argument("--from", dest="source", help="dossier d'images nommees par personnage")
+    parser.add_argument("--villains", help="dossier d'images nommees par vilain")
+    parser.add_argument("--games", help="dossier de logos nommes par jeu")
     parser.add_argument("--elements", action="store_true", help="copier les symboles du pack")
     parser.add_argument("--missing", action="store_true", help="lister ce qu'il reste a fournir")
     parser.add_argument("--out", default="images", help="dossier destination (defaut: ./images)")
@@ -221,8 +309,8 @@ def main(argv: list[str]) -> int:
                         help="donner aux variantes l'image de leur forme de base")
     args = parser.parse_args(argv)
 
-    if not (args.source or args.elements or args.missing):
-        parser.error("rien a faire : passer --from, --elements ou --missing")
+    if not (args.source or args.elements or args.missing or args.villains or args.games):
+        parser.error("rien a faire : passer --from, --villains, --games, --elements ou --missing")
 
     out = os.path.expanduser(args.out)
     if args.apply:
@@ -243,8 +331,23 @@ def main(argv: list[str]) -> int:
             return 2
         import_figures(source, out, catalog, args.apply, args.fuzzy, args.fill_variants)
         print()
+    for label, folder, action in (("--villains", args.villains, import_villains),
+                                  ("--games", args.games, import_games)):
+        if not folder:
+            continue
+        folder = os.path.expanduser(folder)
+        if not os.path.isdir(folder):
+            print(f"ERREUR : dossier {label} introuvable : {folder}", file=sys.stderr)
+            return 2
+        action(folder, out, args.apply)
+        print()
+
     if args.missing:
         report_missing(out, catalog)
+
+    print(f"Dossier destination : {out}")
+    if not args.apply:
+        print("Aucune ecriture : ajouter --apply pour appliquer.")
     return 0
 
 

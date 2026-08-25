@@ -40,6 +40,12 @@ const occupied = computed(() => traps.value.filter(t => !t.empty).length)
 const unnamed = computed(() =>
   new Set(traps.value.filter(t => !t.empty && !t.villainName).map(t => t.villainRawId)).size)
 
+function artFor (trap) {
+  return trap.empty
+    ? `/api/images/${trap.toyId}/${trap.variantId}`
+    : `/api/images/villain/${trap.villainRawId}`
+}
+
 function startEdit (trap) {
   editing.value = trap.villainRawId
   draft.value = trap.villainName || ''
@@ -91,7 +97,10 @@ async function save (trap) {
         <div class="cards">
           <article v-for="t in group.traps" :key="`${t.toyId}/${t.variantId}`"
                    class="trap" :class="{ empty: t.empty }">
-            <img class="art" :src="`/api/images/${t.toyId}/${t.variantId}`" :alt="t.trapName" loading="lazy" />
+            <!-- Un piège occupé montre son prisonnier : c'est l'information utile, le piège
+                 vide se reconnaît déjà à son propre visuel. -->
+            <img class="art" :src="artFor(t)" :alt="t.empty ? t.trapName : (t.villainName || 'Vilain inconnu')"
+                 loading="lazy" />
             <div class="info">
               <span class="tname">{{ t.trapName }}</span>
 
@@ -151,7 +160,7 @@ button.villain {
   background: none; border: none; padding: 0; cursor: pointer; color: var(--accent);
 }
 button.villain:hover { text-decoration: underline; }
-button.villain.unnamed { color: #f0c674; font-style: italic; }
+button.villain.unnamed { color: var(--warn); font-style: italic; }
 .dim { color: var(--muted); }
 
 .edit { display: flex; gap: 4px; }
@@ -166,5 +175,5 @@ button.villain.unnamed { color: #f0c674; font-style: italic; }
 .edit button:disabled { opacity: .4; cursor: default; }
 .cancel { color: var(--muted); }
 .state { color: var(--muted); padding: 26px 0; }
-.err { color: #e2726e; }
+.err { color: var(--err); }
 </style>

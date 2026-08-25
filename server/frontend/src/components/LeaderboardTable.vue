@@ -29,6 +29,14 @@ function day (iso) {
 function num (v) { return v == null ? '—' : v.toLocaleString('fr-FR') }
 
 const showsProgress = computed(() => props.columns.some(c => c.kind === 'xp'))
+
+// Sur une ligne de piège occupé, l'icône montre le vilain enfermé plutôt que le piège :
+// c'est ce que la colonne voisine nomme, les deux se répondent.
+function artFor (row) {
+  return row.trapEmpty === false && row.villainRawId
+    ? `/api/images/villain/${row.villainRawId}`
+    : `/api/images/${row.toyId}/${row.variantId}`
+}
 </script>
 
 <template>
@@ -56,7 +64,7 @@ const showsProgress = computed(() => props.columns.some(c => c.kind === 'xp'))
         >
           <td class="rank">{{ r.rank }}</td>
           <td class="art">
-            <img :src="`/api/images/${r.toyId}/${r.variantId}`" :alt="r.nameFr" loading="lazy" />
+            <img :src="artFor(r)" :alt="r.nameFr" loading="lazy" />
           </td>
           <td v-for="c in columns" :key="c.key" :class="c.align">
             <template v-if="c.key === 'name'">
@@ -139,8 +147,8 @@ tbody tr:hover { background: var(--panel-2); }
 .nick { font-weight: 400; color: var(--muted); font-size: 12px; margin-left: 5px; }
 .lock { margin-left: 6px; font-size: 11px; }
 .dim { color: var(--muted); }
-.cap { color: #f0c674; }
-.unnamed { color: #f0c674; font-style: italic; }
+.cap { color: var(--warn); }
+.unnamed { color: var(--warn); font-style: italic; }
 .empty { color: var(--muted); padding: 28px 12px; }
 .hint { color: var(--muted); font-size: 12px; padding: 10px 12px 0; }
 .pager {
