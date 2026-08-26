@@ -1,0 +1,44 @@
+# Service utilisateur systemd pour l'agent local.
+#
+# Généré par agent/install-service.sh, qui y substitue les chemins réels.
+# Ne pas modifier la copie installée : relancer le script après un changement.
+#
+# SPEC.md §2.1 prévoyait un lancement strictement manuel (« pas de service
+# auto-démarré au boot »). Décision révisée le 2026-08-27 à la demande de
+# l'utilisateur : le confort de ne plus y penser l'emporte, et le coût est nul —
+# un scan sans changement prend 0,0 s et le sondage quelques millisecondes.
+
+[Unit]
+Description=Agent Skylanders — pousse les dumps .sky vers le tableau de bord
+Documentation=https://github.com/Whiplashhhh/SkylandersDashboard
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=@PYTHON@ @AGENT@ --config @CONFIG@
+# Sans ça, Python tamponne sa sortie hors terminal et le journal reste vide
+# jusqu'à l'arrêt du service — exactement quand on a besoin de le lire.
+Environment=PYTHONUNBUFFERED=1
+Restart=always
+RestartSec=15
+
+# L'invariant de lecture seule (CLAUDE.md, invariant 1) est ici imposé par le
+# noyau et plus seulement par la discipline du code : même un bug ne pourrait
+# pas écrire dans le dossier des .sky. Seul le cache est accessible en écriture.
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=@CACHE@
+PrivateTmp=true
+NoNewPrivileges=true
+RestrictSUIDSGID=true
+LockPersonality=true
+RestrictNamespaces=true
+SystemCallArchitectures=native
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=skylanders-agent
+
+[Install]
+WantedBy=default.target

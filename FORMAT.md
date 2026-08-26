@@ -417,6 +417,21 @@ Prises en concertation, en complément de ce que SPEC.md §11.2 laissait ouvert.
 Ces écarts au schéma de SPEC.md §7.1 sont **volontaires et motivés par les mesures**. Ils sont à reporter dans la
 spec lors de sa prochaine révision.
 
+### 7.4 L'agent devient un service — acté le 2026-08-27
+
+SPEC.md §2.1 prévoyait un lancement strictement manuel : « Pas de service auto-démarré au boot — l'usage n'est pas
+quotidien. » **Décision révisée à la demande de l'utilisateur** : l'agent démarre désormais avec la session, via un
+service utilisateur systemd (`agent/install-service.sh`).
+
+Le raisonnement d'origine tenait à un coût supposé. Il est nul en pratique : un scan sans changement prend 0,1 s
+(mesuré sur les 702 fichiers, tout en cache) et la surveillance sonde le dossier toutes les 2 secondes pour quelques
+millisecondes de processeur.
+
+**Gain inattendu** : le service impose l'invariant 1 au niveau du noyau et non plus seulement par discipline de code.
+`ProtectSystem=strict` et `ProtectHome=read-only` rendent le dossier des `.sky` physiquement non inscriptible pour le
+processus, seul le cache restant ouvert en écriture. Vérifié : une tentative d'écriture y échoue avec
+« système de fichiers accessible en lecture seulement ». Même un bug de l'agent ne pourrait plus toucher aux dumps.
+
 ---
 
 ## 8. Questions ouvertes

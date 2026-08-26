@@ -35,6 +35,9 @@ import urllib.request
 DUMP_SIZE = 1024
 DEBOUNCE_SECONDS = 2.0
 POLL_SECONDS = 2.0
+# Delai avant de retenter un scan complet apres un echec d'envoi. Lance en service,
+# l'agent demarre souvent avant le serveur : sortir en erreur ferait boucler systemd.
+RETRY_SECONDS = 60.0
 IGNORED_SUFFIXES = (".txt", ".md", ".png", ".jpg", ".jpeg", ".ini")
 
 
@@ -242,21 +245,39 @@ def full_scan(root, cache, client) -> dict:
     return stats
 
 
-def watch(root, cache, client) -> None:
+def watch(root, cache, client, retry_scan: bool = False) -> None:
     """Surveille le dossier par sondage.
 
     Le WatchService de SPEC.md §8 suppose Java ; en Python, un sondage toutes les
     2 s sur 702 fichiers coute quelques millisecondes et evite d'ajouter
     `watchdog` en dependance. Le debounce de 2 s reste indispensable : Cemu ecrit
     pendant la partie (SPEC.md §8.2).
+
+    `retry_scan` relance un scan complet toutes les RETRY_SECONDS tant que le
+    serveur n'a pas repondu : sans ca, un agent demarre avant le serveur
+    attendrait qu'un fichier bouge pour retenter, donc potentiellement toujours.
     """
     print(f"\nSurveillance de {root} — Ctrl+C pour arreter.")
     known = {rel: os.path.getmtime(abs_) for rel, abs_ in iter_dumps(root)}
     pending: dict[str, float] = {}
+    next_retry = time.time() + RETRY_SECONDS if retry_scan else None
     try:
         while True:
             time.sleep(POLL_SECONDS)
             now = time.time()
+
+            if next_retry is not None and now >= next_retry:
+                print("Nouvelle tentative de scan complet…")
+                scan_id = client.start_scan("STARTUP")
+                stats = full_scan(root, cache, client)
+                client.finish_scan(scan_id, stats)
+                save_cache(cache_path(), cache)
+                if stats["failed"]:
+                    next_retry = now + RETRY_SECONDS
+                else:
+                    print("Serveur joignable, surveillance normale.")
+                    next_retry = None
+                continue
             for relative, absolute in iter_dumps(root):
                 try:
                     mtime = os.path.getmtime(absolute)
@@ -317,12 +338,16 @@ def main(argv: list[str]) -> int:
     print(f"Scan termine en {time.time() - started:.1f} s : {stats['scanned']} fichiers, "
           + ", ".join(parts))
 
-    if stats["failed"] and not stats["stored"]:
+    unreachable = stats["failed"] > 0 and stats["stored"] == 0 and stats["unchanged"] == 0
+    if unreachable:
         print("Aucun envoi n'a abouti — verifier serverUrl et token.", file=sys.stderr)
-        return 1
+        if args.once:
+            return 1
+        print(f"Passage en surveillance : nouvelle tentative dans {RETRY_SECONDS:.0f} s.",
+              file=sys.stderr)
     if args.once:
         return 0
-    watch(root, cache, client)
+    watch(root, cache, client, retry_scan=unreachable)
     save_cache(path, cache)
     return 0
 
