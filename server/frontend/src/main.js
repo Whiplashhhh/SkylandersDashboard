@@ -1,13 +1,13 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import './style.css'
-import { applyDocumentLocale } from './i18n.js'
+import { applyDocumentLocale, i18n } from './i18n.js'
 
 // Renseigne <html lang> et le titre de l'onglet des le demarrage : les lecteurs d'ecran et
 // la cesure dependent du premier, l'onglet du second.
 applyDocumentLocale()
 
-createApp(App).mount('#app')
+createApp(App).use(i18n).mount('#app')
 
 // Enregistré seulement en production : en développement, un service worker qui met en cache
 // la coquille masque les rechargements à chaud et fait perdre du temps.

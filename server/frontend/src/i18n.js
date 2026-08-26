@@ -1,17 +1,18 @@
-// Internationalisation, sans dépendance.
+// Internationalisation, sur vue-i18n.
 //
-// vue-i18n ferait très bien l'affaire, mais le CLAUDE.md demande de consulter avant d'ajouter
-// une dépendance, et deux langues avec interpolation et un pluriel tiennent en quelques lignes.
-// Si le besoin grandit — genres, ordinaux, dates localisées complexes — c'est le moment de
-// basculer sur la bibliothèque plutôt que d'étoffer ceci.
+// L'API exposée ici — `t`, `format`, `locale`, `preference`, `setLocale` — est volontairement
+// la même que celle de l'implémentation maison qu'elle remplace : les composants n'ont pas
+// bougé. Le wrapper `t` fait une seule chose que vue-i18n ne fait pas seul : il déduit le
+// nombre pour le pluriel du paramètre `n`, pour que les appels restent `t('clé', { n })`.
 
+import { createI18n } from 'vue-i18n'
 import { computed, ref } from 'vue'
 import fr from './locales/fr.js'
 import en from './locales/en.js'
 
-const MESSAGES = { fr, en }
 const STORAGE_KEY = 'skylanders-locale'
 const FALLBACK = 'fr'
+const AVAILABLE = ['fr', 'en']
 
 export const LOCALES = [
   { id: 'system', labelKey: 'locales.system', hintKey: 'locales.systemHint' },
@@ -21,13 +22,13 @@ export const LOCALES = [
 
 function detect () {
   const tag = (navigator.language || FALLBACK).slice(0, 2).toLowerCase()
-  return MESSAGES[tag] ? tag : FALLBACK
+  return AVAILABLE.includes(tag) ? tag : FALLBACK
 }
 
 function stored () {
   try {
     const value = localStorage.getItem(STORAGE_KEY)
-    return LOCALES.some(l => l.id === value) ? value : 'system'
+    return LOCALES.some(entry => entry.id === value) ? value : 'system'
   } catch {
     return 'system'
   }
@@ -37,7 +38,38 @@ function stored () {
 export const preference = ref(stored())
 
 /** Langue réellement appliquée, « system » résolu. */
-export const locale = computed(() => preference.value === 'system' ? detect() : preference.value)
+export const locale = computed(() =>
+  preference.value === 'system' ? detect() : preference.value)
+
+export const i18n = createI18n({
+  legacy: false,
+  globalInjection: true,
+  locale: locale.value,
+  fallbackLocale: FALLBACK,
+  messages: { fr, en },
+  // Une clé absente est renvoyée telle quelle et signalée en console : un libellé manquant
+  // se voit à l'écran plutôt que de disparaître en silence.
+  missingWarn: true,
+  fallbackWarn: false
+})
+
+/**
+ * Traduit une clé.
+ *
+ * Un paramètre `n` numérique sert aussi de sélecteur de pluriel, ce qui permet aux appels de
+ * rester `t('clé', { n })` sans répéter le nombre.
+ *
+ * Les listes sont jointes avant interpolation : `String(tableau)` collerait les valeurs.
+ */
+export function t (key, params = {}) {
+  const named = {}
+  for (const [name, value] of Object.entries(params)) {
+    named[name] = Array.isArray(value) ? value.join(', ') : value
+  }
+  return typeof params.n === 'number'
+    ? i18n.global.t(key, named, params.n)
+    : i18n.global.t(key, named)
+}
 
 export function setLocale (id) {
   preference.value = id
@@ -46,49 +78,18 @@ export function setLocale (id) {
   } catch {
     // Stockage refusé : la langue s'applique quand même, elle ne survivra pas au rechargement.
   }
+  i18n.global.locale.value = locale.value
   applyDocumentLocale()
 }
 
 /** Ce que Vue ne rend pas : l'attribut lang et le titre de l'onglet. */
 export function applyDocumentLocale () {
+  i18n.global.locale.value = locale.value
   document.documentElement.lang = locale.value
   document.title = t('app.title')
 }
 
-function lookup (dictionary, path) {
-  return path.split('.').reduce((node, key) => (node == null ? undefined : node[key]), dictionary)
-}
-
-/**
- * Traduit une clé.
- *
- * Interpolation : `{nom}`. Pluriel : « singulier | pluriel », choisi sur `n`, ce qui couvre
- * exactement le français et l'anglais — une règle de plus large serait du code mort.
- *
- * Une clé absente est renvoyée telle quelle : un libellé manquant se voit à l'écran plutôt que
- * de disparaître silencieusement.
- */
-export function t (key, params = {}) {
-  let text = lookup(MESSAGES[locale.value], key)
-  if (typeof text !== 'string') {
-    text = lookup(MESSAGES[FALLBACK], key)
-  }
-  if (typeof text !== 'string') {
-    return key
-  }
-  if (text.includes('|')) {
-    const forms = text.split('|').map(form => form.trim())
-    text = Math.abs(Number(params.n)) <= 1 ? forms[0] : forms[1]
-  }
-  return text.replace(/\{(\w+)\}/g, (whole, name) => {
-    const value = params[name]
-    if (value === undefined) return whole
-    // Une liste s'écrit avec des séparateurs lisibles, pas avec la virgule brute de String().
-    return Array.isArray(value) ? value.join(', ') : String(value)
-  })
-}
-
-/** Formatage des nombres et dates dans la langue active. */
+/** Formatage des nombres, dates et durées dans la langue active. */
 export const format = {
   number: value => value == null ? null : Number(value).toLocaleString(locale.value),
   date: iso => iso == null ? null
