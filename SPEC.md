@@ -1,5 +1,9 @@
 # Skylanders Collection Dashboard — Spécification
 
+> Évolution du 13 septembre 2026 : le canal de contrôle du portail est implémenté séparément de l’ingestion. Voir [docs/CEMU-PORTAL.md](docs/CEMU-PORTAL.md) pour le protocole v1, les accès authentifiés et les limites validées. Les descriptions historiques « agent → serveur uniquement » ci-dessous concernent le canal d’ingestion ; le connecteur optionnel reçoit des commandes par ses propres échanges sortants. Seul Cemu effectue les écritures normales de jeu.
+
+> Évolution du 14 septembre 2026 : la grille 9 + piège commande directement Cemu par glisser-déposer et clic. Elle affiche uniquement les occupants observés ; l’ancienne disposition préparée n’est pas rejouée. Le détail du protocole et des copies ambiguës reste dans [docs/CEMU-PORTAL.md](docs/CEMU-PORTAL.md).
+
 > **Statut** : v0.1 — spec de démarrage
 > **Contrainte absolue** : l'application est **strictement en lecture seule** sur les fichiers `.sky`.
 
@@ -746,7 +750,7 @@ GET  /api/images/{toyId}           image ou placeholder généré (placeholder �
 ```
 
 **Aucun endpoint ne touche un système de fichiers côté laptop.** Le serveur ne monte, ne lit ni n'écrit jamais dans le
-dossier source — le seul canal est `/api/ingest`, alimenté volontairement par l'agent.
+dossier source. Le canal de données `/api/ingest` est alimenté volontairement par l'agent ; le canal de contrôle `/api/bridge` passe par les échanges sortants du connecteur et laisse les écritures normales à Cemu (voir `docs/CEMU-PORTAL.md`).
 
 **Sécurité de `/api/ingest` :** l'accès réseau est déjà restreint par Tailscale (seuls les appareils du tailnet peuvent
 atteindre le serveur). En défense en profondeur, prévoir un token partagé simple (en-tête `Authorization`) entre l'agent

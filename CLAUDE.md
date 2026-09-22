@@ -10,7 +10,7 @@ triviale.
 Dashboard web auto-hébergé qui lit **en lecture seule** les dumps de figurines Skylanders (`.sky`) utilisés par le
 portail émulé de Cemu, et historise leur progression dans PostgreSQL.
 
-## Architecture en deux composants
+## Architecture : ingestion et canal de contrôle séparé
 
 - **Agent** (laptop, lancement manuel) : scanne le dossier configuré, hash les fichiers, envoie les deltas au serveur en
   HTTP. **Ne parse et ne déchiffre rien.**
@@ -23,6 +23,8 @@ corriger un offset (fréquent pendant la phase 0) en ne redéployant que le serv
 
 ---
 
+Le connecteur optionnel `connector/` contrôle le portail émulé par socket locale protégée. Il ne parse ni ne modifie les dumps. Le serveur ne reçoit que son inventaire et son état ; il ne dispose pas d’accès au disque du PC. Le protocole et le lancement sont documentés dans `docs/CEMU-PORTAL.md`.
+
 ## ⛔ Invariants — ne jamais transgresser
 
 ### 1. Lecture seule absolue sur les `.sky`
@@ -33,7 +35,7 @@ de « mode avancé », pas de flag de configuration.
 Concrètement :
 
 - **le serveur n'a aucun accès au système de fichiers du laptop, point final** — pas de montage, pas de chemin réseau,
-  pas d'accès direct. Le seul canal est `/api/ingest`, et il ne circule que dans un sens (agent → serveur).
+  pas d'accès direct. Le canal d’ingestion `/api/ingest` circule dans un seul sens (agent → serveur). Le canal de commandes `/api/bridge` est séparé : le connecteur établit les échanges sortants et seul Cemu réalise les écritures normales du jeu (voir `docs/CEMU-PORTAL.md`).
 - côté agent : ouvrir les `.sky` uniquement en lecture (`StandardOpenOption.READ`) ; ne jamais appeler `Files.write`,
   `Files.move`,
   `Files.delete`, `File.renameTo` sur un chemin sous `skylandersRoot`
@@ -222,7 +224,7 @@ marcher en test rapide, mais qui est faux. Toujours passer par `first_played_at`
 
 **Logique de parsing qui migre vers l'agent.** Piège de conception le plus probable :
 un jour, par souci d'« optimisation », quelqu'un (humain ou IA) propose de faire calculer le niveau ou l'XP côté agent
-pour « alléger le serveur ». Ne jamais faire ça — voir « Architecture en deux composants » en tête de ce fichier.
+pour « alléger le serveur ». Ne jamais faire ça — voir « Architecture : ingestion et canal de contrôle séparé » en tête de ce fichier.
 L'agent hash et envoie, rien d'autre.
 
 **Zone de sauvegarde double.** Le tag a deux zones miroir avec un compteur de séquence. Toujours retenir celle au

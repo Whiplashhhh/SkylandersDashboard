@@ -17,15 +17,30 @@ server:
   port: ${SERVER_PORT:8080}
 
 skylanders:
+  bridge:
+    connector-token: ${PORTAL_CONNECTOR_TOKEN:}
+    control-token: ${PORTAL_CONTROL_TOKEN:}
   ingest:
     # Defense en profondeur derriere Tailscale (SPEC.md §9). A surcharger en deploiement.
     token: ${INGEST_TOKEN:dev-token}
   catalog:
     location: ${CATALOG_LOCATION:classpath:catalog.json}
+  villains:
+    # Roster des vilains de Trap Team (tools/villains_bootstrap.py). Meme regime que le
+    # catalogue : source versionnee, corrigeable a la main, rejouee a chaque demarrage.
+    location: ${VILLAINS_LOCATION:classpath:villains.json}
   images:
     # Visuels sous copyright Activision : jamais dans le depot, jamais dans l'image Docker.
     # Dossier alimente a la main et monte en volume (SPEC.md §10.3). L'app fonctionne sans.
+    # En local, le defaut est aussi resolu depuis server/ ou l'espace de travail parent.
     location: ${IMAGES_DIR:./images}
+  portal:
+    # Emplacements pour figurines, disposes en grille (9 = trois rangees de trois). La serrure
+    # a piege s'ajoute en dessous et n'est pas comptee ici : le portail physique n'en a qu'une,
+    # elle ne prend que des pieges, et rien d'autre ne s'y pose.
+    # Baisser cette valeur ne perd rien : les emplacements occupes au-dela restent affiches
+    # pour pouvoir etre liberes.
+    slots: ${PORTAL_SLOTS:9}
 
 logging:
   level:

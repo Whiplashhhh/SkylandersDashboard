@@ -1,0 +1,6 @@
+{
+  "skylandersRoot": "/home/you/Games/Cemu/skylanders",
+  "socket": "/run/user/1000/cemu-portal/control.sock",
+  "serverUrl": "https://dashboard.example.ts.net",
+  "token": "DEDICATED_CONNECTOR_TOKEN"
+}
