@@ -16,5 +16,7 @@ public record CatalogFile(List<Toy> toys) {
             String game,
             String element,
             String category,
-            String confidence) {}
+            String confidence,
+            /** Titre de page wiki verifie par {@code tools/wiki_links.py}, ou {@code null}. */
+            String wiki) {}
 }

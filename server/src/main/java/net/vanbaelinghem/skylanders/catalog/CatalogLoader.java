@@ -86,11 +86,12 @@ public class CatalogLoader implements SmartInitializingSingleton {
                 CatalogToy existing = repository.findById(key).orElse(null);
                 if (existing == null) {
                     repository.save(new CatalogToy(key, entry.nameEn(), entry.nameFr(),
-                            entry.game(), entry.element(), entry.category(), entry.confidence()));
+                            entry.game(), entry.element(), entry.category(), entry.confidence(),
+                            entry.wiki()));
                     created++;
                 } else {
                     existing.update(entry.nameEn(), entry.nameFr(), entry.game(),
-                            entry.element(), entry.category(), entry.confidence());
+                            entry.element(), entry.category(), entry.confidence(), entry.wiki());
                     updated++;
                 }
             }

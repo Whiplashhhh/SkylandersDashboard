@@ -6,6 +6,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Locale;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import net.vanbaelinghem.skylanders.classification.Element;
 import net.vanbaelinghem.skylanders.classification.Game;
 import net.vanbaelinghem.skylanders.domain.CatalogToy;
@@ -39,6 +41,8 @@ import org.springframework.web.bind.annotation.RestController;
 @Transactional(readOnly = true)
 public class ImageController {
 
+    private static final Logger log = LoggerFactory.getLogger(ImageController.class);
+
     /** Extensions acceptées, dans l'ordre de préférence. */
     private static final List<String> EXTENSIONS = List.of(".webp", ".png", ".jpg", ".jpeg");
 
@@ -50,7 +54,57 @@ public class ImageController {
                            @Value("${skylanders.images.location:./images}") String location) {
         this.catalog = catalog;
         this.villains = villains;
-        this.root = Path.of(location).toAbsolutePath().normalize();
+        this.root = locate(location);
+    }
+
+    /**
+     * Resolves the image folder, and says out loud what it found.
+     *
+     * <p>The path is relative, so it depends on the working directory — and the documented way to
+     * start the server is {@code cd server && mvn spring-boot:run}, from where {@code ./images}
+     * points at a folder that does not exist. The symptom is not an error but silence: every
+     * figurine falls back to its generated badge, which looks like a broken import rather than a
+     * misplaced folder. Relative paths are also tried one level up; for the default, a launch
+     * from the shared workspace also checks {@code SkylandersDashboard/images}. The outcome is
+     * logged (CLAUDE.md: never fail silently on a file).
+     */
+    private static Path locate(String location) {
+        Path configured = Path.of(location).toAbsolutePath().normalize();
+        Path chosen = resolveRoot(location, Path.of("").toAbsolutePath());
+        if (!Files.isDirectory(chosen)) {
+            log.warn("Dossier d'images introuvable ({}) — toutes les figurines tomberont sur "
+                    + "leur pastille generee. Renseigner IMAGES_DIR pour y remedier.", configured);
+            return chosen;
+        }
+        long count;
+        try (var entries = Files.list(chosen)) {
+            count = entries.filter(Files::isRegularFile).count();
+        } catch (IOException e) {
+            count = -1;
+        }
+        log.info("Images servies depuis {} ({} fichiers)", chosen, count);
+        return chosen;
+    }
+
+    static Path resolveRoot(String location, Path workingDirectory) {
+        Path requested = Path.of(location);
+        Path configured = workingDirectory.resolve(requested).normalize();
+        if (Files.isDirectory(configured) || requested.isAbsolute()) {
+            return configured;
+        }
+        Path fromParent = workingDirectory.resolve("..").resolve(requested).normalize();
+        if (Files.isDirectory(fromParent)) {
+            return fromParent;
+        }
+        // IntelliJ may launch from the shared workspace containing both repositories.
+        // Only infer this location for the default; never replace a custom IMAGES_DIR.
+        if (requested.normalize().equals(Path.of("images"))) {
+            Path fromWorkspace = workingDirectory.resolve("SkylandersDashboard/images").normalize();
+            if (Files.isDirectory(fromWorkspace)) {
+                return fromWorkspace;
+            }
+        }
+        return configured;
     }
 
     @GetMapping("/{toyId}")
@@ -183,6 +237,20 @@ public class ImageController {
         return served(file, () -> initialsBadge(
                 label != null ? label : "?",
                 label != null ? Element.UNKNOWN.color() : "#6b7280"));
+    }
+
+    /**
+     * Villain artwork by name.
+     *
+     * <p>The roster screen knows villains by name, not by raw id — a villain never captured has
+     * no raw id at all, and still deserves its picture. Same file as the raw-id route resolves
+     * to: {@code villain_<slug>.<ext>}.
+     */
+    @GetMapping("/villain/name/{name}")
+    public ResponseEntity<byte[]> villainImageByName(@PathVariable String name) {
+        // Slugified before touching the filesystem: the value comes from a URL.
+        return served(find("villain_" + slug(name)),
+                () -> initialsBadge(name, Element.UNKNOWN.color()));
     }
 
     /** Lowercase alphanumerics only: « Buzzer Beak » and « buzzer-beak » land on the same file. */
