@@ -1,0 +1,20 @@
+# Visuels sous copyright : montes en volume, jamais dans l'image (SPEC.md 10.3).
+images/
+
+# Artefacts de build : l'image les reconstruit elle-meme.
+server/target/
+server/frontend/node_modules/
+server/frontend/dist/
+server/src/main/resources/static/
+
+.git/
+.idea/
+.claude/
+graphify-out/
+__pycache__/
+*.pyc
+
+# Secrets et configuration locale.
+.env
+agent/agent.yaml
+connector/connector.json

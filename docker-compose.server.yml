@@ -1,0 +1,53 @@
+# Deploiement homelab : ajoute le service `server` par-dessus docker-compose.yml
+# et durcit la base pour une machine qui n'est pas un poste de developpement.
+#
+#   docker compose -f docker-compose.yml -f docker-compose.server.yml up -d --build
+#
+# Les trois jetons sont obligatoires : un INGEST_TOKEN vide ouvrirait /api/ingest
+# a tout le tailnet (IngestTokenFilter compare a la valeur configuree).
+services:
+  postgres:
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-skylanders}
+      POSTGRES_USER: ${POSTGRES_USER:-skylanders}
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:?POSTGRES_PASSWORD manquant : copier .env.example vers .env}"
+    # La base ne sort pas de la machine : seul le serveur y accede, par le reseau
+    # Compose. `!override` remplace la publication 0.0.0.0 du fichier de base, que
+    # Compose ajouterait sinon a celle-ci.
+    ports: !override
+      - "127.0.0.1:5432:5432"
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: skylanders-server:local
+    container_name: skylanders-server
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB:-skylanders}
+      DB_USER: ${POSTGRES_USER:-skylanders}
+      DB_PASSWORD: "${POSTGRES_PASSWORD:?POSTGRES_PASSWORD manquant}"
+      INGEST_TOKEN: "${INGEST_TOKEN:?INGEST_TOKEN manquant : voir .env.example}"
+      PORTAL_CONNECTOR_TOKEN: "${PORTAL_CONNECTOR_TOKEN:?PORTAL_CONNECTOR_TOKEN manquant}"
+      PORTAL_CONTROL_TOKEN: "${PORTAL_CONTROL_TOKEN:?PORTAL_CONTROL_TOKEN manquant}"
+      PORTAL_SLOTS: ${PORTAL_SLOTS:-9}
+      IMAGES_DIR: /images
+    volumes:
+      # Lecture seule : le serveur n'ecrit jamais dans les visuels.
+      - ${IMAGES_HOST_DIR:-./images}:/images:ro
+    ports:
+      # Par defaut le dashboard n'ecoute que sur l'interface Tailscale du serveur.
+      # SERVER_BIND=0.0.0.0 pour l'ouvrir au LAN, si tu sais pourquoi.
+      - "${SERVER_BIND:-127.0.0.1}:${SERVER_PORT:-8080}:8080"
+    healthcheck:
+      # /dev/tcp est une extension de bash : /bin/sh (dash) ne sait pas l'ouvrir.
+      test: ["CMD", "bash", "-c", "exec 3<>/dev/tcp/127.0.0.1/8080"]
+      interval: 10s
+      timeout: 3s
+      retries: 12
+      start_period: 60s

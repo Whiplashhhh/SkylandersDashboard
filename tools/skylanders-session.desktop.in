@@ -1,0 +1,17 @@
+# Entree du launcher d'applications (Omarchy : SUPER + espace).
+#
+# Generee par tools/install-launcher.sh, qui y substitue les chemins reels.
+# Ne pas modifier la copie installee : relancer le script apres un changement.
+[Desktop Entry]
+Type=Application
+Name=Skylanders Trap Team
+GenericName=Cemu + portail Skylanders
+Comment=Lance Cemu patche, le connecteur du portail et l'agent d'ingestion
+Exec=@SCRIPT@
+Icon=@ICON@
+Terminal=false
+Categories=Game;Emulator;
+Keywords=Skylanders;Cemu;WiiU;portail;trap;
+# Cemu est la fenetre reellement ouverte : sans ca, Hyprland ne rattache pas
+# la fenetre a cette entree.
+StartupWMClass=Cemu

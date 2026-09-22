@@ -119,6 +119,12 @@ cd server/frontend && npm run build
 # Base de données locale
 docker compose up -d postgres
 
+# Déploiement serveur (Debian) — voir docs/DEPLOIEMENT.md
+docker compose -f docker-compose.yml -f docker-compose.server.yml up -d --build
+
+# Raccourci de session sur le PC de jeu (launcher Omarchy)
+./tools/install-launcher.sh
+
 # Agent — lancement manuel avant une session de jeu
 cd agent && ./mvnw package
 java -jar agent/target/agent.jar --config agent.yaml
@@ -157,6 +163,12 @@ server/                      SERVEUR — homelab, Docker
     domain/                    entités JPA
     api/                       contrôleurs REST (lecture, pour l'UI)
   frontend/                    Vue 3
+
+Dockerfile                   image du serveur (frontend Vue + JAR), visuels exclus
+docker-compose.server.yml    surcouche de déploiement homelab (service server + durcissement)
+.env.example                 secrets du déploiement (jetons, mot de passe base)
+tools/skylanders-session.sh  session de jeu complète — agent + connecteur + Cemu patché
+tools/install-launcher.sh    installe le raccourci dans le launcher d'Omarchy
 
 FORMAT.md                    offsets + niveaux de preuve  ← source de vérité technique
 SPEC.md                      spécification fonctionnelle
