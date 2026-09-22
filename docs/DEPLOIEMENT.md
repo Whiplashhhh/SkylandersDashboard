@@ -118,6 +118,17 @@ Trois fichiers sur le PC de jeu, dans `~/.config/skylanders/` :
 Le `PORTAL_CONTROL_TOKEN` ne se met dans aucun fichier : il se colle dans la page
 portail du navigateur, à la première connexion.
 
+**Premier envoi vers un serveur neuf :** le cache de l'agent
+(`~/.cache/skylanders-agent/sent.json`) retient ce qu'il a déjà envoyé, sans
+retenir à quel serveur. Face à une base vide il n'enverrait donc rien, et le
+portail refuserait chaque pose avec « Fichier absent ou inaccessible sur le PC »
+— le serveur croise les chemins connus de l'ingestion avec l'inventaire du
+connecteur. Forcer un envoi complet une fois :
+
+```bash
+python3 agent/skylanders_agent.py --config ~/.config/skylanders/agent.yaml --reset-cache --once
+```
+
 Le PC de jeu n'a plus besoin de Docker, de PostgreSQL ni du JAR : il ne lance que
 l'agent, le connecteur et Cemu (voir [DEMARRER.md](../../DEMARRER.md)).
 
@@ -148,6 +159,7 @@ Les migrations Flyway s'appliquent au démarrage du conteneur `server` : aucune
 | Le conteneur `server` redémarre en boucle | `docker compose logs server` : le plus souvent la base n'est pas prête ou `DB_URL` a été surchargée à la main. |
 | 401 dans le journal de l'agent | `token` de `agent.yaml` ≠ `INGEST_TOKEN` du serveur. |
 | « Connecteur absent » dans l'interface | Le connecteur ne tourne pas sur le PC de jeu, ou son `token` ne correspond pas à `PORTAL_CONNECTOR_TOKEN`. |
+| « Fichier absent ou inaccessible sur le PC » pour **toutes** les figurines | La base n'a reçu aucun dump : relancer l'agent avec `--reset-cache --once` (cf. étape 6). Pour une seule figurine, c'est qu'aucune copie de ce modèle n'existe dans `~/Games/Cemu/skylanders`. |
 | Toutes les figurines en badge de repli | Volume `images/` vide côté serveur : refaire le `rsync` de l'étape 4, puis `docker compose restart server` — le nombre de fichiers est compté au démarrage. |
 | `rsync: mkstemp ... Permission denied (13)` | `images/` a été créé par Docker, donc en root : `sudo chown -R "$USER:$USER" images` puis relancer le `rsync`. |
 | Rien ne répond hors de la machine | `SERVER_BIND` vaut `127.0.0.1` : mettre l'adresse Tailscale puis `up -d`. |
