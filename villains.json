@@ -1,0 +1,375 @@
+{
+  "generatedBy": "tools/villains_bootstrap.py",
+  "source": "https://skylanders.fandom.com/wiki/Skylanders%3A%20Trap%20Team",
+  "license": "Textes extraits du wiki Skylanders (Fandom), CC BY-SA.",
+  "villains": [
+    {
+      "name": "Dreamcatcher",
+      "element": "Air",
+      "wiki": "Dreamcatcher",
+      "doomRaider": true,
+      "summary": "The Dreamcatcher is a floating head who is one of the Air villains in Skylanders: Trap Team. She is a member of the Doom Raiders.",
+      "image": "villain_dreamcatcher"
+    },
+    {
+      "name": "Bad Juju",
+      "element": "Air",
+      "wiki": "Bad_Juju_(character)",
+      "doomRaider": false,
+      "summary": "Bad Juju is a witch doctor spirit who first appeared as one of the Air villains in Skylanders: Trap Team. She later appeared in Skylanders: SuperChargers, as one of the non-playable villain racers in the Racing Mode, driving an unnamed oddly-shaped vehicle with a duplicate of her skull on the front.",
+      "image": "villain_badjuju"
+    },
+    {
+      "name": "Buzzer Beak",
+      "element": "Air",
+      "wiki": "Buzzer_Beak_(villain)",
+      "doomRaider": false,
+      "summary": "Buzzer Beak is a miniature bird who is one of the Air villains in Skylanders: Trap Team. He had set up an ambush on an isolated island around Know-It-All Island by using a Legendary Treasure to lure the Skylanders into his trap. In the end, Buzzer Beak, along with other Buzzer Beaks, Plant Warriors, and Tussle Sprouts, were defeated and he was trapped.",
+      "image": "villain_buzzerbeak"
+    },
+    {
+      "name": "Krankenstein",
+      "element": "Air",
+      "wiki": "Krankenstein_(villain)",
+      "doomRaider": false,
+      "summary": "Krankenstein is an Evilikin who is one of the trappable Air villains in Skylanders: Trap Team. He was named after his creator Dr. Krankcase.",
+      "image": "villain_krankenstein"
+    },
+    {
+      "name": "Nightshade",
+      "element": "Ténèbres",
+      "wiki": "Nightshade",
+      "doomRaider": true,
+      "summary": "Nightshade is a thief who is one of the Dark trappable villains in Skylanders: Trap Team. He is the Doom Raider of the Dark element.",
+      "image": "villain_nightshade"
+    },
+    {
+      "name": "Eye Scream",
+      "element": "Ténèbres",
+      "wiki": "Eye_Scream_(villain)",
+      "doomRaider": false,
+      "summary": "Eye Scream is a small orange mutant creature who is one of the Dark trappable villains in Skylanders: Trap Team. She has long dark blue hair and a big red eyeball in her mouth. When the Skylanders come upon her home in Monster Marsh, Eye Scream sends out several eyeballs to attack them before fleeing into the swamp.",
+      "image": "villain_eyescream"
+    },
+    {
+      "name": "Fisticuffs",
+      "element": "Ténèbres",
+      "wiki": "Fisticuffs_(villain)",
+      "doomRaider": false,
+      "summary": "Fisticuffs is an Evilikin who is one of the Dark elemental villains in Skylanders: Trap Team. He was summoned by Verl and the other Gillmen in the Secret Sewers of Supreme Stink to help determine whether the Skylanders were actually Skylanders. Though Verl had already seen enough, he let Fisticuffs attempt to prove his might against them anyway, since he was called in advance.",
+      "image": "villain_fisticuffs"
+    },
+    {
+      "name": "Tae Kwon Crow",
+      "element": "Ténèbres",
+      "wiki": "Tae_Kwon_Crow_(character)",
+      "doomRaider": false,
+      "summary": "Tae Kwon Crow, formerly known as the Great Hawkmongous, is a ninja crow who first appeared as one of the Dark trappable villains in Skylanders: Trap Team. He is the former leader of a notorious gang of evil Sky Pirates in the Skyhighlands and is a former member of the Feathered Fiends.",
+      "image": "villain_taekwoncrow"
+    },
+    {
+      "name": "Golden Queen",
+      "element": "Terre",
+      "wiki": "Golden_Queen",
+      "doomRaider": true,
+      "summary": "The Golden Queen is a golden statue who is one of the Earth villains introduced in Skylanders: Trap Team. She serves as the secondary antagonist of Skylanders: Trap Team. She is the former leader of the Doom Raiders, a group of the most notorious villains in Skylands.",
+      "image": "villain_goldenqueen"
+    },
+    {
+      "name": "Chomp Chest",
+      "element": "Terre",
+      "wiki": "Chomp_Chest_(villain)",
+      "doomRaider": false,
+      "summary": "Chomp Chest is a living treasure chest who is one of the trappable Earth villains in Skylanders: Trap Team. He is found on an isolated island in Monster Marsh disguising as an inanimate treasure chest. If approached, Chomp Chest will quickly reveal himself, initiating the battle.",
+      "image": "villain_chompchest"
+    },
+    {
+      "name": "Grave Clobber",
+      "element": "Terre",
+      "wiki": "Grave_Clobber_(character)",
+      "doomRaider": false,
+      "summary": "Grave Clobber is a living stone mummy who is one of the trappable Earth Villains in Skylanders: Trap Team. He returns in Skylanders: Battlecast as one of the two bosses of the Earth Realm in the Second Dimension, once again under the Golden Queen's command.",
+      "image": "villain_graveclobber"
+    },
+    {
+      "name": "Tussle Sprout",
+      "element": "Terre",
+      "wiki": "Tussle_Sprout_(villain)",
+      "doomRaider": false,
+      "summary": "Tussle Sprout is a Brussels sprout who is one of the playable Earth villains in Skylanders: Trap Team. Not long after the Skylanders had arrived at Know-It-All Island, Tussle Sprout and a gang of Plant Warriors attacked them after they destroyed a Traptanium crystal cluster and fell through a false floor. Unfortunately, he was quickly taken down and trapped.",
+      "image": "villain_tusslesprout"
+    },
+    {
+      "name": "Chef Pepper Jack",
+      "element": "Feu",
+      "wiki": "Chef_Pepper_Jack",
+      "doomRaider": true,
+      "summary": "Chef Pepperjack, also known as Pepper Jack, is an anthropomorphic red chili pepper who is one of the Fire trappable villains in Skylanders: Trap Team. He is part of a group of notorious villains called the Doom Raiders.",
+      "image": "villain_chefpepperjack"
+    },
+    {
+      "name": "Grinnade",
+      "element": "Feu",
+      "wiki": "Grinnade_(villain)",
+      "doomRaider": false,
+      "summary": "Grinnade is a walking bomb who is one of the Fire villains in Skylanders: Trap Team. During the events of Operation: Troll Rocket Steal, Grinnade appeared after the Skylanders entered a troll weapons lab. His attempts to blow the Skylanders up failed miserably and he was quickly incapacitated and trapped.",
+      "image": "villain_grinnade"
+    },
+    {
+      "name": "Scrap Shooter",
+      "element": "Feu",
+      "wiki": "Scrap_Shooter_(villain)",
+      "doomRaider": false,
+      "summary": "Scrap Shooter is an Evilikin who is one of the trappable Fire villains in Skylanders: Trap Team.",
+      "image": "villain_scrapshooter"
+    },
+    {
+      "name": "Smoke Scream",
+      "element": "Feu",
+      "wiki": "Smoke_Scream_(villain)",
+      "doomRaider": false,
+      "summary": "Smoke Scream is a troll who is one of the Fire trappable villains in Skylanders: Trap Team. As the Skylanders progressed through The Ultimate Weapon, Smoke Scream appeared to fight them. Sadly for him, his mech failed to save him from defeat and imprisonment.",
+      "image": "villain_smokescream"
+    },
+    {
+      "name": "Kaos",
+      "element": "Kaos",
+      "wiki": "Kaos",
+      "doomRaider": true,
+      "summary": "Kaos is a wicked Portal Master and the main antagonist of the Skylanders franchise, he is responsible for banishing all of the Skylanders from their domain to Earth after destroying the Core of Light. Despite his numerous plans for conquering Skylands, he has always been thwarted by the Skylanders, their allies, and the Portal Masters of Earth.",
+      "image": "villain_kaos"
+    },
+    {
+      "name": "Luminous",
+      "element": "Lumière",
+      "wiki": "Luminous",
+      "doomRaider": true,
+      "summary": "Luminous is the Light Doom Raider in Skylanders: Trap Team. He is the main antagonist of the Sunscraper Spire Expansion Pack.",
+      "image": "villain_luminous"
+    },
+    {
+      "name": "Blaster-Tron",
+      "element": "Lumière",
+      "wiki": "Blaster-Tron_(character)",
+      "doomRaider": false,
+      "summary": "Blaster-Tron is a futuristic robot who is one of the Light trappable villains in Skylanders: Trap Team. He later returns as a Sensei of the Knight Battle Class in Skylanders: Imaginators.",
+      "image": "villain_blastertron"
+    },
+    {
+      "name": "Eye Five",
+      "element": "Lumière",
+      "wiki": "Eye_Five_(villain)",
+      "doomRaider": false,
+      "summary": "Eye Five is a mutant creature who is one of the Light-elemental villains in Skylanders: Trap Team.",
+      "image": "villain_eyefive"
+    },
+    {
+      "name": "Lob Goblin",
+      "element": "Lumière",
+      "wiki": "Lob_Goblin_(villain)",
+      "doomRaider": false,
+      "summary": "Lob Goblin is a Troll who is one of the Light-elemental villains in Skylanders: Trap Team. The Skylanders were rolling a huge bomb to try and destroy a powerful tank blocking access the Nightmare Express, when Lob Goblin blocked their way. Eventually, his attempts failed and he was trapped.",
+      "image": "villain_lobgoblin"
+    },
+    {
+      "name": "Chompy Mage",
+      "element": "Vie",
+      "wiki": "Chompy_Mage",
+      "doomRaider": true,
+      "summary": "The Chompy Mage is a former antagonist who first appeared as the boss of Wilikin Village in Skylanders: Giants. He is a wizard aligned with the Life element who has the ability to summon Chompies and transform into a giant Chompy. He formerly disliked anyone who isn't a Chompy, and always has a Chompy puppet on his left hand which he occasionally speaks for.",
+      "image": "villain_chompymage"
+    },
+    {
+      "name": "Broccoli Guy",
+      "element": "Vie",
+      "wiki": "Broccoli_Guy_(character)",
+      "doomRaider": false,
+      "summary": "Broccoli Guy is a living broccoli, who is one of the trappable villains in Skylanders: Trap Team. In Chompy Mountain, he is placed in charge of the Chompy Hatchery despite his claims of being framed, possessing a powerful spell to heal his Slobber Trap allies. The Skylanders soon arrive and defeat the Slobber Traps and Broccoli Guy, trapping him.",
+      "image": "villain_broccoliguy"
+    },
+    {
+      "name": "Chompy",
+      "element": "Vie",
+      "wiki": "Chompy_(villain)",
+      "doomRaider": false,
+      "summary": "The Chompy is one of the trappable Life villains in Skylanders: Trap Team. This particular Chompy resides in the Mirror of Mystery dimension, where he proves to be surprisingly more bigger and powerful than regular Chompies.",
+      "image": "villain_chompy"
+    },
+    {
+      "name": "Cuckoo Clocker",
+      "element": "Vie",
+      "wiki": "Cuckoo_Clocker_(villain)",
+      "doomRaider": false,
+      "summary": "Cuckoo Clocker is a cuckoo bird who is one of the Life villains in Skylanders: Trap Team. He was summoned by Chef Pepper Jack in Phoenix Psanctuary to battle the Skylanders. Despite his impressive strength and power, he eventually succumbed to the Skylanders and was trapped.",
+      "image": "villain_cuckooclocker"
+    },
+    {
+      "name": "Sheep Creep",
+      "element": "Vie",
+      "wiki": "Sheep_Creep_(villain)",
+      "doomRaider": false,
+      "summary": "Sheep Creep is a Sheep who is one of the Life villains in Skylanders: Trap Team. According to Buzz, he was originally sent to Cloudcracker Prison for leading a unlucky sheep rebellion. He was found in Soda Springs, and is notably the first villain to be fought and captured, despite his rapid-fire cork guns.",
+      "image": "villain_sheepcreep"
+    },
+    {
+      "name": "Shield Shredder",
+      "element": "Vie",
+      "wiki": "Shield_Shredder_(villain)",
+      "doomRaider": false,
+      "summary": "Shield Shredder is an Evilikin who is one of the Life villains in Skylanders: Trap Team. He was found in Mystic Mill, where he attacked the Skylanders inside of a storage area. He was eventually knocked out and trapped.",
+      "image": "villain_shieldshredder"
+    },
+    {
+      "name": "Bomb Shell",
+      "element": "Magie",
+      "wiki": "Bomb_Shell_(villain)",
+      "doomRaider": false,
+      "summary": "This Bomb Shell is one of the trappable Magic villains in Skylanders: Trap Team. Despite his affinity for destruction, this is one shady turtle that can’t seem to break out of his indestructible shell.",
+      "image": "villain_bombshell"
+    },
+    {
+      "name": "Pain-Yatta",
+      "element": "Magie",
+      "wiki": "Pain-Yatta_(character)",
+      "doomRaider": false,
+      "summary": "Pain-Yatta is a piñata monster who is one of the Magic villains in Skylanders: Trap Team. After changing his ways in Skylanders: Imaginators, he is now a Sensei that trains Imaginators of the Smasher Class.",
+      "image": "villain_painyatta"
+    },
+    {
+      "name": "Rage Mage",
+      "element": "Magie",
+      "wiki": "Rage_Mage_(villain)",
+      "doomRaider": false,
+      "summary": "Rage Mage is a trogmander who is one of the Magic villains for Skylanders: Trap Team.",
+      "image": "villain_ragemage"
+    },
+    {
+      "name": "Dr. Krankcase",
+      "element": "Tech",
+      "wiki": "Dr._Krankcase",
+      "doomRaider": true,
+      "summary": "Dr. Krankcase is a cyborg mad scientist who is one of the playable Tech villains in Skylanders: Trap Team. He is a former member of the Doom Raiders, a group of notorious villains.",
+      "image": "villain_drkrankcase"
+    },
+    {
+      "name": "Brawlrus",
+      "element": "Tech",
+      "wiki": "Brawlrus_(villain)",
+      "doomRaider": false,
+      "summary": "Brawlrus is a walrus pirate and one of the trappable Tech villains in Skylanders: Trap Team. He is among the group of pirates that took over Rainfish Riviera and confronted with the Skylanders with a group of Pirate Henchmen, but was overpowered and defeated.",
+      "image": "villain_brawlrus"
+    },
+    {
+      "name": "Bruiser Cruiser",
+      "element": "Tech",
+      "wiki": "Bruiser_Cruiser_(villain)",
+      "doomRaider": false,
+      "summary": "Bruiser Cruiser is a troll who is one of the playable Tech villains in Skylanders: Trap Team. This former troll-boxing champion has a wicked one-two punch... and a very large mech suit that mimics his every move.",
+      "image": "villain_bruisercruiser"
+    },
+    {
+      "name": "Mab Lobs",
+      "element": "Tech",
+      "wiki": "Mab_Lobs_(villain)",
+      "doomRaider": false,
+      "summary": "Mab Lobs is an evil Mabu who is one of the playable Tech villains in Skylanders: Trap Team as part of the Mirror of Mystery adventure pack. He was part of the group of Mabu who were attacking the peaceful Troll villagers. Although he used his 'blobs' in an attempt to blow up the Skylanders, he was defeated and captured.",
+      "image": "villain_mablobs"
+    },
+    {
+      "name": "Shrednaught",
+      "element": "Tech",
+      "wiki": "Shrednaught_(villain)",
+      "doomRaider": false,
+      "summary": "Shrednaught are a duo of Trolls who are one of the playable villains in Skylanders: Trap Team. Troll 1 is the brains while Troll 2 is the brawn and operator of the chainsaw machine they control. Shrednaught was encountered at the Phoenix Psanctuary, trying to saw through a cage until they noticed the Skylanders and engaged them.",
+      "image": "villain_shrednaught"
+    },
+    {
+      "name": "Trolling Thunder",
+      "element": "Tech",
+      "wiki": "Trolling_Thunder_(villain)",
+      "doomRaider": false,
+      "summary": "Trolling Thunder is one of the trappable Tech villains in Skylanders: Trap Team. As Noodles was retreating to the Nightmare Express, Trolling Thunder appeared to delay the Skylanders from following him. Armed with a huge tank, it wasn't enough to stop him from having his means of attack destroyed and trapped.",
+      "image": "villain_trollingthunder"
+    },
+    {
+      "name": "Wolfgang",
+      "element": "Mort-Vivant",
+      "wiki": "Wolfgang",
+      "doomRaider": true,
+      "summary": "Wolfgang is a werewolf guitarist who is one of the Undead playable villains in Skylanders: Trap Team. He is a former member of a group of notorious villains called the Doom Raiders.",
+      "image": "villain_wolfgang"
+    },
+    {
+      "name": "Bone Chompy",
+      "element": "Mort-Vivant",
+      "wiki": "Bone_Chompy_(villain)",
+      "doomRaider": false,
+      "summary": "The Bone Chompy is one of the trappable Undead villains in Skylanders: Trap Team. The Chompy was found in The Golden Desert after the Skylanders defeated a horde of Undead guards. Despite the efforts he put up, being a Chompy and all, he was soon subdued and trapped.",
+      "image": "villain_bonechompy"
+    },
+    {
+      "name": "Hood Sickle",
+      "element": "Mort-Vivant",
+      "wiki": "Hood_Sickle_(character)",
+      "doomRaider": false,
+      "summary": "Hood Sickle is a reaper who was originally one of the trappable Undead villains in Skylanders: Trap Team. In Skylanders: SuperChargers, he is an NPC racer, driving a Sky vehicle fashioned with skulls and ominous appendages.",
+      "image": "villain_hoodsickle"
+    },
+    {
+      "name": "Masker Mind",
+      "element": "Mort-Vivant",
+      "wiki": "Masker_Mind_(villain)",
+      "doomRaider": false,
+      "summary": "Masker Mind is a ghost-like creature who is one of the Undead villains in Skylanders: Trap Team. He is found in Rainfish Riviera, possessing a Bomb Shell before turning his attention to the Skylanders. The evil spirit is eventually driven out of the defeated enemies and is chased down and defeated.",
+      "image": "villain_maskermind"
+    },
+    {
+      "name": "The Gulper",
+      "element": "Eau",
+      "wiki": "The_Gulper",
+      "doomRaider": true,
+      "summary": "The Gulper, also known as Gulper, is a gelatinous blob/sea slug who is a Water villain in Skylanders: Trap Team. He is part of a group of strong villains called the Doom Raiders.",
+      "image": "villain_thegulper"
+    },
+    {
+      "name": "Brawl & Chain",
+      "element": "Eau",
+      "wiki": "Brawl_&_Chain_(villain)",
+      "doomRaider": false,
+      "summary": "Brawl & Chain is a walrus who is one of the Water villains in Skylanders: Trap Team. He confronted the Skylanders on a flying ship with a group of Bomb Shells and Pirate Henchmen, but was defeated and trapped.",
+      "image": "villain_brawlchain"
+    },
+    {
+      "name": "Chill Bill",
+      "element": "Eau",
+      "wiki": "Chill_Bill_(character)",
+      "doomRaider": false,
+      "summary": "Chill Bill is an ice troll who is one of the trappable Water villains in Skylanders: Trap Team. He was encountered at the Phoenix Psanctuary, freezing several birds with his freeze ray before fighting the Skylanders. Eventually, he was defeated and trapped.",
+      "image": "villain_chillbill"
+    },
+    {
+      "name": "Cross Crow",
+      "element": "Eau",
+      "wiki": "Cross_Crow_(villain)",
+      "doomRaider": false,
+      "summary": "Cross Crow is one of the Water villains in Skylanders: Trap Team. He is a notorious treasure hunter that is always in hot pursuit of Skylands’ most legendary artifacts... and a good key-lime pie.",
+      "image": "villain_crosscrow"
+    },
+    {
+      "name": "Slobber Trap",
+      "element": "Eau",
+      "wiki": "Slobber_Trap_(villain)",
+      "doomRaider": false,
+      "summary": "Slobber Trap is a rock dog who is one of the playable Water villains in Skylanders: Trap Team. He was encountered on Know-It-All Island, where he ambushed the Skylanders after their fight against a group of Trolls. After his Troll minions were defeated, Slobber Trap engaged the Skylanders in battle, but was eventually subdued and captured.",
+      "image": "villain_slobbertrap"
+    },
+    {
+      "name": "Threatpack",
+      "element": "Eau",
+      "wiki": "Threatpack_(villain)",
+      "doomRaider": false,
+      "summary": "Threatpack, formerly known as Professor Nilbog, is a Troll who is one of the trappable Water Villains in Skylanders: Trap Team. He is the head of the troll secret base that houses their super secret rocket, which was needed for the Skylanders to reach the Skyhighlands during \"Operation: Troll Rocket Steal\".",
+      "image": "villain_threatpack"
+    }
+  ]
+}

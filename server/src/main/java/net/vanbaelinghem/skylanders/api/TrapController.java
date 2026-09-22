@@ -30,13 +30,16 @@ public class TrapController {
     private final CatalogToyRepository catalog;
     private final TrapContentRepository contents;
     private final VillainRepository villains;
+    private final VillainService villainService;
 
     public TrapController(ToyRepository toys, CatalogToyRepository catalog,
-                          TrapContentRepository contents, VillainRepository villains) {
+                          TrapContentRepository contents, VillainRepository villains,
+                          VillainService villainService) {
         this.toys = toys;
         this.catalog = catalog;
         this.contents = contents;
         this.villains = villains;
+        this.villainService = villainService;
     }
 
     @GetMapping
@@ -65,7 +68,9 @@ public class TrapController {
                 toy.getFilePath(), villainId,
                 // null tells the UI to offer the "name this villain" input (SPEC.md §7.2).
                 empty ? null : names.get(villainId),
-                empty, content.map(TrapContent::getCapturedAt).orElse(null));
+                empty, content.map(TrapContent::getCapturedAt).orElse(null),
+                Category.TRAP.name(),
+                empty ? null : villainService.forRawId(villainId));
     }
 
     private static String fileName(Toy toy) {

@@ -71,6 +71,7 @@
         <directory>${project.basedir}/..</directory>
         <includes>
           <include>catalog.json</include>
+          <include>villains.json</include>
           <include>exclusions.txt</include>
         </includes>
       </resource>
