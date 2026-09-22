@@ -65,24 +65,34 @@ L'application fonctionne sans : chaque figurine sans visuel reçoit un badge de 
 ## 5. Démarrer
 
 ```bash
-docker compose -f docker-compose.yml -f docker-compose.server.yml up -d --build
+docker compose -f docker-compose.server.yml up -d --build
 ```
+
+`docker-compose.server.yml` est autonome : il ne se superpose pas au
+`docker-compose.yml` de développement. Une surcouche Compose *ajoute* les listes
+de ports au lieu de les remplacer, et la balise `!override` qui corrige ça exige
+Compose 2.24+ — PostgreSQL se retrouverait publié sur `0.0.0.0:5432`. Ici la
+base n'est publiée sur aucun port : seul le conteneur `server` l'atteint, par le
+réseau interne.
 
 Le build compile le frontend Vue puis le JAR Spring Boot dans l'image ; comptez
 quelques minutes la première fois. Vérifier :
 
 ```bash
-docker compose -f docker-compose.yml -f docker-compose.server.yml ps
-docker compose -f docker-compose.yml -f docker-compose.server.yml logs -f server
+docker compose -f docker-compose.server.yml ps
+docker compose -f docker-compose.server.yml logs -f server
 ```
 
 Le dashboard répond sur `http://<hôte-tailscale>:8080`.
 
-Pour éviter de répéter les deux `-f`, exporter une fois pour toutes :
+Pour éviter de répéter le `-f`, l'inscrire une fois pour toutes dans `.env` :
 
 ```bash
-echo 'COMPOSE_FILE=docker-compose.yml:docker-compose.server.yml' >> .env
+echo 'COMPOSE_FILE=docker-compose.server.yml' >> .env
 ```
+
+Les commandes suivantes deviennent alors de simples `docker compose up -d`,
+`docker compose ps`, `docker compose logs -f server`.
 
 ## 6. Pointer le PC de jeu vers le serveur
 
@@ -107,6 +117,9 @@ l'agent, le connecteur et Cemu (voir [DEMARRER.md](../../DEMARRER.md)).
 # Mise à jour après un git pull
 docker compose up -d --build
 
+# Session psql (la base n'est publiée sur aucun port de l'hôte)
+docker compose exec postgres psql -U skylanders skylanders
+
 # Sauvegarde de la base (historique de progression)
 docker compose exec -T postgres pg_dump -U skylanders skylanders | gzip > skylanders-$(date +%F).sql.gz
 
@@ -121,9 +134,10 @@ Les migrations Flyway s'appliquent au démarrage du conteneur `server` : aucune
 
 | Symptôme | À vérifier |
 | --- | --- |
-| `POSTGRES_PASSWORD manquant` au `up` | `.env` absent ou incomplet à côté du `docker-compose.yml`. |
+| `POSTGRES_PASSWORD manquant` au `up` | `.env` absent ou incomplet à côté de `docker-compose.server.yml`. |
 | Le conteneur `server` redémarre en boucle | `docker compose logs server` : le plus souvent la base n'est pas prête ou `DB_URL` a été surchargée à la main. |
 | 401 dans le journal de l'agent | `token` de `agent.yaml` ≠ `INGEST_TOKEN` du serveur. |
 | « Connecteur absent » dans l'interface | Le connecteur ne tourne pas sur le PC de jeu, ou son `token` ne correspond pas à `PORTAL_CONNECTOR_TOKEN`. |
 | Toutes les figurines en badge de repli | Volume `images/` vide côté serveur : refaire le `rsync` de l'étape 4. |
 | Rien ne répond hors de la machine | `SERVER_BIND` vaut `127.0.0.1` : mettre l'adresse Tailscale puis `up -d`. |
+| `Bind for 0.0.0.0:5432 failed: port is already allocated` | Les deux fichiers Compose ont été passés ensemble (`-f docker-compose.yml -f docker-compose.server.yml`) : n'utiliser que `-f docker-compose.server.yml`, qui ne publie aucun port de base. |

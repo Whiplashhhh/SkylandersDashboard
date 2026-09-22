@@ -122,7 +122,7 @@ cd server/frontend && npm run build
 docker compose up -d postgres
 
 # Déploiement serveur (Debian) — voir docs/DEPLOIEMENT.md
-docker compose -f docker-compose.yml -f docker-compose.server.yml up -d --build
+docker compose -f docker-compose.server.yml up -d --build
 
 # Raccourci de session sur le PC de jeu (launcher Omarchy)
 ./tools/install-launcher.sh
@@ -167,7 +167,7 @@ server/                      SERVEUR — homelab, Docker
   frontend/                    Vue 3
 
 Dockerfile                   image du serveur (frontend Vue + JAR), visuels exclus
-docker-compose.server.yml    surcouche de déploiement homelab (service server + durcissement)
+docker-compose.server.yml    déploiement homelab, fichier autonome (base non publiée)
 .env.example                 secrets du déploiement (jetons, mot de passe base)
 tools/skylanders-session.sh  session de jeu complète — agent + connecteur + Cemu patché
 tools/install-launcher.sh    installe le raccourci dans le launcher d'Omarchy
