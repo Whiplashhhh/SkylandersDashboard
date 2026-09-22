@@ -53,7 +53,17 @@ SERVER_BIND=100.x.y.z   # adresse Tailscale du serveur (tailscale ip -4)
 
 ## 4. Copier les visuels
 
-Depuis le PC de jeu (53 Mo, hors dépôt) :
+Créer le dossier **avant** le premier démarrage :
+
+```bash
+mkdir -p images
+```
+
+Sans ça, Docker crée lui-même la source du bind-mount, en root, et le `rsync`
+suivant échoue en `Permission denied`. Si c'est déjà arrivé :
+`sudo chown -R "$USER:$USER" images`.
+
+Puis, depuis le PC de jeu (53 Mo, hors dépôt) :
 
 ```bash
 rsync -av --delete ~/projects/CemuSkylandersVersion/SkylandersDashboard/images/ \
@@ -138,6 +148,7 @@ Les migrations Flyway s'appliquent au démarrage du conteneur `server` : aucune
 | Le conteneur `server` redémarre en boucle | `docker compose logs server` : le plus souvent la base n'est pas prête ou `DB_URL` a été surchargée à la main. |
 | 401 dans le journal de l'agent | `token` de `agent.yaml` ≠ `INGEST_TOKEN` du serveur. |
 | « Connecteur absent » dans l'interface | Le connecteur ne tourne pas sur le PC de jeu, ou son `token` ne correspond pas à `PORTAL_CONNECTOR_TOKEN`. |
-| Toutes les figurines en badge de repli | Volume `images/` vide côté serveur : refaire le `rsync` de l'étape 4. |
+| Toutes les figurines en badge de repli | Volume `images/` vide côté serveur : refaire le `rsync` de l'étape 4, puis `docker compose restart server` — le nombre de fichiers est compté au démarrage. |
+| `rsync: mkstemp ... Permission denied (13)` | `images/` a été créé par Docker, donc en root : `sudo chown -R "$USER:$USER" images` puis relancer le `rsync`. |
 | Rien ne répond hors de la machine | `SERVER_BIND` vaut `127.0.0.1` : mettre l'adresse Tailscale puis `up -d`. |
 | `Bind for 0.0.0.0:5432 failed: port is already allocated` | Les deux fichiers Compose ont été passés ensemble (`-f docker-compose.yml -f docker-compose.server.yml`) : n'utiliser que `-f docker-compose.server.yml`, qui ne publie aucun port de base. |
