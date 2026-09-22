@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import PortalWindow from './PortalWindow.vue'
 import './style.css'
 import { applyDocumentLocale, i18n } from './i18n.js'
 
@@ -7,7 +8,13 @@ import { applyDocumentLocale, i18n } from './i18n.js'
 // la cesure dependent du premier, l'onglet du second.
 applyDocumentLocale()
 
-createApp(App).use(i18n).mount('#app')
+// Une seule « route » : /portail rend le panneau seul, pour la fenetre detachee. Le chemin
+// suffit a la choisir — vue-router pour un unique embranchement serait une dependance de plus
+// a maintenir pour rien.
+const DETACHED_PORTAL_PATH = '/portail'
+const root = window.location.pathname === DETACHED_PORTAL_PATH ? PortalWindow : App
+
+createApp(root).use(i18n).mount('#app')
 
 // Enregistré seulement en production : en développement, un service worker qui met en cache
 // la coquille masque les rechargements à chaud et fait perdre du temps.

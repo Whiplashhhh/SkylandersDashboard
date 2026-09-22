@@ -10,14 +10,14 @@
 
 :root,
 [data-theme='dark'] {
-  --bg: #14161c;
-  --panel: #1d2029;
-  --panel-2: #262a35;
-  --line: #333846;
-  --text: #e8eaf0;
-  --muted: #9aa1b1;
-  --accent: #6ea8fe;
-  --on-accent: #10131a;
+  --bg: #0d151b;
+  --panel: #131f27;
+  --panel-2: #1b2a34;
+  --line: #2a3a44;
+  --text: #edf4f3;
+  --muted: #9bafb8;
+  --accent: #79d9be;
+  --on-accent: #0b2820;
   --series-1: #3987e5;
   --warn: #f0c674;
   --err: #e2726e;
@@ -25,13 +25,13 @@
 }
 
 [data-theme='light'] {
-  --bg: #f4f5f8;
+  --bg: #eef3f2;
   --panel: #ffffff;
-  --panel-2: #eceff4;
-  --line: #d5dae3;
-  --text: #171a21;
-  --muted: #5b6472;
-  --accent: #2a6fd0;
+  --panel-2: #e7eeec;
+  --line: #cedbd7;
+  --text: #183029;
+  --muted: #566c65;
+  --accent: #167159;
   --on-accent: #ffffff;
   --series-1: #2a78d6;
   --warn: #8a6100;
@@ -91,7 +91,8 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-size: 15px;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
   /* La transition rend la bascule de thème lisible plutôt que brutale, mais elle est
      désactivée pour qui demande moins d'animation. */
   transition: background-color .18s ease, color .18s ease;
@@ -102,3 +103,18 @@ body {
 }
 
 button, select, input { font: inherit; color: inherit; }
+
+:root { --radius: 12px; --shadow: 0 12px 36px #00000018; }
+button, a, input, select { -webkit-tap-highlight-color: transparent; }
+button { touch-action: manipulation; }
+button, a { transition: color .18s, background-color .18s, border-color .18s; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 4px;
+}
+::selection { background: var(--accent); color: var(--on-accent); }
+* { scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
+.skip-link { position: fixed; top: -60px; left: 16px; z-index: 100; padding: 12px 20px; background: var(--accent); color: var(--on-accent); border-radius: 8px; }
+.skip-link:focus { top: 10px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

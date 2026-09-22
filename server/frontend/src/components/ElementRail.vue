@@ -22,14 +22,14 @@ const allSrc = '/api/images/element/all'
 
 <template>
   <aside class="rail" :aria-label="t('elements.filter')">
-    <button class="el" :class="{ on: !modelValue }" :title="t('elements.allTitle')"
+    <button class="el" :class="{ on: !modelValue }" :aria-pressed="!modelValue" :title="t('elements.allTitle')"
             @click="$emit('update:modelValue', null)">
       <img :src="allSrc" :alt="t('elements.allTitle')" />
       <span>{{ t('elements.all') }}</span>
     </button>
     <button
       v-for="e in elements" :key="e"
-      class="el" :class="{ on: modelValue === e }" :title="t(`elements.${e}`)"
+      class="el" :class="{ on: modelValue === e }" :aria-pressed="modelValue === e" :title="t(`elements.${e}`)"
       @click="$emit('update:modelValue', e)"
     >
       <img :src="src(e)" :alt="t(`elements.${e}`)" />
@@ -42,20 +42,24 @@ const allSrc = '/api/images/element/all'
 /* Défilement propre à la colonne : parcourir la liste des éléments ne doit pas
    déplacer le tableau, et inversement. */
 .rail {
-  flex: 0 0 92px;
-  display: flex; flex-direction: column; gap: 4px;
-  padding: 12px 8px; border-right: 1px solid var(--line);
+  flex: 0 0 88px;
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 24px 10px; border-right: 1px solid var(--line);
   background: var(--panel);
   overflow-y: auto; overscroll-behavior: contain;
 }
 .el {
-  background: none; border: 2px solid transparent; border-radius: 10px;
-  padding: 6px 2px; cursor: pointer;
+  background: none; border: 1px solid transparent; border-radius: 10px;
+  padding: 8px 2px; min-height: 60px; cursor: pointer;
   display: flex; flex-direction: column; align-items: center; gap: 3px;
 }
 .el:hover { background: var(--panel-2); }
 .el.on { border-color: var(--accent); background: var(--panel-2); }
-.el img { width: 40px; height: 40px; object-fit: contain; }
+.el img { width: 30px; height: 30px; object-fit: contain; }
 .el span { font-size: 10px; color: var(--muted); text-align: center; line-height: 1.15; }
 .el.on span { color: var(--text); }
+@media (max-width: 600px) {
+  .rail { flex: none; flex-direction: row; gap: 8px; padding: 10px 16px; border-right: 0; border-bottom: 1px solid var(--line); overflow-x: auto; }
+  .el { flex: 0 0 58px; min-height: 54px; padding: 5px; } .el img { width: 24px; height: 24px; } .el span { font-size: 9px; }
+}
 </style>

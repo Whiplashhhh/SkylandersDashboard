@@ -33,6 +33,9 @@ public class RosterService {
      */
     static final int XP_LEGACY_CEILING = 33000;
 
+    /** Le titre est deja normalise pour une URL de wiki (espaces en underscores). */
+    private static final String WIKI_BASE = "https://skylanders.fandom.com/wiki/";
+
     private final CatalogToyRepository catalog;
     private final ToyRepository toys;
     private final ToySnapshotRepository snapshots;
@@ -64,13 +67,28 @@ public class RosterService {
                 .toList();
     }
 
-    public Optional<ToyDetailView> detail(int toyId, int variantId) {
+    /**
+     * One roster entry by identity, catalogued or merely received.
+     *
+     * <p>Also the existence check for anything that takes a (toy ID, variant ID) from the
+     * outside: an identity is real when the catalogue knows it <em>or</em> a file arrived for
+     * it, and neither source alone answers the question.
+     */
+    public Optional<ToyView> view(int toyId, int variantId) {
         CatalogToy entry = catalog.findById(new ToyKey(toyId, variantId)).orElse(null);
         List<Toy> matching = toys.findByToyIdAndVariantId(toyId, variantId);
-        if (entry == null && matching.isEmpty()) {
+        if (entry != null) {
+            return Optional.of(toView(entry, matching));
+        }
+        return matching.isEmpty() ? Optional.empty() : Optional.of(fromReceivedOnly(matching));
+    }
+
+    public Optional<ToyDetailView> detail(int toyId, int variantId) {
+        ToyView view = view(toyId, variantId).orElse(null);
+        if (view == null) {
             return Optional.empty();
         }
-        ToyView view = entry != null ? toView(entry, matching) : fromReceivedOnly(matching);
+        List<Toy> matching = toys.findByToyIdAndVariantId(toyId, variantId);
 
         SnapshotView latest = matching.stream()
                 .map(snapshots::findFirstByToyOrderByCapturedAtDesc)
@@ -83,7 +101,7 @@ public class RosterService {
         if (latest != null && "UNSUPPORTED_GAME".equals(latest.parseStatus())) {
             warnings.add(Notice.of("unsupportedGame"));
         }
-        if (entry != null && "REVIEW".equals(entry.getConfidence())) {
+        if ("REVIEW".equals(view.confidence())) {
             warnings.add(Notice.of("nameNeedsReview"));
         }
         if (latest != null && latest.xp() != null && latest.xp() >= XP_LEGACY_CEILING) {
@@ -139,7 +157,7 @@ public class RosterService {
                 entry.getGame(), observedGames(found, entry.getGame()),
                 entry.getElement(), entry.getCategory(), entry.getConfidence(),
                 !found.isEmpty(), firstPlayed(found) != null,
-                firstPlayed(found), lastSaved(found));
+                firstPlayed(found), lastSaved(found), wikiUrl(entry.getWiki()));
     }
 
     /** A received file whose identity is absent from the catalogue (SPEC.md §7.2, cas NEW). */
@@ -150,7 +168,20 @@ public class RosterService {
                 first.getGameFolder(), observedGames(matching, first.getGameFolder()),
                 first.getElementFolder(), first.getCategoryFolder(), "NEW",
                 true, firstPlayed(matching) != null,
-                firstPlayed(matching), lastSaved(matching));
+                // Identite absente du catalogue : aucun titre verifie, donc aucun lien.
+                firstPlayed(matching), lastSaved(matching), null);
+    }
+
+    /** Encode le titre, sans toucher aux caracteres qu'un titre de wiki porte legitimement. */
+    static String wikiUrl(String title) {
+        if (title == null || title.isBlank()) {
+            return null;
+        }
+        return WIKI_BASE + java.net.URLEncoder.encode(title, java.nio.charset.StandardCharsets.UTF_8)
+                .replace("+", "_")
+                .replace("%28", "(").replace("%29", ")")
+                .replace("%3A", ":").replace("%2C", ",")
+                .replace("%27", "'").replace("%21", "!");
     }
 
     private static List<String> observedGames(List<Toy> found, String fallback) {

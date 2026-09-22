@@ -9,6 +9,24 @@ import org.junit.jupiter.api.Test;
 
 class LeaderboardSortTest {
 
+    @Test
+    void excludesAccessoriesBeforeRankingAndPagination() {
+        var roster = org.mockito.Mockito.mock(RosterService.class);
+        var snapshots = org.mockito.Mockito.mock(net.vanbaelinghem.skylanders.domain.ToySnapshotRepository.class);
+        var traps = org.mockito.Mockito.mock(net.vanbaelinghem.skylanders.domain.TrapContentRepository.class);
+        var villains = org.mockito.Mockito.mock(net.vanbaelinghem.skylanders.domain.VillainRepository.class);
+        var categories = List.of("TRAP", "VEHICLE", "ITEM", "ADVENTURE_PACK", "CHEST", "CHARACTER", "GIANT", "MINI", "SIDEKICK");
+        var views = java.util.stream.IntStream.range(0, categories.size())
+                .mapToObj(i -> new ToyView(i, 0, "Toy " + i, "Toy " + i, "TRAP_TEAM", List.of("TRAP_TEAM"),
+                        "Feu", categories.get(i), "VALIDATED", false, false, null, null, null)).toList();
+        org.mockito.Mockito.when(roster.filtered(null, null, null, null, null)).thenReturn(views);
+        var service = new LeaderboardService(roster, snapshots, traps, villains);
+        var result = service.page(null, null, null, null, null, "name", "asc", 1, 2);
+        assertThat(result.total()).isEqualTo(4);
+        assertThat(result.rows()).extracting(LeaderboardRow::category).containsExactly("CHARACTER", "GIANT");
+        assertThat(result.rows()).extracting(LeaderboardRow::rank).containsExactly(1, 2);
+    }
+
     private static LeaderboardRow row(String name, Integer xp) {
         return row(name, xp, null);
     }
@@ -16,7 +34,7 @@ class LeaderboardSortTest {
     private static LeaderboardRow row(String name, Integer xp, String villain) {
         return new LeaderboardRow(0, 1, 0, name, name, List.of("TRAP_TEAM"), "Feu", "CHARACTER",
                 xp != null, xp != null, xp, false, null, null, null, null, null, null,
-                villain == null ? null : 1, villain, villain == null);
+                villain == null ? null : 1, villain, villain == null, null);
     }
 
     @Test

@@ -15,6 +15,11 @@ import java.util.List;
  * @param unlocked   derived, never stored (SPEC.md §7.1). True only when a save showed real
  *                   evidence of play; the mere presence of a file means nothing, the pack ships all
  *                   702 from day one.
+ * @param wikiUrl    Fandom page for this figurine, or {@code null} when none is known — traps,
+ *                   chests and creation crystals have no page of their own. Built from a title
+ *                   verified offline (see {@code tools/wiki_links.py}); the UI shows no button
+ *                   rather than a link that would 404. A repaint points at the base character's
+ *                   page, but Dark, Legendary, Elite and Nitro each have their own.
  */
 public record ToyView(
         int toyId,
@@ -29,4 +34,5 @@ public record ToyView(
         boolean received,
         boolean unlocked,
         OffsetDateTime firstPlayedAt,
-        OffsetDateTime lastSavedAt) {}
+        OffsetDateTime lastSavedAt,
+        String wikiUrl) {}

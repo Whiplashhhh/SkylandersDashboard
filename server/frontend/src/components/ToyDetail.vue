@@ -1,11 +1,23 @@
 <script setup>
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
+import { useDrawerFocus } from '../useDrawerFocus.js'
 import { api } from '../api.js'
+import { toyArtwork } from '../toyArtwork.js'
 import ProgressChart from './ProgressChart.vue'
 import { format, t } from '../i18n.js'
+import { slotOf } from '../portal.js'
 
-const props = defineProps({ toy: { type: Object, default: null } })
-defineEmits(['close'])
+const props = defineProps({
+  toy: { type: Object, default: null },
+  trap: { type: Object, default: null },
+  placeable: { type: Boolean, default: false }
+})
+const drawer = ref(null)
+useDrawerFocus(() => Boolean(props.toy), drawer)
+
+defineEmits(['close', 'place'])
+
+const onPortal = computed(() => props.toy && slotOf(props.toy) !== null)
 
 const detail = ref(null)
 const history = ref([])
@@ -34,7 +46,7 @@ const moment = iso => format.dateTime(iso) ?? DASH
 </script>
 
 <template>
-  <aside v-if="toy" class="drawer">
+  <aside v-if="toy" class="drawer" ref="drawer" role="dialog" aria-modal="true" :aria-label="toy.nameFr" tabindex="-1">
     <header>
       <div>
         <h2>{{ toy.nameFr }}</h2>
@@ -43,8 +55,23 @@ const moment = iso => format.dateTime(iso) ?? DASH
       <button class="close" @click="$emit('close')" :aria-label="t('detail.close')">✕</button>
     </header>
 
-    <img class="art" :src="api.imageUrl(toy.toyId, toy.variantId)" :alt="toy.nameFr"
+    <img class="art" :src="toyArtwork(toy, trap)" :alt="trap?.empty === false ? (trap.villain?.name || t('traps.unknownVillain')) : toy.nameFr"
          :class="{ locked: !toy.unlocked }" />
+
+    <div class="actions">
+      <button v-if="placeable" class="to-portal" :class="{ on: onPortal }"
+              @click="$emit('place', toy)">
+        {{ onPortal ? t('portal.alreadyPlaced') : t('portal.place') }}
+      </button>
+
+      <!-- Pas de bouton quand aucune page n'a été vérifiée pour cette identité : pièges,
+           coffres et cristaux n'en ont pas sur le wiki. Mieux vaut rien qu'un lien mort
+           (tools/wiki_links.py). -->
+      <a v-if="toy.wikiUrl" class="wiki" :href="toy.wikiUrl" target="_blank"
+         rel="noopener noreferrer" :title="t('detail.wikiTitle')">
+        {{ t('detail.wiki') }} ↗
+      </a>
+    </div>
 
     <p v-if="error" class="warn">{{ t('detail.loadFailed', { message: error }) }}</p>
 
@@ -112,22 +139,36 @@ const moment = iso => format.dateTime(iso) ?? DASH
   width: min(430px, 100vw);
   background: var(--panel);
   border-left: 1px solid var(--line);
-  padding: 16px; overflow-y: auto; z-index: 20;
-  display: flex; flex-direction: column; gap: 14px;
+  padding: 28px; overflow-y: auto; z-index: 20;
+  display: flex; flex-direction: column; gap: 20px;
 }
 header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
-h2 { margin: 0; font-size: 19px; }
+h2 { margin: 0; font-size: 26px; letter-spacing: -.04em; }
 h3 { margin: 0 0 8px; font-size: 13px; text-transform: uppercase; color: var(--muted); letter-spacing: .04em; }
 .sub { margin: 2px 0 0; color: var(--muted); font-size: 12px; }
-.close { background: none; border: none; color: var(--muted); font-size: 18px; cursor: pointer; }
+.close { background: none; border: none; color: var(--muted); font-size: 18px; cursor: pointer; min-width: 36px; min-height: 36px; }
 
-.art { width: 150px; align-self: center; border-radius: 10px; background: var(--panel-2); }
+.art { width: 200px; max-width: 100%; align-self: center; border-radius: 10px; background: var(--panel-2); }
 .art.locked { filter: grayscale(1) brightness(.62); }
+
+.actions { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.to-portal {
+  background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px;
+  padding: 6px 14px; cursor: pointer; font-size: 13px; color: var(--text);
+}
+.to-portal:hover { border-color: var(--accent); }
+.to-portal.on { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+
+.wiki {
+  background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px;
+  padding: 6px 14px; font-size: 13px; color: var(--text); text-decoration: none;
+}
+.wiki:hover { border-color: var(--accent); color: var(--accent); }
 
 .warnings { margin: 0; padding-left: 18px; color: var(--warn); font-size: 12.5px; }
 .warn { color: var(--err); }
 
-.facts { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 0; font-size: 13px; }
+.facts { display: grid; grid-template-columns: auto 1fr; gap: 10px 14px; margin: 0; font-size: 13px; }
 .facts dt { color: var(--muted); }
 .facts dd { margin: 0; }
 

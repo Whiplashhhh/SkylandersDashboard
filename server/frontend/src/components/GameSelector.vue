@@ -28,12 +28,12 @@ const label = g => LABELS[g] || g.replaceAll('_', ' ')
 
 <template>
   <nav class="games" :aria-label="t('games.pick')">
-    <button class="game all" :class="{ on: !modelValue }" @click="$emit('update:modelValue', null)">
+    <button class="game all" :class="{ on: !modelValue }" :aria-pressed="!modelValue" @click="$emit('update:modelValue', null)">
       <span class="txt">{{ t('games.all') }}</span>
     </button>
     <button
       v-for="g in games" :key="g"
-      class="game" :class="{ on: modelValue === g }"
+      class="game" :class="{ on: modelValue === g }" :aria-pressed="modelValue === g"
       @click="$emit('update:modelValue', g)"
     >
       <img v-if="!missing.has(g)" :src="`/api/images/game/${g}`" :alt="label(g)" @error="fail(g)" />
@@ -44,24 +44,24 @@ const label = g => LABELS[g] || g.replaceAll('_', ' ')
 
 <style scoped>
 .games {
-  display: flex; gap: 10px; padding: 12px 16px; overflow-x: auto;
-  border-bottom: 1px solid var(--line); background: var(--panel);
+  display: flex; gap: 8px; padding: 0 0 4px; overflow-x: auto;
+  background: transparent;
   /* Centré tant que ça tient ; `safe` évite qu'un débordement rende le premier
      bouton inatteignable au défilement sur petit écran. */
-  justify-content: safe center;
+  justify-content: flex-start;
   flex: 0 0 auto;
 }
 .game {
   flex: 0 0 auto;
-  background: var(--panel-2); border: 2px solid transparent;
-  border-radius: 12px; padding: 6px 8px; cursor: pointer;
-  display: grid; place-items: center; min-height: 60px;
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 8px; padding: 8px 18px; cursor: pointer;
+  display: grid; place-items: center; min-height: 54px;
   transition: border-color .12s, transform .12s;
 }
 .game:hover { transform: translateY(-2px); }
-.game.on { border-color: var(--accent); }
-.game img { height: 46px; display: block; border-radius: 6px; }
+.game.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--panel)); color: var(--accent); }
+.game img { height: 34px; max-width: 112px; object-fit: contain; display: block; border-radius: 6px; }
 .game .txt { white-space: nowrap; }
-.all { min-width: 130px; }
-.txt { font-size: 14px; font-weight: 600; }
+.all { min-width: 110px; }
+.txt { font-size: 12px; font-weight: 600; }
 </style>

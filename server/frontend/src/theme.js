@@ -46,9 +46,11 @@ export function loadTheme () {
 
 /** Rebascule quand la préférence du navigateur change, mais seulement en mode « système ». */
 export function watchSystem (currentId) {
-  media.addEventListener('change', () => {
+  const listener = () => {
     if (currentId() === 'system') {
       document.documentElement.dataset.theme = resolve('system')
     }
-  })
+  }
+  media.addEventListener('change', listener)
+  return () => media.removeEventListener('change', listener)
 }

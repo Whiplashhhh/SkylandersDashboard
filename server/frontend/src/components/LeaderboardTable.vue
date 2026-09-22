@@ -1,12 +1,18 @@
 <script setup>
 import { computed } from 'vue'
+import { api } from '../api.js'
 import { format, t } from '../i18n.js'
+import { slotOf, startDrag } from '../portal.js'
 
 const props = defineProps({
   page: { type: Object, default: null },
-  columns: { type: Array, required: true }
+  columns: { type: Array, required: true },
+  /** Ajoute la colonne « poser sur le portail » et rend les lignes glissables. */
+  placeable: { type: Boolean, default: false }
 })
-const emit = defineEmits(['sort', 'open', 'page'])
+const emit = defineEmits(['sort', 'open', 'page', 'place'])
+
+const onPortal = row => slotOf(row) !== null
 
 const GAME_LABELS = {
   SPYROS_ADVENTURE: 'Spyro', GIANTS: 'Giants', SWAP_FORCE: 'Swap Force',
@@ -25,8 +31,8 @@ const showsProgress = computed(() => props.columns.some(c => c.kind === 'xp'))
 // c'est ce que la colonne voisine nomme, les deux se répondent.
 function artFor (row) {
   return row.trapEmpty === false && row.villainRawId
-    ? `/api/images/villain/${row.villainRawId}`
-    : `/api/images/${row.toyId}/${row.variantId}`
+    ? api.villainImageByRawIdUrl(row.villainRawId)
+    : api.imageUrl(row.toyId, row.variantId)
 }
 </script>
 
@@ -41,17 +47,23 @@ function artFor (row) {
             v-for="c in columns" :key="c.key"
             :class="[c.align, { active: page.sort === c.key }]"
             :title="t('table.sortBy', { label: t(c.labelKey) })"
-            @click="emit('sort', c.key)"
-          >
+            :aria-sort="page.sort === c.key ? (page.direction === 'asc' ? 'ascending' : 'descending') : 'none'"
+            >
+            <button class="sort-button" @click="emit('sort', c.key)">
             {{ t(c.labelKey) }}
             <span v-if="page.sort === c.key" class="arrow">{{ page.direction === 'asc' ? '▲' : '▼' }}</span>
+            </button>
           </th>
+          <!-- Colonne d'action présente seulement quand le portail est ouvert : sinon elle
+               n'aurait nulle part où poser. -->
+          <th v-if="placeable" class="place"></th>
         </tr>
       </thead>
       <tbody>
         <tr
           v-for="r in page.rows" :key="`${r.toyId}/${r.variantId}`"
-          :class="{ locked: !r.unlocked }" @click="emit('open', r)"
+          :class="{ locked: !r.unlocked }" :draggable="placeable"
+          @dragstart="startDrag($event, r)" @click="emit('open', r)"
         >
           <td class="rank">{{ r.rank }}</td>
           <td class="art">
@@ -59,7 +71,7 @@ function artFor (row) {
           </td>
           <td v-for="c in columns" :key="c.key" :class="c.align">
             <template v-if="c.key === 'name'">
-              <span class="name">{{ r.nameFr }}</span>
+              <button class="name row-open" @click.stop="emit('open', r)">{{ r.nameFr }}</button>
               <span v-if="r.nickname" class="nick">« {{ r.nickname }} »</span>
               <span v-if="!r.unlocked" class="lock" :title="t('table.lockedTitle')">🔒</span>
             </template>
@@ -92,6 +104,15 @@ function artFor (row) {
               {{ r.games.map(g => GAME_LABELS[g] || g).join(', ') }}
             </span>
           </td>
+
+          <td v-if="placeable" class="place">
+            <button
+              :class="{ on: onPortal(r) }"
+              :title="onPortal(r) ? t('portal.alreadyPlaced') : t('portal.place')"
+              :aria-label="onPortal(r) ? t('portal.alreadyPlaced') : t('portal.place')"
+              @click.stop="emit('place', r)"
+            >{{ onPortal(r) ? '✓' : '+' }}</button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -113,9 +134,9 @@ function artFor (row) {
 </template>
 
 <style scoped>
-.wrap { overflow-x: auto; }
+.wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
 table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-th, td { padding: 7px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th, td { padding: 12px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
 th {
   position: sticky; top: 0; background: var(--panel); z-index: 1;
   color: var(--muted); font-weight: 500; cursor: pointer; user-select: none;
@@ -128,8 +149,18 @@ th.active { color: var(--accent); }
 .rank { width: 46px; text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; }
 .art { width: 44px; }
 .art img {
-  width: 34px; height: 34px; object-fit: contain;
+  width: 44px; height: 44px; object-fit: contain;
   border-radius: 6px; background: var(--panel-2); display: block;
+}
+th.place, td.place { width: 34px; padding-left: 0; padding-right: 8px; }
+td.place button {
+  width: 32px; height: 32px; line-height: 1;
+  background: var(--panel-2); border: 1px solid var(--line); border-radius: 7px;
+  color: var(--muted); font-size: 13px; cursor: pointer;
+}
+td.place button:hover,
+td.place button.on {
+  color: var(--on-accent); background: var(--accent); border-color: var(--accent);
 }
 tbody tr { cursor: pointer; }
 tbody tr:hover { background: var(--panel-2); }
@@ -152,4 +183,7 @@ tbody tr:hover { background: var(--panel-2); }
   border-radius: 8px; padding: 6px 14px; cursor: pointer;
 }
 .pager button:disabled { opacity: .4; cursor: default; }
+.sort-button, .row-open { background: none; border: 0; padding: 4px 0; cursor: pointer; font: inherit; color: inherit; text-align: inherit; }
+.row-open { font-weight: 650; }
+tbody tr:nth-child(-n+3):not(.locked) .rank { color: var(--warn); font-weight: 750; }
 </style>

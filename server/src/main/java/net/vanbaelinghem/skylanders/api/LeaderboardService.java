@@ -94,6 +94,8 @@ public class LeaderboardService {
                         (a, b) -> a.getCapturedAt().isAfter(b.getCapturedAt()) ? a : b));
 
         List<LeaderboardRow> all = roster.filtered(game, element, category, search, state).stream()
+                .filter(view -> !java.util.Set.of("TRAP", "VEHICLE", "ITEM", "ADVENTURE_PACK", "CHEST")
+                        .contains(view.category()))
                 .map(view -> {
                     String key = view.toyId() + "/" + view.variantId();
                     return toRow(view, latest.get(key), traps.get(key), villainNames);
@@ -131,7 +133,7 @@ public class LeaderboardService {
                 row.games(), row.element(), row.category(), row.unlocked(), row.parsable(),
                 row.xp(), row.xpCapped(), row.gold(), row.upgradesCount(), row.playtimeSeconds(),
                 row.nickname(), row.firstPlayedAt(), row.lastSavedAt(),
-                row.villainRawId(), row.villainName(), row.trapEmpty());
+                row.villainRawId(), row.villainName(), row.trapEmpty(), row.wikiUrl());
     }
 
     private static LeaderboardRow toRow(ToyView view, ToySnapshot snapshot,
@@ -151,7 +153,7 @@ public class LeaderboardService {
                 view.firstPlayedAt(), view.lastSavedAt(),
                 trap == null ? null : trap.getVillainRawId(),
                 trap == null || trap.isEmpty() ? null : villainNames.get(trap.getVillainRawId()),
-                trap == null ? null : trap.isEmpty());
+                trap == null ? null : trap.isEmpty(), view.wikiUrl());
     }
 
 }

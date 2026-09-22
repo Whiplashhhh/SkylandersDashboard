@@ -15,6 +15,8 @@ import java.util.List;
  * @param xpCapped  the XP field saturates at 33 000 (FORMAT.md §8.7); the UI marks such a value
  * @param villainName {@code null} on an occupied trap means the raw id has no name yet — the UI
  *                    offers to name it, which is how the reference fills itself (SPEC.md §7.2)
+ * @param wikiUrl   same field as {@link ToyView#wikiUrl()}. Carried here too because the detail
+ *                  drawer is opened straight from a ranking row, which never becomes a ToyView.
  */
 public record LeaderboardRow(
         int rank,
@@ -37,4 +39,5 @@ public record LeaderboardRow(
         OffsetDateTime lastSavedAt,
         Integer villainRawId,
         String villainName,
-        Boolean trapEmpty) {}
+        Boolean trapEmpty,
+        String wikiUrl) {}
