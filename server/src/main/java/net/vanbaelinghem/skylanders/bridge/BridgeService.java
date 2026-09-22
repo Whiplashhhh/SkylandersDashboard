@@ -1,7 +1,11 @@
 package net.vanbaelinghem.skylanders.bridge;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.time.Clock;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -15,14 +19,15 @@ public class BridgeService {
     public record State(String epoch, long revision, boolean enabled, int capacity, List<Slot> slots) {}
     public record Result(String commandId, boolean ok, String error) {}
     public record Exchange(int version, String session, String availability, State state,
-                           List<FileEntry> files, Result result) {}
+                           List<FileEntry> files, String filesDigest, Result result) {}
     public record Command(String commandId, String session, String command, String epoch,
                           long expectedRevision, long expiresAt, String fileId, Integer slot) {}
     public record Request(String commandId, String command, String epoch, long expectedRevision,
                           String fileId, Integer slot) {}
     public record Outcome(String commandId, String status, String error) {}
     public record View(String availability, State state, List<FileEntry> files, Outcome outcome, boolean busy) {}
-    public record Delivery(Command command) {}
+    /** {@code needFiles} asks the connector to republish its inventory on the next exchange. */
+    public record Delivery(Command command, boolean needFiles) {}
 
     private final Clock clock;
     private String session;
@@ -30,6 +35,7 @@ public class BridgeService {
     private String availability = "CONNECTOR_UNAVAILABLE";
     private State state;
     private List<FileEntry> files = List.of();
+    private String filesDigest;
     private Command pending;
     private boolean delivered;
     private Outcome outcome;
@@ -52,8 +58,13 @@ public class BridgeService {
 
     public synchronized Delivery exchange(Exchange input) {
         expire();
+        // L'inventaire ne circule que lorsqu'il change : 702 fichiers pesent 104 Ko, et le
+        // connecteur sonde deux fois par seconde. Un sondage sans `files` porte seulement son
+        // empreinte ; le serveur reclame la liste des qu'elle ne correspond plus a la sienne.
         if (input.version() != 1 || input.session() == null || input.session().length() > 128
-                || input.session().isBlank() || input.files() == null || input.files().size() > 10000) {
+                || input.session().isBlank() || (input.files() != null && input.files().size() > 10000)
+                || (input.files() == null && input.filesDigest() == null)
+                || (input.filesDigest() != null && !input.filesDigest().matches("[a-f0-9]{64}"))) {
             throw rejected(HttpStatus.BAD_REQUEST, "INVALID_EXCHANGE");
         }
         if (input.availability() == null || !List.of("READY", "CEMU_UNAVAILABLE", "PORTAL_DISABLED").contains(input.availability()))
@@ -61,33 +72,49 @@ public class BridgeService {
         validate(input.state());
         if ("READY".equals(input.availability()) && (input.state() == null || !input.state().enabled()))
             throw rejected(HttpStatus.BAD_REQUEST, "INVALID_STATE");
-        for (FileEntry file : input.files()) {
-            if (file == null || file.id() == null || !file.id().matches("[a-f0-9]{64}")
-                    || file.relativePath() == null || file.relativePath().length() > 4096)
-                throw rejected(HttpStatus.BAD_REQUEST, "INVALID_FILE");
+        if (input.files() != null) {
+            for (FileEntry file : input.files()) {
+                if (file == null || file.id() == null || !file.id().matches("[a-f0-9]{64}")
+                        || file.relativePath() == null || file.relativePath().length() > 4096)
+                    throw rejected(HttpStatus.BAD_REQUEST, "INVALID_FILE");
+            }
         }
-        if (session != null && !session.equals(input.session())) {
+        boolean newSession = session != null && !session.equals(input.session());
+        if (newSession) {
             // A reconnect starts a fresh command session, even if Cemu survived the outage.
             if (pending != null) outcome = new Outcome(pending.commandId(), "UNKNOWN", "SESSION_CHANGED");
             pending = null;
+            files = List.of();
+            filesDigest = null;
         }
         session = input.session();
         seenAt = clock.millis();
         availability = input.availability();
         if (input.state() != null) state = input.state();
-        files = List.copyOf(input.files());
+        // L'empreinte est recalculee ici : celle annoncee par le connecteur sert a comparer,
+        // jamais a decrire un contenu que le serveur n'a pas vu.
+        if (input.files() != null) {
+            files = List.copyOf(input.files());
+            filesDigest = digest(files);
+        }
+        boolean needFiles = input.files() == null && !Objects.equals(filesDigest, input.filesDigest());
+        if (needFiles) {
+            // Inventaire inconnu : ne pas commander a l'aveugle sur une liste perimee.
+            files = List.of();
+            filesDigest = null;
+        }
         if (pending != null && input.result() != null && pending.commandId().equals(input.result().commandId())) {
             outcome = new Outcome(pending.commandId(), input.result().ok() ? "APPLIED" : "REJECTED", input.result().error());
             pending = null;
         }
-        if (pending == null || delivered) return new Delivery(null);
+        if (pending == null || delivered) return new Delivery(null, needFiles);
         if (!ready() || !pending.epoch().equals(state.epoch()) || pending.expectedRevision() != state.revision()) {
             outcome = new Outcome(pending.commandId(), "REJECTED", "STALE_STATE");
             pending = null;
-            return new Delivery(null);
+            return new Delivery(null, needFiles);
         }
         delivered = true;
-        return new Delivery(pending);
+        return new Delivery(pending, needFiles);
     }
 
     public synchronized View submit(Request request) {
@@ -136,5 +163,18 @@ public class BridgeService {
 
     private static ResponseStatusException rejected(HttpStatus status, String reason) {
         return new ResponseStatusException(status, reason);
+    }
+
+    /** Empreinte de l'inventaire : identifiants tries, un par ligne. Le connecteur calcule la meme. */
+    static String digest(List<FileEntry> files) {
+        try {
+            var input = files.stream().map(FileEntry::id).sorted().reduce("", (a, b) -> a + b + "\n");
+            var bytes = MessageDigest.getInstance("SHA-256").digest(input.getBytes(StandardCharsets.UTF_8));
+            var text = new StringBuilder(64);
+            for (byte value : bytes) text.append(String.format("%02x", value));
+            return text.toString();
+        } catch (NoSuchAlgorithmException e) {
+            throw new IllegalStateException(e);
+        }
     }
 }

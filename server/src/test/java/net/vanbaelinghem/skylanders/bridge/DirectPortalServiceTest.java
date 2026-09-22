@@ -37,7 +37,7 @@ class DirectPortalServiceTest {
     }
     BridgeService.Delivery exchange(BridgeService.Result result) {
         return portal.exchange(new BridgeService.Exchange(1, session, "READY",
-                new BridgeService.State("cemu", revision, true, 16, List.copyOf(observed)), files, result));
+                new BridgeService.State("cemu", revision, true, 16, List.copyOf(observed)), files, null, result));
     }
     DirectPortalService.Request request(String command, Integer index, Integer toy, String file) {
         var view = portal.view();

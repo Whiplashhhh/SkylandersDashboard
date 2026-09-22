@@ -228,11 +228,31 @@ Tous les endpoints `/api/bridge` exigent `Authorization: Bearer …` et retourne
   `expectedRevision`, plus `fileId` pour charger ou `slot` pour retirer.
 
 L'échange sortant contient `version:1`, `session` (UUID du connecteur),
-`availability`, `state`, `files:[{id,relativePath}]`, et éventuellement
-`result:{commandId,ok,error}`. La réponse contient `command:null` ou une commande
-avec `session`, `epoch`, `expectedRevision`, `expiresAt` et les arguments.
-Une commande délivrée ne l'est jamais une deuxième fois. Le connecteur change de
-session après une erreur HTTP et abandonne les actions en attente.
+`availability`, `state`, `filesDigest`, éventuellement `files:[{id,relativePath}]`
+et `result:{commandId,ok,error}`. La réponse contient `command:null` ou une commande
+avec `session`, `epoch`, `expectedRevision`, `expiresAt` et les arguments, plus
+`needFiles`. Une commande délivrée ne l'est jamais une deuxième fois. Le connecteur
+change de session après une erreur HTTP et abandonne les actions en attente.
+
+**Publication de l'inventaire (évolution du 23 septembre 2026).** `files` ne
+circule que lorsque la liste change ou que le serveur la réclame ; les autres
+échanges ne portent que `filesDigest`, l'empreinte SHA-256 des identifiants triés,
+un par ligne. Le serveur recalcule cette empreinte sur ce qu'il a réellement reçu :
+l'empreinte annoncée sert à comparer, jamais à décrire un contenu qu'il n'a pas vu.
+Empreinte inconnue — reconnexion, redémarrage du serveur, session changée — il vide
+son inventaire et répond `needFiles:true` plutôt que de commander sur une liste
+périmée ; le connecteur republie alors la liste complète.
+
+Raison : 702 dumps pèsent 104 Ko et le connecteur sonde deux fois par seconde, soit
+207 Ko/s en continu. Sur une socket locale c'était gratuit ; vers un serveur distant,
+chaque sondage prenait 0,4 s pour 0,1 s utile et dépassait le délai d'attente dès que
+le lien était partagé avec l'ingestion. Mesuré après changement : 1 échange sur 12
+porte la liste, le reste fait 400 octets.
+
+Le champ est facultatif dans les deux sens, donc un connecteur qui envoie toujours
+`files` reste accepté. L'inverse n'est pas vrai : un connecteur qui omet `files`
+face à un serveur antérieur reçoit `400 INVALID_EXCHANGE`. Mettre à jour le serveur
+avant le connecteur, ou les deux ensemble.
 
 Disponibilités : `READY`, `PORTAL_DISABLED`, `CEMU_UNAVAILABLE`,
 `CONNECTOR_UNAVAILABLE` après 5 secondes sans échange. Le navigateur ajoute

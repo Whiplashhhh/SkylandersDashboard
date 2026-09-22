@@ -19,7 +19,7 @@ class BridgeServiceTest {
     BridgeService.Exchange input(String session, long revision, BridgeService.Result result) {
         return new BridgeService.Exchange(1, session, "READY",
                 new BridgeService.State("cemu", revision, true, 16, List.of()),
-                List.of(new BridgeService.FileEntry(file, "game/figure.sky")), result);
+                List.of(new BridgeService.FileEntry(file, "game/figure.sky")), null, result);
     }
     BridgeService.Request request(long revision) {
         return new BridgeService.Request(UUID.randomUUID().toString(), "loadFigure", "cemu", revision, file, null);
@@ -69,12 +69,40 @@ class BridgeServiceTest {
     }
     @Test void unavailableCemuPreservesLastObservedStateWithoutAllowingCommands() {
         service.exchange(input("pc", 4, null));
-        service.exchange(new BridgeService.Exchange(1, "pc", "CEMU_UNAVAILABLE", null, List.of(), null));
+        service.exchange(new BridgeService.Exchange(1, "pc", "CEMU_UNAVAILABLE", null, List.of(), null, null));
         assertEquals(4, service.view().state().revision());
         assertEquals("CEMU_UNAVAILABLE", service.view().availability());
         assertThrows(ResponseStatusException.class, () -> service.submit(request(4)));
         assertThrows(ResponseStatusException.class, () -> service.exchange(
-                new BridgeService.Exchange(1, "pc", "READY", null, List.of(), null)));
+                new BridgeService.Exchange(1, "pc", "READY", null, List.of(), null, null)));
     }
 
+
+    @Test
+    void inventoryTravelsOnlyWhenItChanges() {
+        service.exchange(input("pc", 0, null));
+        var known = BridgeService.digest(List.of(new BridgeService.FileEntry(file, "game/figure.sky")));
+
+        // Sondage sans liste, empreinte connue : le serveur garde l'inventaire recu.
+        var delivery = service.exchange(new BridgeService.Exchange(1, "pc", "READY",
+                new BridgeService.State("cemu", 0, true, 16, List.of()), null, known, null));
+        assertFalse(delivery.needFiles());
+        assertEquals(1, service.view().files().size());
+
+        // Empreinte inconnue : le serveur reclame la liste et n'agit plus sur une liste perimee.
+        delivery = service.exchange(new BridgeService.Exchange(1, "pc", "READY",
+                new BridgeService.State("cemu", 0, true, 16, List.of()), null, "b".repeat(64), null));
+        assertTrue(delivery.needFiles());
+        assertEquals(List.of(), service.view().files());
+    }
+
+    @Test
+    void reconnectionForcesAFreshInventory() {
+        service.exchange(input("pc", 0, null));
+        var known = BridgeService.digest(List.of(new BridgeService.FileEntry(file, "game/figure.sky")));
+        var delivery = service.exchange(new BridgeService.Exchange(1, "autre-pc", "READY",
+                new BridgeService.State("cemu", 0, true, 16, List.of()), null, known, null));
+        assertTrue(delivery.needFiles());
+        assertEquals(List.of(), service.view().files());
+    }
 }

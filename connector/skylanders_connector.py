@@ -18,6 +18,15 @@ def file_id(relative):
     return hashlib.sha256(relative.encode('utf-8')).hexdigest()
 
 
+def inventory_digest(files):
+    """Fingerprint of the published inventory: sorted ids, one per line.
+
+    The server computes the same from what it actually received, so a mismatch
+    always means it must ask for the list again.
+    """
+    return hashlib.sha256(''.join(f'{identity}\n' for identity in sorted(files)).encode()).hexdigest()
+
+
 def inventory(root):
     files = {}
     for candidate in root.rglob('*.sky'):
@@ -82,7 +91,9 @@ def exchange(url, token, payload):
     req = urllib.request.Request(url + '/api/bridge/exchange',
         data=json.dumps(payload).encode(), headers={'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + token}, method='POST')
-    with urllib.request.build_opener(NoRedirect).open(req, timeout=3) as response:
+    # Ten seconds, not three: republishing the inventory is the one large request of
+    # this loop, and a remote server across a VPN is not a local socket.
+    with urllib.request.build_opener(NoRedirect).open(req, timeout=10) as response:
         return json.loads(response.read(2_000_000))
 
 
@@ -104,20 +115,26 @@ def main():
     if not config.get('token'):
         raise ValueError('Missing dedicated connector token')
     session, result = str(uuid.uuid4()), None
-    files, scanned = {}, 0
+    files, scanned, published = {}, 0, None
     while True:
         if time.monotonic() - scanned > 10:
             files, scanned = inventory(root), time.monotonic()
+        digest = inventory_digest(files)
         try:
             observed = public_state(state(config['socket']), root, files)
             availability = 'READY' if observed['enabled'] else 'PORTAL_DISABLED'
         except (OSError, ValueError, RuntimeError, KeyError) as error:
             observed, availability = None, 'CEMU_UNAVAILABLE'
             log.debug('Cemu unavailable: %s', error)
+        # The inventory is 104 KB for 702 dumps and this loop runs twice a second: send it
+        # only when it changed, or when the server says it no longer has it.
         payload = {'version': 1, 'session': session, 'availability': availability,
-                   'state': observed, 'files': list(files.values()), 'result': result}
+                   'state': observed, 'filesDigest': digest, 'result': result}
+        if digest != published:
+            payload['files'] = list(files.values())
         try:
             answer = exchange(url, config['token'], payload)
+            published = None if answer.get('needFiles') else digest
             result = None
             command = answer.get('command')
             if command:
@@ -131,7 +148,8 @@ def main():
                 continue  # Immediately publish confirmed state and outcome.
         except (OSError, ValueError) as error:
             log.warning('Server unavailable; pending actions discarded: %s', error)
-            session, result = str(uuid.uuid4()), None
+            # A new session starts with an empty server-side inventory: republish it.
+            session, result, published = str(uuid.uuid4()), None, None
         time.sleep(0.5)
 
 
