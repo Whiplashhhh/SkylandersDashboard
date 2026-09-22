@@ -16,3 +16,9 @@ __pycache__/
 .env
 agent/agent.yaml
 images/
+
+# Local portal credentials
+connector/connector.json
+
+# Sortie et cache de graphify — regenerables a la demande
+graphify-out/
